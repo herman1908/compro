@@ -205,6 +205,29 @@
             stagger: 0.2,
             delay: 2.1
         })
+
+        // Tap / touch to enlarge — untuk Tab / layar kecil (touch screen)
+        // Hover CSS di atas sudah menangani mouse di layar besar / laptop
+        (function () {
+            var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(hover: none)').matches;
+            if (!isTouch) return;
+            document.querySelectorAll('.content .image img').forEach(function (img) {
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var wasZoomed = img.classList.contains('zoomed');
+                    document.querySelectorAll('.content .image img.zoomed').forEach(function (other) {
+                        other.classList.remove('zoomed');
+                    });
+                    if (!wasZoomed) img.classList.add('zoomed');
+                });
+            });
+            // Tap di luar gambar untuk mengecilkan lagi
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.content .image img.zoomed').forEach(function (other) {
+                    other.classList.remove('zoomed');
+                });
+            });
+        })();
     </script>
 </body>
 
