@@ -305,7 +305,7 @@ main{
     position: absolute;
     top: 20px;
     right: 40px;
-    z-index: 10;
+    z-index: 60;
     font-size: 18px;
     color: #fff;
     height: 40px;
@@ -314,6 +314,79 @@ main{
     place-content: center;
     border-radius: 50%;
     border: 1px solid #fff;
+    cursor: pointer;
+    user-select: none;
+}
+.menu:hover{
+    background: rgba(255,255,255,0.15);
+}
+
+/* Dropdown hamburger — general, tampil di semua slide */
+.nav-dropdown{
+    position: absolute;
+    top: 68px;
+    right: 40px;
+    z-index: 60;
+    min-width: 230px;
+    background: rgba(20,20,18,0.96);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 14px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.nav-dropdown.open{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.nav-dropdown a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.nav-dropdown a:hover{
+    background: rgba(255,255,255,0.12);
+}
+.nav-dropdown a.cta{
+    background: #F36F21;
+    font-weight: 600;
+    justify-content: center;
+    margin-top: 4px;
+}
+.nav-dropdown a.cta:hover{
+    background: #ff7f36;
+}
+.nav-dropdown .has-sub .sub{
+    display: none;
+    flex-direction: column;
+    padding-left: 8px;
+}
+.nav-dropdown .has-sub.expanded .sub{
+    display: flex;
+}
+.nav-dropdown .has-sub .sub a{
+    font-size: 13px;
+    opacity: 0.9;
+}
+.nav-dropdown .chev{
+    font-size: 11px;
+    transition: transform 0.25s ease;
+}
+.nav-dropdown .has-sub.expanded .chev{
+    transform: rotate(180deg);
 }
 
 .swiper-pagination{
@@ -363,6 +436,9 @@ main{
         left: 24px;
     }
     .menu{
+        right: 24px;
+    }
+    .nav-dropdown{
         right: 24px;
     }
     .swiper-pagination{
@@ -482,4 +558,18 @@ main{
         font-size: 11px;
         max-width: 70vw;
     }
+    .menu{
+        right: 16px;
+    }
+    .nav-dropdown{
+        right: 16px;
+        left: 16px;
+        min-width: 0;
+    }
+}
+
+.specs button{
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
 }

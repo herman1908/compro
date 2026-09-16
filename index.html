@@ -28,9 +28,25 @@
             <a href=""><i class="fab fa-instagram"></i></a>
             <a href=""><i class="fab fa-twitter"></i></a>
         </div>
-        <div class="menu">
-            <i class="fas fa-bars"></i>
+        <div class="menu" id="menuBtn" role="button" tabindex="0" aria-label="Menu">
+            <i class="fas fa-bars" id="menuIcon"></i>
         </div>
+        <nav class="nav-dropdown" id="navDropdown">
+            <a href="#" data-go="0">Beranda</a>
+            <a href="#" data-go="4">Tentang Kami</a>
+            <div class="has-sub">
+                <a href="#" id="layananToggle">Layanan <i class="fas fa-chevron-down chev"></i></a>
+                <div class="sub" id="layananSub">
+                    <a href="#" data-go="0">Real-time Attendance</a>
+                    <a href="#" data-go="1">Face Recognition</a>
+                    <a href="#" data-go="2">Dashboard Tracking</a>
+                    <a href="#" data-go="3">Traceability</a>
+                    <a href="#" data-go="4">Landing Page</a>
+                </div>
+            </div>
+            <a href="#" data-go="4">Kontak</a>
+            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="cta">Konsultasi Gratis</a>
+        </nav>
         <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide first" data-title="Real-time Attendance Monitor" data-desc="Pantau kehadiran real-time dengan integrasi database, sinkronisasi perangkat, dan UI informatif.">
@@ -87,11 +103,11 @@
                             <span><b>Informatif</b> Status</span>
                             <span><b>Responsif</b> Media</span>
                             <span><b>Real-Time</b> Singkronisasi</span>
-                            <button class="blue-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></button>
+                            <button class="blue-c">Pesan Sekarang!<i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide" data-title="Traceability" data-desc="Telusuri riwayat data end-to-end dengan sistem traceability yang akurat dan transparan.">
+                <div class="swiper-slide" data-title="Traceability" data-desc="Telusuri riwayat data end-to-end dengan sistem traceability yang akurat dan transparan Realisasi Tepat Sasaran.">
                     <div class="green"></div>
                     <div class="black"></div>
                     <div class="content">
@@ -103,29 +119,30 @@
                             <img src="images/img-4.png" alt="">
                         </div>
                         <div class="specs green-c">
-                            <span><b>302</b> MPH</span>
-                            <span><b>0-100</b> KMPH</span>
-                            <span><b>350</b> KW</span>
-                            <button class="green-c">Discover Now <i class="fas fa-arrow-right"></i></button>
+                            <span><b>Akurat</b> Realisasi</span>
+                            <span><b>Handal</b> Tepat</span>
+                            <span><b>Hemat</b> Sasaran</span>
+                            <button class="green-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide" data-title="Landing Page" data-desc="Tampilkan profil dan layanan dalam landing page yang cepat, modern, dan responsif.">
+                <div class="swiper-slide" data-title="Landing Page" data-desc="Tampilkan profil dan layanan dalam landing page yang cepat, modern, dan responsif, dan Dilengkapi Basic SEO.">
                     <div class="purple"></div>
                     <div class="black"></div>
                     <div class="content">
                         <div class="title">
                             <div class="small">Let's</div>
-                            <div class="big">LAND</div>
+                            <div class="big">SHOW UP!</div>
                         </div>
                         <div class="image">
                             <img src="images/img-5.png" alt="">
                         </div>
                         <div class="specs purple-c">
-                            <span><b>302</b> MPH</span>
-                            <span><b>0-100</b> KMPH</span>
-                            <span><b>350</b> KW</span>
-                            <button class="purple-c">Discover Now <i class="fas fa-arrow-right"></i></button>
+                            <span><b>Responsif</b> Ringan</span>
+                            <span><b>Aesthetic</b> Modern</span>
+                            <span><b>SEO</b> Teratas</span>
+                            <button class="purple-c">Pesan Sekarang!<i class="fas fa-arrow-right"></i></button>
+                            <button type="button" class="purple-c btn-home" id="btnHome" onclick="goHome(event)"><i class="fas fa-home"></i> Beranda</button>
                         </div>
                     </div>
                 </div>
@@ -144,8 +161,10 @@
             slidesPerView: 1,
             spaceBetween: 30,
             mousewheel: true,
+            preventClicks: false,
+            preventClicksPropagation: false,
             effect: "coverflow",
-            speed: 2000,
+            speed: 800,
             coverflowEffect: {
                 rotate: 50,
                 stretch: 0,
@@ -183,6 +202,7 @@
         }
 
 
+        if (window.gsap) {
         gsap.from(".first .yellow", {
             y: -1000,
             duration: 2
@@ -206,6 +226,7 @@
             stagger: 0.2,
             delay: 2.1
         })
+        }
 
         // Tap / touch to enlarge — untuk Tab / layar kecil (touch screen)
         // Hover CSS di atas sudah menangani mouse di layar besar / laptop
@@ -227,6 +248,68 @@
                 document.querySelectorAll('.content .image img.zoomed').forEach(function (other) {
                     other.classList.remove('zoomed');
                 });
+            });
+        })();
+
+        // Tombol Home di slide 5 — kembali ke slide 1
+        window.goHome = function (e) {
+            if (e) { e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); }
+            if (typeof swiper !== 'undefined' && swiper) {
+                swiper.slideTo(0, 800);
+                setTimeout(function () {
+                    if (swiper.activeIndex !== 0) swiper.slideTo(0, 0);
+                }, 900);
+            } else {
+                var firstBullet = document.querySelector('.swiper-pagination-bullet');
+                if (firstBullet) firstBullet.click();
+            }
+        };
+        (function () {
+            var btn = document.getElementById('btnHome');
+            if (!btn) return;
+            btn.addEventListener('click', window.goHome, true);
+        })();
+
+        // Hamburger menu — general untuk semua slide
+        (function () {
+            var menuBtn = document.getElementById('menuBtn');
+            var dropdown = document.getElementById('navDropdown');
+            var menuIcon = document.getElementById('menuIcon');
+            var layananToggle = document.getElementById('layananToggle');
+            if (!menuBtn || !dropdown) return;
+            function closeMenu() {
+                dropdown.classList.remove('open');
+                if (menuIcon) menuIcon.className = 'fas fa-bars';
+            }
+            function toggleMenu(e) {
+                if (e) { e.preventDefault(); e.stopPropagation(); }
+                var isOpen = dropdown.classList.toggle('open');
+                if (menuIcon) menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+            }
+            menuBtn.addEventListener('click', toggleMenu);
+            menuBtn.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') toggleMenu(e);
+            });
+            if (layananToggle) {
+                layananToggle.addEventListener('click', function (e) {
+                    e.preventDefault(); e.stopPropagation();
+                    this.parentElement.classList.toggle('expanded');
+                });
+            }
+            dropdown.querySelectorAll('[data-go]').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); e.stopPropagation();
+                    var idx = parseInt(this.getAttribute('data-go'), 10) || 0;
+                    closeMenu();
+                    if (typeof swiper !== 'undefined' && swiper) swiper.slideTo(idx, 800);
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (!dropdown.classList.contains('open')) return;
+                if (!dropdown.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) closeMenu();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
             });
         })();
     </script>
