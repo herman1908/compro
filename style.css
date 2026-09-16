@@ -300,6 +300,30 @@ main{
     white-space: nowrap;
 }
 
+/* Visitor counter — sama seperti project robo */
+.visitor-line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding: 4px 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+}
+.visitor-line i{
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+}
+.visitor-line .visitor-count{
+    height: 18px;
+    display: inline-block;
+}
+.nav-visitor{
+    margin-top: 6px;
+}
+
 
 .menu{
     position: absolute;
