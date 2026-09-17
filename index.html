@@ -20,13 +20,14 @@
             <div class="slide-info">
                 <div class="app-title" id="appTitle"></div>
                 <div class="app-desc" id="appDesc"></div>
+                <button type="button" class="desc-toggle" id="descToggle">Selengkapnya...</button>
             </div>
         </div>
         <div class="social">
             <div class="bar"></div>
-            <a href=""><i class="fab fa-facebook"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href="https://www.tiktok.com/@abei1982" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/hermanrobosoft" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://lynk.id/herman1908" target="_blank" rel="noopener" aria-label="lynk.id" title="lynk.id"><img src="images/lynk-id.png" alt="lynk.id" class="lynk-icon"></a>
             <div class="visitor-line">
                 <i class="fas fa-eye"></i>
                 <img src="https://visitor-badge.laobi.icu/badge?page_id=https://herman1908.github.io/compro/" alt="visitor count" class="visitor-count" />
@@ -72,7 +73,7 @@
                             <span><b>Integrated</b> db</span>
                             <span><b>Syncronize</b> Device</span>
                             <span><b>Informative</b> UI</span>
-                            <button>Pesan Sekarang! <i class="fas fa-arrow-right"></i></button>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Real-time%20Attendance%20Monitor.%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                             <span><b>Mudah</b> User Friendly</span>
                             <span><b>Akurat</b> Terpercaya</span>
                             <span><b>Modern</b> Canggih</span>
-                            <button class="red-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></button>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20POS%20Kasir%20Modern%20(SCAN).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn red-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +112,7 @@
                             <span><b>Informatif</b> Status</span>
                             <span><b>Responsif</b> Media</span>
                             <span><b>Real-Time</b> Singkronisasi</span>
-                            <button class="blue-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></button>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Dashboard%20Tracking%20(TRACK).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn blue-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -130,11 +131,11 @@
                             <span><b>Akurat</b> Realisasi</span>
                             <span><b>Handal</b> Tepat</span>
                             <span><b>Hemat</b> Sasaran</span>
-                            <button class="green-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></button>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Traceability%20(TRACE).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn green-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide" data-title="Landing Page" data-desc="Tampilkan profil dan layanan dalam landing page yang cepat, modern, dan responsif, dan Dilengkapi Basic SEO.">
+                <div class="swiper-slide" data-title="Landing Page" data-desc="Tampilkan profil dan layanan Bisnis atau UMKM Anda dalam landing page yang cepat, modern, dan responsif, dan Dilengkapi Basic SEO.">
                     <div class="purple"></div>
                     <div class="black"></div>
                     <div class="content">
@@ -149,7 +150,7 @@
                             <span><b>Responsif</b> Ringan</span>
                             <span><b>Aesthetic</b> Modern</span>
                             <span><b>SEO</b> Teratas</span>
-                            <button class="purple-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></button>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Landing%20Page%20(SHOW%20UP!).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn purple-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
                             <button type="button" class="purple-c btn-home" id="btnHome" onclick="goHome(event)"><i class="fas fa-home"></i> Beranda</button>
                         </div>
                     </div>
@@ -189,8 +190,8 @@
                 },
             },
             on: {
-                init: function () { updateBrand(this); },
-                slideChange: function () { updateBrand(this); }
+                init: function () { updateBrand(this); playSlideAnim(this.activeIndex); },
+                slideChange: function () { updateBrand(this); playSlideAnim(this.activeIndex); }
             }
         });
 
@@ -204,36 +205,111 @@
             var descEl = document.getElementById('appDesc');
             titleEl.textContent = title;
             descEl.textContent = desc;
+            // Reset expand tiap ganti slide
+            var info = document.querySelector('.slide-info');
+            var btn = document.getElementById('descToggle');
+            if (info) info.classList.remove('expanded');
+            if (btn) btn.textContent = 'Selengkapnya...';
+            updateDescToggle();
             if (window.gsap) {
                 gsap.fromTo('.slide-info', { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' });
             }
         }
 
+        // Tampilkan tombol hanya jika deskripsi kepotong (mobile)
+        function updateDescToggle() {
+            var descEl = document.getElementById('appDesc');
+            var btn = document.getElementById('descToggle');
+            var info = document.querySelector('.slide-info');
+            if (!descEl || !btn || !info) return;
+            if (window.innerWidth > 768) {
+                btn.style.display = 'none';
+                return;
+            }
+            info.classList.remove('expanded');
+            btn.textContent = 'Selengkapnya...';
+            btn.style.display = 'none';
+            requestAnimationFrame(function () {
+                var isTruncated = descEl.scrollHeight > descEl.clientHeight + 2;
+                btn.style.display = isTruncated ? 'inline-block' : 'none';
+            });
+        }
 
-        if (window.gsap) {
-        gsap.from(".first .yellow", {
-            y: -1000,
-            duration: 2
-        })
-        gsap.from(".first .black", {
-            y: 1000,
-            duration: 2
-        })
-        gsap.from(".first img", {
-            x: 1000,
-            duration: 2
-        })
-        gsap.from(".first .small", {
-            y: 100,
-            opacity: 0,
-            delay: 2.1
-        })
-        gsap.from(".first .big span", {
-            y: 100,
-            opacity: 0,
-            stagger: 0.2,
-            delay: 2.1
-        })
+        (function () {
+            var btn = document.getElementById('descToggle');
+            if (!btn) return;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault(); e.stopPropagation();
+                var info = document.querySelector('.slide-info');
+                if (!info) return;
+                var expanded = info.classList.toggle('expanded');
+                btn.textContent = expanded ? 'Tutup...' : 'Selengkapnya...';
+            });
+            window.addEventListener('resize', updateDescToggle);
+            window.addEventListener('orientationchange', function () {
+                setTimeout(updateDescToggle, 200);
+            });
+        })();
+
+
+        // Efek loading beda tiap slide
+        function playSlideAnim(idx) {
+            if (!window.gsap) return;
+            var slides = document.querySelectorAll('.swiper-slide');
+            var slide = slides[idx];
+            if (!slide) return;
+            var bgA = slide.querySelector('.yellow,.red,.blue,.green,.purple');
+            var bgB = slide.querySelector('.black');
+            var img = slide.querySelector('.image img');
+            var small = slide.querySelector('.small');
+            var bigSpans = slide.querySelectorAll('.big span');
+            var big = slide.querySelector('.big');
+            var specs = slide.querySelectorAll('.specs span, .specs button, .specs .wa-btn, .specs a');
+
+            // Reset biar bisa diulang tiap balik ke slide
+            gsap.killTweensOf([bgA, bgB, img, small, big, bigSpans, specs]);
+
+            if (idx === 0) {
+                // Slide 1 BUILD: pertemuan sisi vertikal (atas-bawah) + image slide kanan + text dropdown
+                if (bgA) gsap.fromTo(bgA, { y: -1000 }, { y: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { y: 1000 }, { y: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { x: 1000, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 1.1, ease: 'power2.out', overwrite: 'auto' });
+                if (bigSpans.length) gsap.fromTo(bigSpans, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 1.1, ease: 'back.out(1.5)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.4, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 1) {
+                // Slide 2 SCAN: pertemuan sisi horizontal (kiri-kanan) + image zoom + text dropdown
+                if (bgA) gsap.fromTo(bgA, { x: -1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { x: 1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { scale: 0, rotation: -30, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 1.1, ease: 'back.out(1.4)', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 1.0, ease: 'bounce.out', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.2, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 2) {
+                // Slide 3 TRACK: dropdown panel (jatuh dari atas) + image spin 360
+                if (bgA) gsap.fromTo(bgA, { y: -1000 }, { y: 0, duration: 1.1, ease: 'bounce.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { y: 1000 }, { y: 0, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { rotation: -360, scale: 0, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1, duration: 1.3, ease: 'power2.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { scale: 2.5, opacity: 0 }, { scale: 1, opacity: 0.5, duration: 0.8, delay: 1.0, ease: 'power2.out', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.2, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 3) {
+                // Slide 4 TRACE: scale panel (membesar) + image flip
+                if (bgA) gsap.fromTo(bgA, { scaleX: 0, transformOrigin: 'left center' }, { scaleX: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { scaleX: 0, transformOrigin: 'right center' }, { scaleX: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { rotationY: 180, opacity: 0, scale: 0.5 }, { rotationY: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 100, opacity: 0, letterSpacing: '30px' }, { y: 0, opacity: 0.5, letterSpacing: 'normal', duration: 0.8, delay: 1.0, ease: 'power2.out', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.2, ease: 'back.out(1.7)', overwrite: 'auto' });
+            } else if (idx === 4) {
+                // Slide 5 SHOW UP!: panel fade-slide + image slide dari bawah + text dropdown elastis
+                if (bgA) gsap.fromTo(bgA, { y: -600, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { y: 600, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { y: 800, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'elastic.out(1,0.6)', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 150, opacity: 0, scale: 0.7 }, { y: 0, opacity: 0.5, scale: 1, duration: 0.9, delay: 1.0, ease: 'elastic.out(1,0.5)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
+            }
         }
 
         // Tap / touch to enlarge — untuk Tab / layar kecil (touch screen)

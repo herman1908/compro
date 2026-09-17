@@ -66,6 +66,26 @@ body{
     line-height: 1.45;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
+/* Tombol lihat lebih banyak — hidden di desktop, diatur JS di mobile */
+.desc-toggle{
+    display: none;
+    pointer-events: auto;
+    background: none;
+    border: none;
+    padding: 2px 0 0;
+    margin-top: 2px;
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+.slide-info.expanded .app-desc{
+    opacity: 1;
+}
 
 main{
     width: 100%;
@@ -264,7 +284,19 @@ main{
 
 .social a{
     color: #fff;
-    transform: rotate(-90deg);
+    transform: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+}
+.social .lynk-icon{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    display: block;
 }
 
 .specs{
@@ -288,16 +320,20 @@ main{
 }
 
 
-.specs button{
+.specs button,
+.specs .wa-btn{
     margin-left: 0;
     padding: 8px clamp(20px, 3vw, 40px);
     border-radius: 100px;
     border: 1px solid #E2725B;
     background: none;
     font-family: "Poppins", sans-serif;
+    font-size: inherit;
     color: #E2725B;
     cursor: pointer;
     white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
 }
 
 /* Visitor counter — sama seperti project robo */
@@ -533,6 +569,15 @@ main{
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+    .slide-info.expanded .app-desc{
+        display: block;
+        -webkit-line-clamp: unset;
+        overflow: visible;
+        max-width: 68vw;
+        background: rgba(0,0,0,0.6);
+        padding: 6px 8px;
+        border-radius: 8px;
+    }
     .menu{
         right: 16px;
         top: 14px;
@@ -563,13 +608,42 @@ main{
         right: 58px;
         gap: 8px 12px;
         font-size: 12px;
+        bottom: 52px;
     }
-    .specs button{
+    .specs button,
+    .specs .wa-btn{
         padding: 7px 20px;
         font-size: 12px;
     }
     .social{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        left: 16px;
+        right: 60px;
+        bottom: 10px;
+        top: auto;
+        font-size: 16px;
+        gap: 16px;
+    }
+    .social .bar{
         display: none;
+    }
+    .social a{
+        transform: none;
+    }
+    .social .visitor-line{
+        margin-top: 0;
+        margin-left: auto;
+        padding: 2px 6px;
+    }
+    .social .visitor-line .visitor-count{
+        height: 14px;
+    }
+    .social .lynk-icon{
+        width: 16px;
+        height: 16px;
     }
     .brand .logo{
         font-size: 14px;
@@ -582,6 +656,9 @@ main{
         font-size: 11px;
         max-width: 70vw;
     }
+    .slide-info.expanded .app-desc{
+        max-width: 72vw;
+    }
     .menu{
         right: 16px;
     }
@@ -592,7 +669,8 @@ main{
     }
 }
 
-.specs button{
+.specs button,
+.specs .wa-btn{
     position: relative;
     z-index: 10;
     pointer-events: auto;
