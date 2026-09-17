@@ -527,12 +527,20 @@ main{
     }
     .title{
         padding-bottom: 0;
-        top: 13vh;
+        top: 18vh;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        text-align: left;
     }
     .small{
-        left: 50%;
-        transform: translateX(-110px);
-        top: -12px;
+        left: 0;
+        right: auto;
+        transform: none;
+        top: -20px;
+    }
+    .big{
+        text-align: left;
     }
     .content .image{
         width: min(86vw, 440px);
@@ -566,12 +574,15 @@ main{
         max-width: 62vw;
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
+        box-orient: vertical;
         overflow: hidden;
     }
     .slide-info.expanded .app-desc{
         display: block;
         -webkit-line-clamp: unset;
+        line-clamp: none;
         overflow: visible;
         max-width: 68vw;
         background: rgba(0,0,0,0.6);
@@ -599,6 +610,14 @@ main{
 @media (max-width: 480px){
     .big{
         font-size: clamp(56px, 18vw, 84px);
+    }
+    .title{
+        top: 20vh;
+    }
+    .small{
+        left: 0;
+        top: -18px;
+        font-size: 24px;
     }
     .content .image{
         height: 32vh;
@@ -674,4 +693,127 @@ main{
     position: relative;
     z-index: 10;
     pointer-events: auto;
+}
+
+/* ===== Modal Tentang Kami ===== */
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(10,10,12,0.62);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.open{
+    opacity: 1;
+    pointer-events: auto;
+}
+.about-modal{
+    position: relative;
+    width: min(92vw, 560px);
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow-y: auto;
+    background: linear-gradient(160deg, #23231e 0%, #1A1A15 55%, #1f2a4a 130%);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.55);
+    padding: 28px 28px 24px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    transform: translateY(22px) scale(0.97);
+    transition: transform 0.32s cubic-bezier(0.22,1,0.36,1);
+}
+.modal-overlay.open .about-modal{
+    transform: translateY(0) scale(1);
+}
+.modal-close{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+}
+.modal-close:hover{
+    background: rgba(255,255,255,0.18);
+}
+.about-badge{
+    display: inline-block;
+    background: #fff;
+    border-radius: 10px;
+    padding: 3px 14px 5px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+.about-badge .robo{ color: #1F4EBD; }
+.about-badge .komputer{ color: #F36F21; }
+.about-modal h2{
+    margin: 14px 0 10px;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+.about-modal p{
+    font-size: 14px;
+    line-height: 1.75;
+    opacity: 0.92;
+    margin-bottom: 12px;
+}
+.about-modal .about-lead{
+    border-left: 3px solid #F36F21;
+    padding-left: 12px;
+    font-weight: 500;
+    opacity: 1;
+}
+.about-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 18px;
+}
+.about-tags span{
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.07);
+}
+.about-cta{
+    display: inline-block;
+    background: #F36F21;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 100px;
+}
+.about-cta:hover{
+    background: #ff7f36;
+}
+@media (max-width: 480px){
+    .about-modal{
+        padding: 22px 18px 18px;
+        border-radius: 16px;
+    }
+    .about-modal p{
+        font-size: 13px;
+    }
 }

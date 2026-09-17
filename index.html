@@ -38,7 +38,7 @@
         </div>
         <nav class="nav-dropdown" id="navDropdown">
             <a href="#" data-go="0">Beranda</a>
-            <a href="#" data-go="4">Tentang Kami</a>
+            <a href="#" id="aboutLink">Tentang Kami</a>
             <div class="has-sub">
                 <a href="#" id="layananToggle">Layanan <i class="fas fa-chevron-down chev"></i></a>
                 <div class="sub" id="layananSub">
@@ -395,6 +395,55 @@
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') closeMenu();
             });
+        })();
+    </script>
+
+    <!-- Modal Tentang Kami -->
+    <div class="modal-overlay" id="aboutModal" aria-hidden="true">
+        <div class="about-modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+            <button type="button" class="modal-close" id="aboutClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <div class="about-badge"><span class="robo">Robo</span><span class="komputer">Komputer</span></div>
+            <h2 id="aboutTitle">Tentang Kami</h2>
+            <p class="about-lead">Robo Komputer &mdash; profesional dalam pengembangan sistem, integrasi teknologi, dan layanan IT lengkap yang dirancang untuk kebutuhan bisnis modern.</p>
+            <p>Kami adalah IT Solution &amp; Development yang berkomitmen untuk memberikan solusi teknologi terbaik guna meningkatkan efisiensi dan produktivitas bisnis klien kami.</p>
+            <p>Dengan tim ahli berpengalaman, kami memahami tantangan digitalisasi dan siap membantu transformasi bisnis Anda dari UMKM (Kasir, e-commerce - ERP) sampai kepada Bisnis Besar berskala Internasional (Super-App).</p>
+            <div class="about-tags">
+                <span>UMKM</span><span>ERP</span><span>Super-App</span><span>Integrasi Sistem</span>
+            </div>
+            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20konsultasi%20tentang%20layanan%20IT%20Anda" target="_blank" rel="noopener" class="about-cta">Konsultasi Gratis <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <script>
+        // Modal Tentang Kami (script setelah modal biar elemen sudah ada)
+        (function () {
+            var aboutLink = document.getElementById('aboutLink');
+            var modal = document.getElementById('aboutModal');
+            var closeBtn = document.getElementById('aboutClose');
+            if (!aboutLink || !modal) return;
+            function openModal(e) {
+                if (e) { e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); }
+                var dropdown = document.getElementById('navDropdown');
+                var menuIcon = document.getElementById('menuIcon');
+                if (dropdown) dropdown.classList.remove('open');
+                if (menuIcon) menuIcon.className = 'fas fa-bars';
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+            }
+            function closeModal() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            aboutLink.addEventListener('click', openModal);
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+            window.closeAboutModal = closeModal;
         })();
     </script>
 </body>
