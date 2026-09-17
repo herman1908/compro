@@ -69,6 +69,10 @@
                         <div class="image">
                             <img src="images/img-1.png" alt="">
                         </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn" data-mtype="doc" data-slide="0" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn" data-mtype="video" data-slide="0" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                        </div>
                         <div class="specs">
                             <span><b>Integrated</b> db</span>
                             <span><b>Syncronize</b> Device</span>
@@ -87,6 +91,10 @@
                         </div>
                         <div class="image">
                             <img src="images/img-2.png" alt="">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn red-c" data-mtype="doc" data-slide="1" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn red-c" data-mtype="video" data-slide="1" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
                         </div>
                         <div class="specs red-c">
                             <span><b>Cepat</b> Tepat</span>
@@ -108,6 +116,10 @@
                         <div class="image">
                             <img src="images/img-3.png" alt="">
                         </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn blue-c" data-mtype="doc" data-slide="2" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn blue-c" data-mtype="video" data-slide="2" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                        </div>
                         <div class="specs blue-c">
                             <span><b>Informatif</b> Status</span>
                             <span><b>Responsif</b> Media</span>
@@ -127,6 +139,10 @@
                         <div class="image">
                             <img src="images/img-4.png" alt="">
                         </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn green-c" data-mtype="doc" data-slide="3" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn green-c" data-mtype="video" data-slide="3" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                        </div>
                         <div class="specs green-c">
                             <span><b>Akurat</b> Realisasi</span>
                             <span><b>Handal</b> Tepat</span>
@@ -145,6 +161,10 @@
                         </div>
                         <div class="image">
                             <img src="images/img-5.png" alt="">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn purple-c" data-mtype="doc" data-slide="4" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn purple-c" data-mtype="video" data-slide="4" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
                         </div>
                         <div class="specs purple-c">
                             <span><b>Responsif</b> Ringan</span>
@@ -169,17 +189,34 @@
             direction: "vertical",
             slidesPerView: 1,
             spaceBetween: 30,
-            mousewheel: true,
+            speed: 1000,
+            resistance: true,
+            resistanceRatio: 0.85,
+            longSwipes: true,
+            longSwipesMs: 300,
+            longSwipesRatio: 0.4,
+            followFinger: true,
+            grabCursor: true,
+            watchSlidesProgress: true,
+            touchReleaseOnEdges: true,
+            passiveListeners: true,
+            mousewheel: {
+                enabled: true,
+                forceToAxis: true,
+                sensitivity: 0.8,
+                releaseOnEdges: false,
+                thresholdDelta: 12,
+                thresholdTime: 150
+            },
             preventClicks: false,
             preventClicksPropagation: false,
             effect: "coverflow",
-            speed: 800,
             coverflowEffect: {
-                rotate: 50,
+                rotate: 30,
                 stretch: 0,
-                depth: 100,
+                depth: 160,
                 modifier: 1,
-                slideShadows: true,
+                slideShadows: false,
             },
 
             pagination: {
@@ -191,7 +228,8 @@
             },
             on: {
                 init: function () { updateBrand(this); playSlideAnim(this.activeIndex); },
-                slideChange: function () { updateBrand(this); playSlideAnim(this.activeIndex); }
+                slideChange: function () { updateBrand(this); },
+                slideChangeTransitionEnd: function () { playSlideAnim(this.activeIndex); }
             }
         });
 
@@ -265,9 +303,10 @@
             var bigSpans = slide.querySelectorAll('.big span');
             var big = slide.querySelector('.big');
             var specs = slide.querySelectorAll('.specs span, .specs button, .specs .wa-btn, .specs a');
+            var mediaBtns = slide.querySelectorAll('.media-btns .media-btn');
 
             // Reset biar bisa diulang tiap balik ke slide
-            gsap.killTweensOf([bgA, bgB, img, small, big, bigSpans, specs]);
+            gsap.killTweensOf([bgA, bgB, img, small, big, bigSpans, specs, mediaBtns]);
 
             if (idx === 0) {
                 // Slide 1 BUILD: pertemuan sisi vertikal (atas-bawah) + image slide kanan + text dropdown
@@ -310,7 +349,35 @@
                 if (big) gsap.fromTo(big, { y: 150, opacity: 0, scale: 0.7 }, { y: 0, opacity: 0.5, scale: 1, duration: 0.9, delay: 1.0, ease: 'elastic.out(1,0.5)', overwrite: 'auto' });
                 if (specs.length) gsap.fromTo(specs, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
             }
+            // Tombol buku + video ikut fade-in tiap slide (opacity saja biar posisi center tidak kegeser)
+            if (mediaBtns.length) gsap.fromTo(mediaBtns, { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.1, delay: 1.35, ease: 'power2.out', overwrite: 'auto' });
         }
+
+        // Link tombol buku per slide — isi URL-nya di sini (video otomatis dari nama image)
+        var MEDIA_LINKS = {
+            doc: ['', '', '', '', '']
+        };
+        (function () {
+            document.querySelectorAll('.media-btn').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var type = btn.getAttribute('data-mtype');
+                    var s = parseInt(btn.getAttribute('data-slide'), 10) || 0;
+                    if (type === 'video') {
+                        var slide = btn.closest('.swiper-slide');
+                        var img = slide ? slide.querySelector('.image img') : null;
+                        var src = img ? (img.getAttribute('src') || '') : '';
+                        var file = src.split('/').pop() || '';
+                        var base = file.split('.')[0] || ('img-' + (s + 1));
+                        var title = slide ? (slide.getAttribute('data-title') || base) : base;
+                        if (window.openVideoModal) window.openVideoModal('video/' + base + '.mp4', title);
+                        return;
+                    }
+                    var url = (MEDIA_LINKS[type] && MEDIA_LINKS[type][s]) || '';
+                    if (url) window.open(url, '_blank', 'noopener');
+                });
+            });
+        })();
 
         // Tap / touch to enlarge — untuk Tab / layar kecil (touch screen)
         // Hover CSS di atas sudah menangani mouse di layar besar / laptop
@@ -444,6 +511,56 @@
                 if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
             });
             window.closeAboutModal = closeModal;
+        })();
+    </script>
+
+    <!-- Modal Video -->
+    <div class="modal-overlay" id="videoModal" aria-hidden="true">
+        <div class="video-modal" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+            <button type="button" class="modal-close" id="videoClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <h3 id="videoTitle">Video</h3>
+            <video id="videoPlayer" controls playsinline preload="metadata"></video>
+            <p class="video-error" id="videoError" hidden>Video belum tersedia. Pastikan file-nya ada di folder video.</p>
+        </div>
+    </div>
+    <script>
+        // Player video per slide — sumber diambil dari nama image slide
+        (function () {
+            var modal = document.getElementById('videoModal');
+            var player = document.getElementById('videoPlayer');
+            var titleEl = document.getElementById('videoTitle');
+            var errEl = document.getElementById('videoError');
+            var closeBtn = document.getElementById('videoClose');
+            if (!modal || !player) return;
+            function openVideo(url, title) {
+                if (errEl) errEl.hidden = true;
+                if (titleEl) titleEl.textContent = title || 'Video';
+                player.src = url;
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+                var p = player.play();
+                if (p && p.catch) p.catch(function () {});
+            }
+            function closeVideo() {
+                player.pause();
+                player.removeAttribute('src');
+                player.load();
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            player.addEventListener('error', function () {
+                if (errEl) errEl.hidden = false;
+            });
+            if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeVideo();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo();
+            });
+            window.openVideoModal = openVideo;
         })();
     </script>
 </body>
