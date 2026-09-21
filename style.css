@@ -706,14 +706,6 @@ main{
     .social a{
         transform: none;
     }
-    .social .visitor-line{
-        margin-top: 0;
-        margin-left: auto;
-        padding: 2px 6px;
-    }
-    .social .visitor-line .visitor-count{
-        height: 14px;
-    }
     .social .lynk-icon{
         width: 16px;
         height: 16px;
