@@ -1,0 +1,23 @@
+🌏Web Dashboard
+Spesifikasi dan Fungsi :
+✔ 4 kartu statistik klik-able: EXPEDISI / FINISHING / CETAK / ANTRI
+✔ Tabel rincian SO + tab Rincian Produk / Rincian Pesanan, search No.SO + search Outstanding
+✔Journey tracker (steps Done/Active/Pending/Skipped), floor map, log timeline
+✔monitor_dashboard.html: CPU/IO/Blocking/Query load, DB files, transaction log, wait stats, blocking chain, long queries, auto-refresh 15s
+
+TechStack :
+Backend
+✔PHP di XAMPP Apache Windows (C:\xampp\htdocs\dashboard_dprint)
+✔Koneksi DB: PDO ODBC bawaan XAMPP ke Microsoft SQL Server - koneksi.php:140 (DB_SERVER=., DB_NAME=dprint, DB_DRIVER=SQL Server, fallback ke ODBC Driver 11/13/17/18)
+✔REST-like JSON API: api_kartu.php, api_detail.php, api_pesanan.php, api_search.php, api_journey.php, api_finishing_item.php, api_monitor.php, api_theme.php, api_config.php, theme.php
+✔DLL.
+
+Frontend :
+✔index.html (dashboard utama) + monitor_dashboard.html (monitoring SQL/HTTP)
+✔Vue 3 global prod (lib/vue.global.prod.js) - SPA reactive tanpa build
+✔Chart.js UMD (lib/chart.umd.min.js) untuk mini pie #miniChart
+✔Tabler UI + Tabler Icons (lib/tabler.min.css, lib/tabler-icons.min.css) - layout bento/glassmorphism
+✔Three.js r128 (lib/three.min.js + shader-bg.js) - animated background 
+✔DLL.
+
+Database : Koneksi ke SQL Server 20xx.

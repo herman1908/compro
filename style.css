@@ -908,6 +908,51 @@ main{
     font-size: 13px;
     color: #ffb4b4;
 }
+.video-error a{
+    color: #fff;
+}
+
+/* ===== Modal Spesifikasi ===== */
+.doc-modal{
+    position: relative;
+    width: min(94vw, 620px);
+    max-height: 85vh;
+    max-height: 85dvh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(160deg, #23231e 0%, #1A1A15 60%, #1f2a4a 130%);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 16px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.55);
+    padding: 20px 20px 16px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    transform: translateY(22px) scale(0.97);
+    transition: transform 0.32s cubic-bezier(0.22,1,0.36,1);
+}
+.modal-overlay.open .doc-modal{
+    transform: translateY(0) scale(1);
+}
+.doc-modal h3{
+    margin: 0 44px 12px 0;
+    font-size: clamp(15px, 2vw, 18px);
+    font-weight: 700;
+}
+.doc-body{
+    overflow-y: auto;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+.doc-body pre{
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: "Poppins", sans-serif;
+    font-size: 13.5px;
+    line-height: 1.8;
+}
 @media (max-width: 480px){
     .about-modal{
         padding: 22px 18px 18px;

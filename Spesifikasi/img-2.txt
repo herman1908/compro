@@ -1,0 +1,18 @@
+🌏Web Aplikasi
+Spesifikasi dan Fungsi :
+✔ Aplikasi kasir lengkap berbasis Node.js + Express + MySQL dengan fitur Master Produk, Transaksi, dan Riwayat.
+✔ CRUD produk lengkap (tambah, edit, hapus)
+✔ Indicator stok minim (orange) dan habis (merah)
+✔ Fitur restock dengan logging
+✔ Statistik: total transaksi, pendapatan, rata-rata
+
+TechStack :
+✔ Backend	: Node.js dengan Express.js (framework REST API)
+✔ Frontend	: HTML5 + CSS3 + JavaScript vanilla (single-page app, tanpa framework JS)
+✔ Database	: MySQL 8.0+ (dengan stored procedure, foreign keys, indexing)
+✔ ORM/Database driver : mysql2 (Node.js MySQL client)
+✔ File upload : Multer (middleware Express)
+✔ Dev tool :	Nodemon (auto-restart)
+✔ CORS : cors (middleware CORS)
+✔ Environment : dotenv (.env config)
+✔ Font : Google Fonts (Barlow, JetBrains Mono)

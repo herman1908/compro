@@ -70,7 +70,7 @@
                             <img src="images/img-1.png" alt="">
                         </div>
                         <div class="media-btns">
-                            <button type="button" class="media-btn" data-mtype="doc" data-slide="0" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn" data-mtype="doc" data-slide="0" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
                             <button type="button" class="media-btn" data-mtype="video" data-slide="0" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
                         </div>
                         <div class="specs">
@@ -93,7 +93,7 @@
                             <img src="images/img-2.png" alt="">
                         </div>
                         <div class="media-btns">
-                            <button type="button" class="media-btn red-c" data-mtype="doc" data-slide="1" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn red-c" data-mtype="doc" data-slide="1" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
                             <button type="button" class="media-btn red-c" data-mtype="video" data-slide="1" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
                         </div>
                         <div class="specs red-c">
@@ -117,7 +117,7 @@
                             <img src="images/img-3.png" alt="">
                         </div>
                         <div class="media-btns">
-                            <button type="button" class="media-btn blue-c" data-mtype="doc" data-slide="2" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn blue-c" data-mtype="doc" data-slide="2" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
                             <button type="button" class="media-btn blue-c" data-mtype="video" data-slide="2" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
                         </div>
                         <div class="specs blue-c">
@@ -140,7 +140,7 @@
                             <img src="images/img-4.png" alt="">
                         </div>
                         <div class="media-btns">
-                            <button type="button" class="media-btn green-c" data-mtype="doc" data-slide="3" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn green-c" data-mtype="doc" data-slide="3" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
                             <button type="button" class="media-btn green-c" data-mtype="video" data-slide="3" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
                         </div>
                         <div class="specs green-c">
@@ -163,7 +163,7 @@
                             <img src="images/img-5.png" alt="">
                         </div>
                         <div class="media-btns">
-                            <button type="button" class="media-btn purple-c" data-mtype="doc" data-slide="4" aria-label="Buku panduan" title="Lihat Detail TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn purple-c" data-mtype="doc" data-slide="4" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
                             <button type="button" class="media-btn purple-c" data-mtype="video" data-slide="4" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
                         </div>
                         <div class="specs purple-c">
@@ -353,28 +353,25 @@
             if (mediaBtns.length) gsap.fromTo(mediaBtns, { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.1, delay: 1.35, ease: 'power2.out', overwrite: 'auto' });
         }
 
-        // Link tombol buku per slide — isi URL-nya di sini (video otomatis dari nama image)
-        var MEDIA_LINKS = {
-            doc: ['', '', '', '', '']
-        };
+        // Tombol buku + video — file otomatis dari nama image slide
+        // video: video/<base>.mp4 | spesifikasi: Spesifikasi/<base>.txt
         (function () {
             document.querySelectorAll('.media-btn').forEach(function (btn) {
                 btn.addEventListener('click', function (e) {
                     e.stopPropagation();
                     var type = btn.getAttribute('data-mtype');
                     var s = parseInt(btn.getAttribute('data-slide'), 10) || 0;
+                    var slide = btn.closest('.swiper-slide');
+                    var img = slide ? slide.querySelector('.image img') : null;
+                    var src = img ? (img.getAttribute('src') || '') : '';
+                    var file = src.split('/').pop() || '';
+                    var base = file.split('.')[0] || ('img-' + (s + 1));
+                    var title = slide ? (slide.getAttribute('data-title') || base) : base;
                     if (type === 'video') {
-                        var slide = btn.closest('.swiper-slide');
-                        var img = slide ? slide.querySelector('.image img') : null;
-                        var src = img ? (img.getAttribute('src') || '') : '';
-                        var file = src.split('/').pop() || '';
-                        var base = file.split('.')[0] || ('img-' + (s + 1));
-                        var title = slide ? (slide.getAttribute('data-title') || base) : base;
                         if (window.openVideoModal) window.openVideoModal('video/' + base + '.mp4', title);
                         return;
                     }
-                    var url = (MEDIA_LINKS[type] && MEDIA_LINKS[type][s]) || '';
-                    if (url) window.open(url, '_blank', 'noopener');
+                    if (window.openDocModal) window.openDocModal('Spesifikasi/' + base + '.txt', 'Spesifikasi & TechStack — ' + title);
                 });
             });
         })();
@@ -602,6 +599,62 @@
                     track('klik-sosmed', 'Klik sosmed: ' + (el.getAttribute('aria-label') || ''));
                 }
             }, true);
+        })();
+    </script>
+
+    <!-- Modal Spesifikasi -->
+    <div class="modal-overlay" id="docModal" aria-hidden="true">
+        <div class="doc-modal" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+            <button type="button" class="modal-close" id="docClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <h3 id="docTitle">Spesifikasi</h3>
+            <div class="doc-body"><pre id="docText"></pre></div>
+            <p class="video-error" id="docError" hidden>File spesifikasi belum tersedia. <a id="docDirect" href="#" target="_blank" rel="noopener">Buka langsung</a></p>
+        </div>
+    </div>
+    <script>
+        // Modal spesifikasi — isi diambil dari file notepad di folder Spesifikasi
+        (function () {
+            var modal = document.getElementById('docModal');
+            var titleEl = document.getElementById('docTitle');
+            var bodyEl = document.getElementById('docText');
+            var errEl = document.getElementById('docError');
+            var directEl = document.getElementById('docDirect');
+            var closeBtn = document.getElementById('docClose');
+            if (!modal || !bodyEl) return;
+            function openDoc(url, title) {
+                if (titleEl) titleEl.textContent = title || 'Spesifikasi';
+                if (errEl) errEl.hidden = true;
+                if (directEl) directEl.href = url;
+                bodyEl.textContent = 'Memuat...';
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+                fetch(url)
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('404');
+                        return res.text();
+                    })
+                    .then(function (txt) {
+                        bodyEl.textContent = txt;
+                    })
+                    .catch(function () {
+                        bodyEl.textContent = '';
+                        if (errEl) errEl.hidden = false;
+                    });
+            }
+            function closeDoc() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            if (closeBtn) closeBtn.addEventListener('click', closeDoc);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeDoc();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeDoc();
+            });
+            window.openDocModal = openDoc;
         })();
     </script>
 </body>
