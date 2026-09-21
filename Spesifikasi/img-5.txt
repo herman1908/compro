@@ -1,0 +1,46 @@
+🌏Web Dashboard
+Spesifikasi dan Fungsi :
+Fungsi utama Landing Page
+🎯 Memperkenalkan Produk / Jasa
+Menjelaskan secara singkat siapa bisnis Anda.Menampilkan produk atau jasa yang ditawarkan.
+Memberikan gambaran mengenai keunggulan bisnis.
+💰 Meningkatkan Penjualan
+Menampilkan penawaran secara menarik.Menjelaskan manfaat produk/jasa.
+Mengarahkan calon pelanggan untuk membeli atau melakukan pemesanan.
+📱 Media Promosi Digital
+Bisa digunakan sebagai tujuan dari iklan Facebook, Instagram, TikTok, Google Ads, atau WhatsApp.
+Pengunjung yang melihat iklan diarahkan ke landing page untuk mendapatkan informasi lebih lengkap.
+
+📞 Menghasilkan Leads / Calon Customer
+Landing page dapat menyediakan tombol:
+WhatsApp|Telepon|Form konsultasi | Form pemesanan | Request demo | Email
+Jadi pengunjung yang tertarik dapat langsung menghubungi bisnis.
+
+⭐ Membangun Kredibilitas
+Landing page dapat menampilkan:
+Portfolio | Testimoni customer | Pengalaman | Logo client | Sertifikasi | Dokumentasi pekerjaan|
+Informasi perusahaan.
+
+Hal ini membantu meningkatkan kepercayaan calon customer.
+
+📋 Menjelaskan Produk Secara Terstruktur
+
+Informasi yang biasanya disusun:
+
+Masalah → Solusi → Fitur → Keunggulan → Portfolio → Testimoni → Harga → CTA
+
+Sehingga calon customer tidak perlu mencari-cari informasi di banyak halaman.
+
+🔍 Mendukung SEO
+Landing page juga bisa dioptimalkan agar ditemukan melalui Google, misalnya dengan:
+Keyword,Meta title, Meta description, Heading yang terstruktur, Konten yang relevan, Kecepatan website, Mobile responsive
+
+📊 Mengukur Efektivitas Promosi
+
+Landing page dapat dipasangi analytics untuk mengetahui:
+Jumlah pengunjung, Dari mana pengunjung berasal, Halaman yang dilihat, Berapa orang klik WhatsApp
+Berapa orang mengisi form, Conversion rate
+
+📲 Menjadi "Kantor Digital"
+
+Untuk bisnis kecil sekalipun, landing page dapat berfungsi sebagai representasi bisnis yang bisa diakses 24 jam melalui smartphone maupun komputer.

@@ -1,0 +1,10 @@
+🌏Web Aplikasi
+✔ Fungsi utama: tracking produksi printing (mesin + finishing sampai CS/Expedisi).
+✔ Fungsi: pencatatan status produksi real-time per No JO — dari printing, laminating, jilid, spot UV, cutting, other, sampai final CS/Expedisi, lengkap dengan operator, stamp waktu, dan user pengerja.
+
+Keuntungan:
+✔ Visibilitas: semua user lihat posisi barang tanpa tanya manual.
+✔ Akuntabilitas: tiap centang tercatat operator + waktu.
+✔ Efisiensi: web ringan, cache + rate-limit, beban DB kecil walau 20 user bareng 60 user VB.NET.
+✔ Operasional touchscreen: search besar + keyboard on-screen untuk lantai produksi.
+✔ Kontrol: single-tab, login mandatory, cek otorisasi menu, monitor koneksi DB dan beban server.
