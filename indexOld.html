@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="utf-8" />
@@ -564,46 +564,46 @@
         })();
     </script>
     <!-- GoatCounter -->
-    <script data-goatcounter="https://robo.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"></script>
-    <script>
-        // GoatCounter: catat slide yang dilihat & klik tombol penting
-        (function () {
-            function track(path, title) {
-                if (window.goatcounter && window.goatcounter.count) {
-                    window.goatcounter.count({ path: path, title: title, event: true });
-                }
-            }
+<script data-goatcounter="https://robo.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 
-            // Slide mana yang dilihat pengunjung
-            if (typeof swiper !== 'undefined') {
-                swiper.on('slideChange', function () {
-                    var slide = document.querySelectorAll('.swiper-slide')[swiper.activeIndex];
-                    var t = slide ? slide.getAttribute('data-title') : '';
-                    track('slide-' + (swiper.activeIndex + 1), 'Lihat slide: ' + t);
-                });
-            }
+<script>
+(function () {
+    function track(path, title) {
+        if (window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({ path: path, title: title, event: true });
+        }
+    }
 
-            // Klik tombol penting. Pakai capture (true) karena handler tombol media
-            // memakai stopPropagation, jadi klik biasa di document tidak akan tertangkap.
-            document.addEventListener('click', function (e) {
-                var el = e.target.closest('.wa-btn, .cta, .about-cta, .media-btn, .social a');
-                if (!el) return;
-                var slide = el.closest('.swiper-slide');
-                var name = slide ? slide.getAttribute('data-title') : '';
-                if (el.classList.contains('wa-btn')) {
-                    track('klik-wa-pesan', 'Klik Pesan: ' + name);
-                } else if (el.classList.contains('media-btn')) {
-                    var m = el.getAttribute('data-mtype');
-                    track('klik-' + m, 'Klik ' + m + ': ' + name);
-                } else if (el.classList.contains('cta') || el.classList.contains('about-cta')) {
-                    track('klik-wa-konsultasi', 'Klik Konsultasi Gratis');
-                } else {
-                    track('klik-sosmed', 'Klik sosmed: ' + (el.getAttribute('aria-label') || ''));
-                }
-            }, true);
-        })();
-    </script>
+    // Slide mana yang dilihat pengunjung
+    if (typeof swiper !== 'undefined') {
+        swiper.on('slideChange', function () {
+            var slide = document.querySelectorAll('.swiper-slide')[swiper.activeIndex];
+            var t = slide ? slide.getAttribute('data-title') : '';
+            track('slide-' + (swiper.activeIndex + 1), 'Lihat slide: ' + t);
+        });
+    }
+
+    // Klik tombol penting. Pakai capture (true) karena handler tombol media
+    // memakai stopPropagation, jadi klik biasa di document tidak akan tertangkap.
+    document.addEventListener('click', function (e) {
+        var el = e.target.closest('.wa-btn, .cta, .about-cta, .media-btn, .social a');
+        if (!el) return;
+        var slide = el.closest('.swiper-slide');
+        var name = slide ? slide.getAttribute('data-title') : '';
+        if (el.classList.contains('wa-btn')) {
+            track('klik-wa-pesan', 'Klik Pesan: ' + name);
+        } else if (el.classList.contains('media-btn')) {
+            var m = el.getAttribute('data-mtype');
+            track('klik-' + m, 'Klik ' + m + ': ' + name);
+        } else if (el.classList.contains('cta') || el.classList.contains('about-cta')) {
+            track('klik-wa-konsultasi', 'Klik Konsultasi Gratis');
+        } else {
+            track('klik-sosmed', 'Klik sosmed: ' + (el.getAttribute('aria-label') || ''));
+        }
+    }, true);
+})();
+</script>
 </body>
 
 </html>
