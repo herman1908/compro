@@ -72,7 +72,9 @@
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn" data-mtype="doc" data-slide="0" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
-                            <button type="button" class="media-btn" data-mtype="video" data-slide="0" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn" data-mtype="video" data-slide="0" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn" data-mtype="price" data-slide="0" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn" data-mtype="trial" data-slide="0" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
                         </div>
                         <div class="specs">
                             <span><b>Integrated</b> db</span>
@@ -95,7 +97,9 @@
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn red-c" data-mtype="doc" data-slide="1" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
-                            <button type="button" class="media-btn red-c" data-mtype="video" data-slide="1" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn red-c" data-mtype="video" data-slide="1" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn red-c" data-mtype="price" data-slide="1" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn red-c" data-mtype="trial" data-slide="1" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
                         </div>
                         <div class="specs red-c">
                             <span><b>Cepat</b> Tepat</span>
@@ -119,7 +123,9 @@
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn blue-c" data-mtype="doc" data-slide="2" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
-                            <button type="button" class="media-btn blue-c" data-mtype="video" data-slide="2" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn blue-c" data-mtype="video" data-slide="2" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn blue-c" data-mtype="price" data-slide="2" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn blue-c" data-mtype="trial" data-slide="2" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
                         </div>
                         <div class="specs blue-c">
                             <span><b>Informatif</b> Status</span>
@@ -142,7 +148,9 @@
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn green-c" data-mtype="doc" data-slide="3" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
-                            <button type="button" class="media-btn green-c" data-mtype="video" data-slide="3" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn green-c" data-mtype="video" data-slide="3" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn green-c" data-mtype="price" data-slide="3" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn green-c" data-mtype="trial" data-slide="3" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
                         </div>
                         <div class="specs green-c">
                             <span><b>Akurat</b> Realisasi</span>
@@ -165,7 +173,9 @@
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn purple-c" data-mtype="doc" data-slide="4" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
-                            <button type="button" class="media-btn purple-c" data-mtype="video" data-slide="4" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn purple-c" data-mtype="video" data-slide="4" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn purple-c" data-mtype="price" data-slide="4" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn purple-c" data-mtype="trial" data-slide="4" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
                         </div>
                         <div class="specs purple-c">
                             <span><b>Responsif</b> Ringan</span>
@@ -384,6 +394,14 @@
                         if (window.openVideoModal) window.openVideoModal('video/' + base + '.mp4', title);
                         return;
                     }
+                    if (type === 'price') {
+                        if (window.openPriceModal) window.openPriceModal(title, (typeof PRICES !== 'undefined' && PRICES[s]) || '');
+                        return;
+                    }
+                    if (type === 'trial') {
+                        window.open('https://wa.me/6285216758721?text=' + encodeURIComponent('Halo RoboKomputer, saya mau trial gratis ' + title + '. Bagaimana caranya?'), '_blank', 'noopener');
+                        return;
+                    }
                     if (window.openDocModal) window.openDocModal('Spesifikasi/' + base + '.txt', 'Spesifikasi & TechStack — ' + title);
                 });
             });
@@ -597,7 +615,7 @@
             // Klik tombol penting. Pakai capture (true) karena handler tombol media
             // memakai stopPropagation, jadi klik biasa di document tidak akan tertangkap.
             document.addEventListener('click', function (e) {
-                var el = e.target.closest('.wa-btn, .cta, .about-cta, .media-btn, .social a');
+                var el = e.target.closest('.wa-btn, .cta, .about-cta, .media-btn, .social a, .wa-float');
                 if (!el) return;
                 var slide = el.closest('.swiper-slide');
                 var name = slide ? slide.getAttribute('data-title') : '';
@@ -606,7 +624,7 @@
                 } else if (el.classList.contains('media-btn')) {
                     var m = el.getAttribute('data-mtype');
                     track('klik-' + m, 'Klik ' + m + ': ' + name);
-                } else if (el.classList.contains('cta') || el.classList.contains('about-cta')) {
+                } else if (el.classList.contains('cta') || el.classList.contains('about-cta') || el.classList.contains('wa-float')) {
                     track('klik-wa-konsultasi', 'Klik Konsultasi Gratis');
                 } else {
                     track('klik-sosmed', 'Klik sosmed: ' + (el.getAttribute('aria-label') || ''));
@@ -670,6 +688,67 @@
             window.openDocModal = openDoc;
         })();
     </script>
+
+    <!-- Modal Harga -->
+    <div class="modal-overlay" id="priceModal" aria-hidden="true">
+        <div class="price-modal" role="dialog" aria-modal="true" aria-labelledby="priceTitle">
+            <button type="button" class="modal-close" id="priceClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <div class="price-tag"><i class="fas fa-tag"></i></div>
+            <h3 id="priceTitle">Harga</h3>
+            <p class="price-product" id="priceProduct"></p>
+            <p class="price-value" id="priceValue"></p>
+            <p class="price-note" id="priceNote" hidden></p>
+            <a href="#" id="priceCta" target="_blank" rel="noopener" class="about-cta">Pesan via WA <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <script>
+        // Modal harga per produk — daftar harga diisi di PRICES
+        var PRICES = ['Rp 9.000.000,-', 'Rp 399.000,- (offline) s/d Rp 1.100.000,- (online, 200rb/bln)', 'Rp 500 ribu', 'Rp 3 Juta - 10 Juta', 'Rp 400 ribu s/d 4 Juta'];
+        (function () {
+            var modal = document.getElementById('priceModal');
+            var titleEl = document.getElementById('priceTitle');
+            var productEl = document.getElementById('priceProduct');
+            var valueEl = document.getElementById('priceValue');
+            var noteEl = document.getElementById('priceNote');
+            var ctaEl = document.getElementById('priceCta');
+            var closeBtn = document.getElementById('priceClose');
+            if (!modal) return;
+            function openPrice(product, price) {
+                if (titleEl) titleEl.textContent = 'Harga';
+                if (productEl) productEl.textContent = product || '';
+                if (price) {
+                    if (valueEl) valueEl.textContent = price;
+                    if (noteEl) noteEl.hidden = true;
+                } else {
+                    if (valueEl) valueEl.textContent = 'Hubungi kami';
+                    if (noteEl) {
+                        noteEl.textContent = 'Harga terbaru menyusul — tanya langsung via WA ya.';
+                        noteEl.hidden = false;
+                    }
+                }
+                if (ctaEl) ctaEl.href = 'https://wa.me/6285216758721?text=' + encodeURIComponent('Halo RoboKomputer, berapa harga ' + (product || 'produk ini') + '?');
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+            }
+            function closePrice() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            if (closeBtn) closeBtn.addEventListener('click', closePrice);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closePrice();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closePrice();
+            });
+            window.openPriceModal = openPrice;
+        })();
+    </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp" title="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
 </body>
 
 </html>
