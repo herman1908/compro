@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" as="image" href="images/img-1.webp" fetchpriority="high">
 </head>
 
 <body>
@@ -67,7 +68,7 @@
                             <div class="big"><span>B</span><span>U</span><span>I</span><span>L</span><span>D</span></div>
                         </div>
                         <div class="image">
-                            <img src="images/img-1.png" alt="">
+                            <img src="images/img-1.webp" alt="" decoding="async" fetchpriority="high">
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn" data-mtype="doc" data-slide="0" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
@@ -90,7 +91,7 @@
                             <div class="big">SCAN</div>
                         </div>
                         <div class="image">
-                            <img src="images/img-2.png" alt="">
+                            <img src="images/img-2.webp" alt="" decoding="async">
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn red-c" data-mtype="doc" data-slide="1" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
@@ -114,7 +115,7 @@
                             <div class="big">TRACK</div>
                         </div>
                         <div class="image">
-                            <img src="images/img-3.png" alt="">
+                            <img src="images/img-3.webp" alt="" decoding="async">
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn blue-c" data-mtype="doc" data-slide="2" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
@@ -137,7 +138,7 @@
                             <div class="big">TRACE</div>
                         </div>
                         <div class="image">
-                            <img src="images/img-4.png" alt="">
+                            <img src="images/img-4.webp" alt="" decoding="async">
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn green-c" data-mtype="doc" data-slide="3" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
@@ -160,7 +161,7 @@
                             <div class="big">SHOW UP!</div>
                         </div>
                         <div class="image">
-                            <img src="images/img-5.png" alt="">
+                            <img src="images/img-5.webp" alt="" decoding="async">
                         </div>
                         <div class="media-btns">
                             <button type="button" class="media-btn purple-c" data-mtype="doc" data-slide="4" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
@@ -185,6 +186,18 @@
 
     <!-- Initialize Swiper -->
     <script>
+        // Preload gambar slide + mode cepat untuk HP / hemat-data
+        (function () {
+            ['img-2', 'img-3', 'img-4', 'img-5'].forEach(function (n) {
+                var im = new Image();
+                im.src = 'images/' + n + '.webp';
+            });
+            var conn = navigator.connection || {};
+            var hematData = conn.saveData || /2g/.test(conn.effectiveType || '');
+            var isHP = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+            if ((isHP || hematData) && window.gsap) gsap.globalTimeline.timeScale(1.5);
+        })();
+
         var swiper = new Swiper(".swiper", {
             direction: "vertical",
             slidesPerView: 1,
