@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://robo.work.gd/sitemap.xml
