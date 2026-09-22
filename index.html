@@ -102,7 +102,7 @@
                     <div class="content">
                         <div class="title">
                             <div class="small">Let's</div>
-                            <div class="big"><span>B</span><span>U</span><span>I</span><span>L</span><span>D</span></div>
+                            <div class="big"><span>C</span><span>H</span><span>E</span><span>C</span><span>K</span></div>
                         </div>
                         <div class="image">
                             <img src="images/img-1.webp" alt="Pantau kehadiran real-time dengan integrasi database LIVE" decoding="async">
@@ -348,7 +348,7 @@
                 if (bgB) gsap.fromTo(bgB, { y: 1000 }, { y: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
                 if (img) gsap.fromTo(img, { x: 1000, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', overwrite: 'auto', clearProps: 'transform' });
                 if (small) gsap.fromTo(small, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 1.1, ease: 'power2.out', overwrite: 'auto' });
-                if (bigSpans.length) gsap.fromTo(bigSpans, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 1.1, ease: 'back.out(1.5)', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 1.0, ease: 'bounce.out', overwrite: 'auto' });
                 if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.4, ease: 'power2.out', overwrite: 'auto' });
             } else if (idx === 1) {
                 // Slide 2 SCAN: pertemuan sisi horizontal (kiri-kanan) + image zoom + text dropdown
@@ -356,7 +356,7 @@
                 if (bgB) gsap.fromTo(bgB, { x: 1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
                 if (img) gsap.fromTo(img, { scale: 0, rotation: -30, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 1.1, ease: 'back.out(1.4)', overwrite: 'auto', clearProps: 'transform' });
                 if (small) gsap.fromTo(small, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
-                if (big) gsap.fromTo(big, { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 1.0, ease: 'bounce.out', overwrite: 'auto' });
+                if (bigSpans.length) gsap.fromTo(bigSpans, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 1.0, ease: 'back.out(1.5)', overwrite: 'auto' });
                 if (specs.length) gsap.fromTo(specs, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.2, ease: 'power2.out', overwrite: 'auto' });
             } else if (idx === 2) {
                 // Slide 3 TRACK: dropdown panel (jatuh dari atas) + image spin 360
