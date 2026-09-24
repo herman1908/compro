@@ -1,5 +1,5 @@
 🌏Web Dashboard
-Spesifikasi dan Fungsi :
+📑Spesifikasi dan Fungsi :
 Fungsi utama Landing Page
 🎯 Memperkenalkan Produk / Jasa
 Menjelaskan secara singkat siapa bisnis Anda.Menampilkan produk atau jasa yang ditawarkan.

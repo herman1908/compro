@@ -7,9 +7,9 @@
 ✔Aman dan Bebas Manipulasi data (karena di Lokal dan ter-enskripsi).
 
 ⚙TechStack :
-VB 6.0
-Sql Server
-PostgreSql
-TabX
-FarPoint.Spread.v8.0.7
-Crystal Report 8.5🚀
+✔VB 6.0
+✔Sql Server
+✔PostgreSql
+✔TabX
+✔FarPoint.Spread.v8.0.7
+✔Crystal Report 8.5🚀

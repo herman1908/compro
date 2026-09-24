@@ -5,7 +5,7 @@ Spesifikasi dan Fungsi :
 ✔Journey tracker (steps Done/Active/Pending/Skipped), floor map, log timeline
 ✔monitor_dashboard.html: CPU/IO/Blocking/Query load, DB files, transaction log, wait stats, blocking chain, long queries, auto-refresh 15s
 
-TechStack :
+⚙TechStack :
 Backend
 ✔PHP di XAMPP Apache Windows (C:\xampp\htdocs\dashboard_dprint)
 ✔Koneksi DB: PDO ODBC bawaan XAMPP ke Microsoft SQL Server - koneksi.php:140 (DB_SERVER=., DB_NAME=USER_DASHBOARD, DB_DRIVER=SQL Server, fallback ke ODBC Driver 11/13/17/18)
@@ -20,4 +20,4 @@ Frontend :
 ✔Three.js r128 (lib/three.min.js + shader-bg.js) - animated background 
 ✔DLL.
 
-Database : Bisa Koneksi ke SQL Server 20xx Atau PostgreSQL
+🛢 Database : Bisa Koneksi ke SQL Server 20xx Atau PostgreSQL
