@@ -8,7 +8,7 @@ Spesifikasi dan Fungsi :
 TechStack :
 Backend
 ✔PHP di XAMPP Apache Windows (C:\xampp\htdocs\dashboard_dprint)
-✔Koneksi DB: PDO ODBC bawaan XAMPP ke Microsoft SQL Server - koneksi.php:140 (DB_SERVER=., DB_NAME=dprint, DB_DRIVER=SQL Server, fallback ke ODBC Driver 11/13/17/18)
+✔Koneksi DB: PDO ODBC bawaan XAMPP ke Microsoft SQL Server - koneksi.php:140 (DB_SERVER=., DB_NAME=USER_DASHBOARD, DB_DRIVER=SQL Server, fallback ke ODBC Driver 11/13/17/18)
 ✔REST-like JSON API: api_kartu.php, api_detail.php, api_pesanan.php, api_search.php, api_journey.php, api_finishing_item.php, api_monitor.php, api_theme.php, api_config.php, theme.php
 ✔DLL.
 
@@ -20,4 +20,4 @@ Frontend :
 ✔Three.js r128 (lib/three.min.js + shader-bg.js) - animated background 
 ✔DLL.
 
-Database : Koneksi ke SQL Server 20xx.
+Database : Bisa Koneksi ke SQL Server 20xx Atau PostgreSQL

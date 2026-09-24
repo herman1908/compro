@@ -1,4 +1,12 @@
 🖥Desktop Aplikasi
+📋Spesifikasi dan Fungsi :
+✔Menampilkan Absensi Realtime dari data Face recognation/ Fingerprint
+✔Bisa tampil di layar besar (video Tron)
+✔Ringan dan Flexible
+✔Disertai Report Absensi
+✔Aman dan Bebas Manipulasi data (karena di Lokal dan ter-enskripsi).
+
+⚙TechStack :
 VB 6.0
 Sql Server
 PostgreSql
