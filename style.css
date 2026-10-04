@@ -1003,7 +1003,7 @@ main{
 .wa-float{
     position: fixed;
     right: 22px;
-    bottom: 22px;
+    bottom: 96px; /* dinaikkan biar nggak numpuk sama bubble chat n8n di kanan bawah */
     width: 56px;
     height: 56px;
     border-radius: 50%;
@@ -1039,8 +1039,15 @@ main{
         height: 52px;
         font-size: 27px;
         right: 12px;
-        bottom: 54px;
+        bottom: 92px; /* tetap di atas bubble chat n8n */
     }
+}
+
+/* ===== n8n Chat Widget (tema brand RoboKomputer) ===== */
+:root{
+    --chat--color-primary: #1F4EBD;   /* biru "Robo" — bubble user, tombol kirim, toggle */
+    --chat--color-secondary: #F36F21; /* oranye "Komputer" — aksen header */
+    --chat--border-radius: 12px;
 }
 @media (max-width: 480px){
     .about-modal{

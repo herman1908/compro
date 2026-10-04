@@ -21,6 +21,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="shortcut icon" href="images/" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/icon.png" />
@@ -760,6 +761,34 @@
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp" title="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- n8n Chat Widget (bubble kanan bawah) -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            // Webhook Chat Trigger n8n (via Cloudflare Tunnel)
+            webhookUrl: 'https://offer-texture-apr-iso.trycloudflare.com/webhook/ec30ced0-2ef3-4017-b966-1e41a20c96c6/chat',
+            mode: 'window',
+            defaultLanguage: 'id',
+            loadPreviousSession: true,
+            showWelcomeScreen: false,
+            initialMessages: [
+                'Halo! 👋',
+                'Ane asisten virtual RoboKomputer. Mau tanya soal jasa pembuatan aplikasi atau service laptop? Silakan!'
+            ],
+            i18n: {
+                id: {
+                    title: 'Halo! 👋',
+                    subtitle: 'Tanya apa aja soal layanan RoboKomputer, kami siap bantu.',
+                    footer: '',
+                    getStarted: 'Mulai Chat',
+                    inputPlaceholder: 'Ketik pesan...',
+                    closeButtonTooltip: 'Tutup chat',
+                },
+            },
+        });
+    </script>
 </body>
 
 </html>
