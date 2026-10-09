@@ -60,9 +60,10 @@
                     <a href="#" data-go="2">Dashboard Tracking</a>
                     <a href="#" data-go="3">Traceability</a>
                     <a href="#" data-go="4">Landing Page</a>
+                    <a href="#" data-go="5">Service Laptop</a>
                 </div>
             </div>
-            <a href="#" data-go="4">Kontak</a>
+            <a href="#" data-go="5">Kontak</a>
             <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="cta">Konsultasi Gratis</a>
             <div class="visitor-line nav-visitor">
                 <i class="fas fa-eye"></i>
@@ -194,7 +195,33 @@
                             <span><b>Aesthetic</b> Modern</span>
                             <span><b>SEO</b> Teratas</span>
                             <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Landing%20Page%20(SHOW%20UP!).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn purple-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
-                            <button type="button" class="purple-c btn-home" id="btnHome" onclick="goHome(event)"><i class="fas fa-home"></i> Beranda</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="Service Laptop Profesional" data-desc="Laptop lemot, rusak, atau kena virus? Diagnosa GRATIS, sparepart berkualitas, pengerjaan cepat & bergaransi di Tangerang.">
+                    <div class="orange"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Let's</div>
+                            <div class="big">REPAIR</div>
+                        </div>
+                        <div class="image">
+                            <!-- Foto: Pexels (lisensi gratis, bebas pakai komersial) — teknisi servis laptop -->
+                            <img src="images/img-6.jpg" alt="Teknisi profesional sedang servis laptop di meja kerja" decoding="async">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn orange-c" data-mtype="doc" data-slide="5" aria-label="Daftar layanan" title="Layanan & Harga"><i class="fas fa-book-open"></i></button>
+                                <button type="button" class="media-btn orange-c" data-mtype="video" data-slide="5" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn orange-c" data-mtype="price" data-slide="5" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn orange-c" data-mtype="trial" data-slide="5" aria-label="Diagnosa gratis" title="Diagnosa Gratis"><i class="fas fa-stethoscope"></i></button>
+                        </div>
+                        <div class="specs orange-c">
+                            <span><b>Diagnosa</b> Gratis</span>
+                            <span><b>Bergaransi</b> Servis</span>
+                            <span><b>Sparepart</b> Berkualitas</span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20laptop%20saya%20bermasalah.%20Boleh%20minta%20diagnosa%20gratis%3F" target="_blank" rel="noopener" class="wa-btn orange-c">Servis Sekarang! <i class="fas fa-arrow-right"></i></a>
+                            <button type="button" class="orange-c btn-home" id="btnHome" onclick="goHome(event)" aria-label="Beranda" title="Beranda"><i class="fas fa-home"></i></button>
                         </div>
                     </div>
                 </div>
@@ -214,6 +241,8 @@
                 var im = new Image();
                 im.src = 'images/' + n + '.webp';
             });
+            var im6 = new Image();
+            im6.src = 'images/img-6.jpg';
             var conn = navigator.connection || {};
             var hematData = conn.saveData || /2g/.test(conn.effectiveType || '');
             var isHP = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
@@ -383,6 +412,14 @@
                 if (small) gsap.fromTo(small, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'elastic.out(1,0.6)', overwrite: 'auto' });
                 if (big) gsap.fromTo(big, { y: 150, opacity: 0, scale: 0.7 }, { y: 0, opacity: 0.5, scale: 1, duration: 0.9, delay: 1.0, ease: 'elastic.out(1,0.5)', overwrite: 'auto' });
                 if (specs.length) gsap.fromTo(specs, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 5) {
+                // Slide 6 REPAIR: panel geser kiri-kanan + image pop memantul + text dropdown
+                if (bgA) gsap.fromTo(bgA, { x: -1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { x: 1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.1, ease: 'bounce.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 120, opacity: 0 }, { y: 0, opacity: 0.5, duration: 0.8, delay: 1.0, ease: 'back.out(1.5)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
             }
             // Tombol buku + video ikut fade-in tiap slide (opacity saja biar posisi center tidak kegeser)
             if (mediaBtns.length) gsap.fromTo(mediaBtns, { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.1, delay: 1.35, ease: 'power2.out', overwrite: 'auto' });
@@ -411,7 +448,10 @@
                         return;
                     }
                     if (type === 'trial') {
-                        window.open('https://wa.me/6285216758721?text=' + encodeURIComponent('Halo RoboKomputer, saya mau trial gratis ' + title + '. Bagaimana caranya?'), '_blank', 'noopener');
+                        var msg = title.indexOf('Service') !== -1
+                            ? 'Halo RoboKomputer, laptop saya bermasalah. Boleh minta diagnosa gratis? (' + title + ')'
+                            : 'Halo RoboKomputer, saya mau trial gratis ' + title + '. Bagaimana caranya?';
+                        window.open('https://wa.me/6285216758721?text=' + encodeURIComponent(msg), '_blank', 'noopener');
                         return;
                     }
                     if (window.openDocModal) window.openDocModal('Spesifikasi/' + base + '.txt', 'Spesifikasi & TechStack — ' + title);
@@ -715,7 +755,7 @@
     </div>
     <script>
         // Modal harga per produk — daftar harga diisi di PRICES
-        var PRICES = ['Rp 399.000,- (offline) s/d Rp 1.100.000,- (online, 200rb/bln)', 'Rp 9.000.000,-', 'Rp 500 ribu', 'Rp 3 Juta - 10 Juta', 'Rp 400 ribu s/d 4 Juta'];
+        var PRICES = ['Rp 399.000,- (offline) s/d Rp 1.100.000,- (online, 200rb/bln)', 'Rp 9.000.000,-', 'Rp 500 ribu', 'Rp 3 Juta - 10 Juta', 'Rp 400 ribu s/d 4 Juta', 'Mulai Rp 50 ribu (diagnosa GRATIS, sparepart dihitung terpisah)'];
         (function () {
             var modal = document.getElementById('priceModal');
             var titleEl = document.getElementById('priceTitle');
