@@ -762,31 +762,127 @@
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp" title="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
+    <!-- Chat offline fallback — muncul kalau server n8n lagi nggak bisa dihubungi -->
+    <div class="chat-offline-hint" id="chatOfflineHint" hidden>
+        🚧 Chatbot lagi <strong>under construction</strong> — sementara chat via WA ya!
+        <button type="button" id="chatOfflineHintClose" aria-label="Tutup">&times;</button>
+    </div>
+    <button type="button" id="chatOfflineToggle" class="chat-offline-toggle" hidden
+        aria-label="Chat (sedang gangguan)" title="Chat (sedang gangguan)">
+        <i class="fas fa-comment-slash"></i>
+    </button>
+    <div class="chat-offline-panel" id="chatOfflinePanel" hidden role="dialog" aria-label="Chat sedang gangguan">
+        <div class="cop-header">Halo! 👋</div>
+        <div class="cop-body">
+            <p>Yah, asisten virtualnya lagi <strong>under construction</strong> 🚧 — nggak bisa konek ke server chat kami.
+                Coba beberapa saat lagi, atau langsung:</p>
+            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20chatbot-nya%20lagi%20gangguan"
+                target="_blank" rel="noopener" class="cop-wa"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
+        </div>
+    </div>
+
     <!-- n8n Chat Widget (bubble kanan bawah) -->
     <script type="module">
         import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-        createChat({
-            // Webhook Chat Trigger n8n (via Cloudflare Tunnel)
-            webhookUrl: 'https://offer-texture-apr-iso.trycloudflare.com/webhook/ec30ced0-2ef3-4017-b966-1e41a20c96c6/chat',
-            mode: 'window',
-            defaultLanguage: 'id',
-            loadPreviousSession: true,
-            showWelcomeScreen: false,
-            initialMessages: [
-                'Halo! 👋',
-                'Ane asisten virtual RoboKomputer. Mau tanya soal jasa pembuatan aplikasi atau service laptop? Silakan!'
-            ],
-            i18n: {
-                id: {
-                    title: 'Halo! 👋',
-                    subtitle: 'Tanya apa aja soal layanan RoboKomputer, kami siap bantu.',
-                    footer: '',
-                    getStarted: 'Mulai Chat',
-                    inputPlaceholder: 'Ketik pesan...',
-                    closeButtonTooltip: 'Tutup chat',
+        // Webhook Chat Trigger n8n (via Cloudflare Tunnel) — ganti di sini kalau URL tunnel berubah
+        var N8N_WEBHOOK_URL = 'https://offer-texture-apr-iso.trycloudflare.com/webhook/ec30ced0-2ef3-4017-b966-1e41a20c96c6/chat';
+        var WA_LINK = 'https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20chatbot-nya%20lagi%20gangguan';
+
+        var chatInited = false;
+        function initN8nChat() {
+            if (chatInited) return;
+            chatInited = true;
+            createChat({
+                webhookUrl: N8N_WEBHOOK_URL,
+                mode: 'window',
+                defaultLanguage: 'id',
+                loadPreviousSession: true,
+                showWelcomeScreen: false,
+                initialMessages: [
+                    'Halo! 👋',
+                    'Ane asisten virtual RoboKomputer. Mau tanya soal jasa pembuatan aplikasi atau service laptop? Silakan!'
+                ],
+                i18n: {
+                    id: {
+                        title: 'Halo! 👋',
+                        subtitle: 'Tanya apa aja soal layanan RoboKomputer, kami siap bantu.',
+                        footer: '',
+                        getStarted: 'Mulai Chat',
+                        inputPlaceholder: 'Ketik pesan...',
+                        closeButtonTooltip: 'Tutup chat',
+                    },
                 },
-            },
+            });
+        }
+
+        // Health check: persis kayak request widget. Kalau n8n unreachable (tunnel mati/dll),
+        // fetch-nya THROW (kena CORS/network) → kita anggap offline.
+        function isChatOnline() {
+            return fetch(N8N_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ sessionId: 'health-check', action: 'loadPreviousSession' })
+            }).then(function () { return true; }).catch(function () { return false; });
+        }
+
+        // Ganti pesan "Error in workflow" bawaan widget jadi pesan ramah + arahkan ke WA
+        // (widget @n8n/chat nggak nyediain opsi resmi buat ngubah teks error, jadi kita intercept DOM-nya)
+        (function () {
+            var ERROR_TEXT = 'Error in workflow';
+            var FRIENDLY_HTML = 'Yah, asistennya lagi gangguan 😅 Coba beberapa saat lagi, atau langsung '
+                + '<a href="' + WA_LINK + '" target="_blank" rel="noopener"><strong>chat via WhatsApp</strong></a> ya!';
+            new MutationObserver(function () {
+                document.querySelectorAll('.chat-message').forEach(function (el) {
+                    if (el.dataset.errFixed) return;
+                    if (el.textContent.trim() === ERROR_TEXT) {
+                        el.dataset.errFixed = '1';
+                        el.innerHTML = FRIENDLY_HTML;
+                        el.classList.add('chat-error-friendly');
+                    }
+                });
+            }).observe(document.body, { childList: true, subtree: true, characterData: true });
+        })();
+
+        // Offline UI: toggle custom yang ngecek ulang tiap diklik — kalau server udah hidup, widget asli langsung dimuat
+        var offlineToggle = document.getElementById('chatOfflineToggle');
+        var offlinePanel = document.getElementById('chatOfflinePanel');
+        var offlineHint = document.getElementById('chatOfflineHint');
+        var offlineHintClose = document.getElementById('chatOfflineHintClose');
+        function openRealChat() {
+            if (offlineToggle) offlineToggle.hidden = true;
+            if (offlinePanel) offlinePanel.hidden = true;
+            if (offlineHint) offlineHint.hidden = true;
+            initN8nChat();
+            setTimeout(function () {
+                var t = document.querySelector('.chat-window-toggle');
+                if (t) t.click();
+            }, 400);
+        }
+        isChatOnline().then(function (online) {
+            if (online) {
+                initN8nChat();
+            } else {
+                if (offlineToggle) offlineToggle.hidden = false;
+                if (offlineHint) offlineHint.hidden = false; // label under construction langsung kelihatan
+            }
+        });
+        if (offlineToggle) offlineToggle.addEventListener('click', function () {
+            isChatOnline().then(function (online) {
+                if (online) {
+                    openRealChat();
+                } else if (offlinePanel) {
+                    offlinePanel.hidden = !offlinePanel.hidden;
+                    if (offlineHint) offlineHint.hidden = true; // panel kebuka, hint disembunyiin biar nggak dobel
+                }
+            });
+        });
+        if (offlineHintClose) offlineHintClose.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (offlineHint) offlineHint.hidden = true;
+        });
+        if (offlineHint) offlineHint.addEventListener('click', function () {
+            if (offlineToggle) offlineToggle.click(); // klik hint = buka panel info
         });
     </script>
 </body>

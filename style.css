@@ -1049,6 +1049,138 @@ main{
     --chat--color-secondary: #F36F21; /* oranye "Komputer" — aksen header */
     --chat--border-radius: 12px;
 }
+
+/* Bubble pesan gangguan (pengganti "Error in workflow") */
+.chat-message.chat-error-friendly{
+    background: #FFF4E5;
+    border: 2px solid #F36F21;
+}
+.chat-message.chat-error-friendly a{
+    color: #1F4EBD;
+}
+
+/* ===== Chat offline fallback (server n8n unreachable) ===== */
+.chat-offline-hint{
+    position: fixed;
+    right: 96px; /* nongol di kiri tombol offline */
+    bottom: 38px;
+    max-width: 260px;
+    background: #FFF4E5;
+    border: 3px solid #141414;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 #141414;
+    padding: 10px 34px 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #141414;
+    z-index: 95;
+    cursor: pointer;
+    animation: hintPop 0.3s ease;
+}
+.chat-offline-hint strong{
+    color: #F36F21;
+}
+.chat-offline-hint button{
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    color: #141414;
+    opacity: 0.6;
+    padding: 2px;
+}
+.chat-offline-hint button:hover{
+    opacity: 1;
+}
+@keyframes hintPop{
+    from{ transform: translateY(8px); opacity: 0; }
+    to{ transform: translateY(0); opacity: 1; }
+}
+.chat-offline-toggle{
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #1F4EBD;
+    color: #fff;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 95;
+    opacity: 0.8;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.chat-offline-toggle:hover{
+    opacity: 1;
+    transform: scale(1.08);
+}
+.chat-offline-panel{
+    position: fixed;
+    right: 22px;
+    bottom: 168px; /* di atas tombol WA float biar nggak numpuk */
+    width: 300px;
+    max-width: calc(100vw - 44px);
+    background: #fff;
+    border: 3px solid #141414;
+    border-radius: 14px;
+    box-shadow: 5px 5px 0 #141414;
+    z-index: 95;
+    overflow: hidden;
+}
+.chat-offline-panel .cop-header{
+    background: #101330;
+    color: #fff;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.chat-offline-panel .cop-body{
+    padding: 14px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.chat-offline-panel .cop-body p{
+    margin: 0 0 10px;
+}
+.chat-offline-panel .cop-wa{
+    display: inline-block;
+    background: #25D366;
+    color: #fff;
+    padding: 9px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.chat-offline-panel .cop-wa:hover{
+    filter: brightness(0.95);
+}
+@media (max-width: 480px){
+    .chat-offline-toggle{
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+        right: 12px;
+        bottom: 22px;
+    }
+    .chat-offline-panel{
+        right: 12px;
+        bottom: 160px;
+    }
+    .chat-offline-hint{
+        right: 76px;
+        bottom: 30px;
+        max-width: 200px;
+        font-size: 12px;
+        padding: 8px 30px 8px 10px;
+    }
+}
 @media (max-width: 480px){
     .about-modal{
         padding: 22px 18px 18px;
