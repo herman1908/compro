@@ -526,6 +526,52 @@ main{
     border: 1px solid #fff;
 }
 
+/* ===== Glints retro: kilau jalan berurutan 01 -> 06, penanda masih ada slide di bawah ===== */
+.swiper-pagination-bullet{
+    position: relative;
+    overflow: hidden;
+}
+.swiper-pagination-bullet::after{
+    content: "";
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    left: -70%;
+    width: 45%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.9), transparent);
+    transform: skewX(-20deg);
+    opacity: 0;
+    pointer-events: none;
+    animation: glintSweep 3.6s ease-in-out infinite;
+}
+.swiper-pagination-bullet > span{
+    display: inline-block;
+    animation: glintPop 3.6s ease-in-out infinite;
+}
+.swiper-pagination-bullet:nth-child(1)::after, .swiper-pagination-bullet:nth-child(1) > span{ animation-delay: 0s; }
+.swiper-pagination-bullet:nth-child(2)::after, .swiper-pagination-bullet:nth-child(2) > span{ animation-delay: 0.4s; }
+.swiper-pagination-bullet:nth-child(3)::after, .swiper-pagination-bullet:nth-child(3) > span{ animation-delay: 0.8s; }
+.swiper-pagination-bullet:nth-child(4)::after, .swiper-pagination-bullet:nth-child(4) > span{ animation-delay: 1.2s; }
+.swiper-pagination-bullet:nth-child(5)::after, .swiper-pagination-bullet:nth-child(5) > span{ animation-delay: 1.6s; }
+.swiper-pagination-bullet:nth-child(6)::after, .swiper-pagination-bullet:nth-child(6) > span{ animation-delay: 2s; }
+@keyframes glintSweep{
+    0%{ left: -70%; opacity: 0; }
+    2%{ opacity: 1; }
+    10%{ left: 130%; opacity: 1; }
+    12%, 100%{ left: 130%; opacity: 0; }
+}
+@keyframes glintPop{
+    0%, 100%{ transform: scale(1); text-shadow: none; }
+    3%{ transform: scale(1.2); text-shadow: 0 0 10px rgba(255,255,255,0.95); }
+    9%{ transform: scale(1.12); text-shadow: 0 0 6px rgba(255,255,255,0.7); }
+    12%{ transform: scale(1); text-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce){
+    .swiper-pagination-bullet::after, .swiper-pagination-bullet > span{
+        animation: none;
+    }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 1024px){
     .content .image{
@@ -1052,11 +1098,44 @@ main{
     }
 }
 
-/* ===== n8n Chat Widget (tema brand RoboKomputer) ===== */
+/* ===== n8n Chat Widget (tema brand RoboKomputer, neubrutalism) ===== */
 :root{
-    --chat--color-primary: #1F4EBD;   /* biru "Robo" — bubble user, tombol kirim, toggle */
-    --chat--color-secondary: #F36F21; /* oranye "Komputer" — aksen header */
+    --chat--color--primary: #1F4EBD;         /* biru "Robo" — toggle, bubble user, tombol kirim */
+    --chat--color--primary-shade-50: #1A44A8;
+    --chat--color--primary-shade-100: #173C96;
+    --chat--color--secondary: #F36F21;       /* oranye "Komputer" — aksen */
+    --chat--color--secondary-shade-50: #D9641D;
     --chat--border-radius: 12px;
+    --chat--toggle--size: 56px;              /* samakan dengan tombol WA (56px) biar sejajar */
+    --chat--toggle--border-radius: 50%;
+    --chat--window--bottom: 22px;
+    --chat--window--right: 22px;
+}
+
+/* Toggle chat: border hitam + hard shadow khas neubrutalism */
+.chat-window-toggle{
+    border: 3px solid #141414 !important;
+    box-shadow: 4px 4px 0 #141414 !important;
+    transition: transform 0.25s ease !important;
+}
+.chat-window-toggle:hover{
+    transform: scale(1.08) !important;
+}
+
+/* Jendela chat: kartu sticker */
+.chat-window{
+    border: 3px solid #141414 !important;
+    border-radius: 14px !important;
+    box-shadow: 6px 6px 0 #141414 !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 480px){
+    :root{
+        --chat--toggle--size: 52px;
+        --chat--window--right: 12px;
+        --chat--window--bottom: 12px;
+    }
 }
 
 /* Bubble pesan gangguan (pengganti "Error in workflow") */
@@ -1113,21 +1192,19 @@ main{
     position: fixed;
     right: 22px;
     bottom: 22px;
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: #1F4EBD;
     color: #fff;
-    border: none;
-    font-size: 26px;
+    border: 3px solid #141414;
+    font-size: 24px;
     cursor: pointer;
     z-index: 95;
-    opacity: 0.8;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    box-shadow: 4px 4px 0 #141414;
+    transition: transform 0.25s ease;
 }
 .chat-offline-toggle:hover{
-    opacity: 1;
     transform: scale(1.08);
 }
 .chat-offline-panel{
