@@ -1108,6 +1108,7 @@ main{
     --chat--border-radius: 12px;
     --chat--toggle--size: 56px;              /* samakan dengan tombol WA (56px) biar sejajar */
     --chat--toggle--border-radius: 50%;
+    --chat--toggle--color: #F36F21;          /* ikon oranye "Komputer" di atas background biru */
     --chat--window--bottom: 22px;
     --chat--window--right: 22px;
 }
@@ -1117,6 +1118,11 @@ main{
     border: 3px solid #141414 !important;
     box-shadow: 4px 4px 0 #141414 !important;
     transition: transform 0.25s ease !important;
+}
+/* Ikon headset pengganti bubble bawaan widget */
+.chat-window-toggle .rk-headset{
+    font-size: 26px;
+    line-height: 1;
 }
 .chat-window-toggle:hover{
     transform: scale(1.08) !important;
@@ -1196,7 +1202,7 @@ main{
     height: 56px;
     border-radius: 50%;
     background: #1F4EBD;
-    color: #fff;
+    color: #F36F21; /* ikon oranye "Komputer" — kombo logo */
     border: 3px solid #141414;
     font-size: 24px;
     cursor: pointer;

@@ -809,7 +809,7 @@
     </div>
     <button type="button" id="chatOfflineToggle" class="chat-offline-toggle" hidden
         aria-label="Chat (sedang gangguan)" title="Chat (sedang gangguan)">
-        <i class="fas fa-comment-slash"></i>
+        <i class="fas fa-headset"></i>
     </button>
     <div class="chat-offline-panel" id="chatOfflinePanel" hidden role="dialog" aria-label="Chat sedang gangguan">
         <div class="cop-header">Halo! 👋</div>
@@ -882,6 +882,22 @@
                         el.classList.add('chat-error-friendly');
                     }
                 });
+                // Ganti ikon bubble bawaan widget jadi ikon headset (virtual assistant).
+                // Ikon chevron (saat chat terbuka) dibiarkan apa adanya.
+                var t = document.querySelector('.chat-window-toggle');
+                if (t && !t.querySelector('.rk-headset')) {
+                    var svg = t.querySelector('svg');
+                    if (svg) {
+                        var path = svg.querySelector('path');
+                        var isChevron = path && (path.getAttribute('d') || '').indexOf('M7.41,8.58') === 0;
+                        if (!isChevron) {
+                            var s = document.createElement('i');
+                            s.className = 'fas fa-headset rk-headset';
+                            s.setAttribute('aria-hidden', 'true');
+                            svg.replaceWith(s);
+                        }
+                    }
+                }
             }).observe(document.body, { childList: true, subtree: true, characterData: true });
         })();
 
