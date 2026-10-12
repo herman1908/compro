@@ -1130,10 +1130,10 @@ main{
 /* Foto helm Goggle Red sebagai icon chatbot */
 .chat-window-toggle .rk-headset-img,
 .chat-offline-toggle .rk-headset-img{
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    object-position: top center;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    object-position: center;
     border-radius: 50%;
     display: block;
     animation: robotNudge 3s ease-in-out infinite;
