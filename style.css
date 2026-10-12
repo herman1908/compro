@@ -1119,13 +1119,54 @@ main{
     box-shadow: 4px 4px 0 #141414 !important;
     transition: transform 0.25s ease !important;
 }
-/* Ikon headset pengganti bubble bawaan widget */
+/* Ikon robot pengganti bubble bawaan widget — goyang manja biar ngundang klik */
 .chat-window-toggle .rk-headset{
     font-size: 26px;
     line-height: 1;
+    display: inline-block;
+    animation: robotNudge 3s ease-in-out infinite;
+    transform-origin: 50% 80%;
+}
+/* Foto helm Goggle Red sebagai icon chatbot */
+.chat-window-toggle .rk-headset-img,
+.chat-offline-toggle .rk-headset-img{
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
+    display: block;
+    animation: robotNudge 3s ease-in-out infinite;
+    transform-origin: 50% 80%;
+}
+@keyframes robotNudge{
+    0%, 88%, 100%{ transform: rotate(0deg); }
+    90%{ transform: rotate(-12deg); }
+    92%{ transform: rotate(10deg); }
+    94%{ transform: rotate(-6deg); }
+    96%{ transform: rotate(4deg); }
+    98%{ transform: rotate(0deg); }
 }
 .chat-window-toggle:hover{
     transform: scale(1.08) !important;
+}
+/* Dot hijau online ala IG/TikTok — toggle asli cuma muncul kalau server n8n online */
+.chat-window-toggle::after{
+    content: "";
+    position: absolute;
+    right: -2px;
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00E676;
+    border: 3px solid #141414;
+    animation: chatOnlinePulse 1.8s ease-out infinite;
+}
+@keyframes chatOnlinePulse{
+    0%{ box-shadow: 0 0 0 0 rgba(0,230,118,0.7); }
+    70%{ box-shadow: 0 0 0 8px rgba(0,230,118,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(0,230,118,0); }
 }
 
 /* Jendela chat: kartu sticker */

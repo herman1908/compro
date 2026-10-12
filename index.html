@@ -809,7 +809,7 @@
     </div>
     <button type="button" id="chatOfflineToggle" class="chat-offline-toggle" hidden
         aria-label="Chat (sedang gangguan)" title="Chat (sedang gangguan)">
-        <i class="fas fa-headset"></i>
+        <img src="images/goggle-red.png" alt="Asisten Robo" class="rk-headset-img">
     </button>
     <div class="chat-offline-panel" id="chatOfflinePanel" hidden role="dialog" aria-label="Chat sedang gangguan">
         <div class="cop-header">Halo! 👋</div>
@@ -891,8 +891,10 @@
                         var path = svg.querySelector('path');
                         var isChevron = path && (path.getAttribute('d') || '').indexOf('M7.41,8.58') === 0;
                         if (!isChevron) {
-                            var s = document.createElement('i');
-                            s.className = 'fas fa-headset rk-headset';
+                            var s = document.createElement('img');
+                            s.src = 'images/goggle-red.png';
+                            s.alt = 'Asisten Robo';
+                            s.className = 'rk-headset-img';
                             s.setAttribute('aria-hidden', 'true');
                             svg.replaceWith(s);
                         }
