@@ -3,6 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self' https://wa.me; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: blob: https://visitor-badge.laobi.icu https://robo.goatcounter.com https://gc.zgo.at; connect-src 'self' https://robo.goatcounter.com https://gc.zgo.at https://connecticut-moscow-buf-region.trycloudflare.com https://offer-texture-apr-iso.trycloudflare.com; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://gc.zgo.at">
     <title>Aplikasi Web, Desktop & Service Laptop Tangerang | RoboKomputer</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -23,8 +30,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="shortcut icon" href="images/" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="img/icon.png" />
     <link rel="stylesheet" href="style.css">
     <link rel="preload" as="image" href="images/img-2.webp" fetchpriority="high">
 </head>
@@ -448,6 +453,9 @@
                         return;
                     }
                     if (type === 'trial') {
+                        // Rate limit klik: cegah double-click buka 2 tab WA
+                        if (window.__rkTrialAt && Date.now() - window.__rkTrialAt < 1200) return;
+                        window.__rkTrialAt = Date.now();
                         var msg = title.indexOf('Service') !== -1
                             ? 'Halo RoboKomputer, laptop saya bermasalah. Boleh minta diagnosa gratis? (' + title + ')'
                             : 'Halo RoboKomputer, saya mau trial gratis ' + title + '. Bagaimana caranya?';
@@ -649,7 +657,13 @@
     <script>
         // GoatCounter: catat slide yang dilihat & klik tombol penting
         (function () {
+            var lastTrack = {};
             function track(path, title) {
+                // Rate limit: event yang sama dalam 1.5 detik diabaikan
+                // (anti double-click / spam, biar statistik bersih & nggak lemot)
+                var now = Date.now();
+                if (lastTrack[path] && now - lastTrack[path] < 1500) return;
+                lastTrack[path] = now;
                 if (window.goatcounter && window.goatcounter.count) {
                     window.goatcounter.count({ path: path, title: title, event: true });
                 }
@@ -704,6 +718,56 @@
             var directEl = document.getElementById('docDirect');
             var closeBtn = document.getElementById('docClose');
             if (!modal || !bodyEl) return;
+
+            // Cache memori + localStorage: file spesifikasi cuma di-fetch sekali,
+            // buka ulang jadi instan (hemat kuota + hemat waktu).
+            var docCache = new Map();
+            var docPending = new Map();
+            var DOC_TTL = 24 * 60 * 60 * 1000;
+            function readDocCache(url) {
+                var item = docCache.get(url);
+                if (item && Date.now() - item.at < DOC_TTL) return item.txt;
+                try {
+                    var raw = localStorage.getItem('rkdoc:' + url);
+                    if (raw) {
+                        var parsed = JSON.parse(raw);
+                        if (parsed && typeof parsed.txt === 'string' && Date.now() - parsed.at < DOC_TTL) {
+                            docCache.set(url, parsed);
+                            return parsed.txt;
+                        }
+                    }
+                } catch (err) { }
+                return null;
+            }
+            function writeDocCache(url, txt) {
+                var item = { txt: txt, at: Date.now() };
+                docCache.set(url, item);
+                try { localStorage.setItem('rkdoc:' + url, JSON.stringify(item)); } catch (err) { }
+            }
+            function loadDoc(url) {
+                var cached = readDocCache(url);
+                if (cached !== null) return Promise.resolve(cached);
+                if (docPending.has(url)) return docPending.get(url);
+                var p = fetch(url)
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('404');
+                        return res.text();
+                    })
+                    .then(function (txt) {
+                        writeDocCache(url, txt);
+                        docPending.delete(url);
+                        return txt;
+                    })
+                    .catch(function (err) {
+                        docPending.delete(url);
+                        var stale = docCache.get(url);
+                        if (stale) return stale.txt;
+                        throw err;
+                    });
+                docPending.set(url, p);
+                return p;
+            }
+
             function openDoc(url, title) {
                 if (titleEl) titleEl.textContent = title || 'Spesifikasi';
                 if (errEl) errEl.hidden = true;
@@ -712,11 +776,7 @@
                 modal.classList.add('open');
                 modal.setAttribute('aria-hidden', 'false');
                 if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
-                fetch(url)
-                    .then(function (res) {
-                        if (!res.ok) throw new Error('404');
-                        return res.text();
-                    })
+                loadDoc(url)
                     .then(function (txt) {
                         bodyEl.textContent = txt;
                     })
@@ -943,6 +1003,17 @@
         if (offlineHint) offlineHint.addEventListener('click', function () {
             if (offlineToggle) offlineToggle.click(); // klik hint = buka panel info
         });
+    </script>
+
+    <!-- Service Worker: cache aset biar kunjungan berikutnya instan -->
+    <script>
+        (function () {
+            if (!('serviceWorker' in navigator)) return;
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') return;
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js').catch(function () {});
+            });
+        })();
     </script>
 </body>
 
