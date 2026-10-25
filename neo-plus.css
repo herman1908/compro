@@ -1,0 +1,199 @@
+/* =========================================================
+   NEO PLUS (versi polish halus) — rapiin tema neubrutalism yang ada
+   Cara mati-in: hapus <link ... neo-plus.css> + <script ... neo-plus.js> dari index.html
+   ========================================================= */
+:root{
+  --ink:#141414; --paper:#FFF9EF; --sun:#FFE08A;
+  --accent:#F36F21; --live-accent:#F36F21;
+  --pop:cubic-bezier(.34,1.56,.64,1);
+  --out:cubic-bezier(.22,1,.36,1);
+}
+/* warna aksen mengikuti warna panel tiap slide */
+.swiper-slide:has(> .red){--accent:#972826}
+.swiper-slide:has(> .yellow){--accent:#C4543D}
+.swiper-slide:has(> .blue){--accent:#103A7E}
+.swiper-slide:has(> .green){--accent:#1F7F73}
+.swiper-slide:has(> .purple){--accent:#6D5CA5}
+.swiper-slide:has(> .orange){--accent:#D85A10}
+
+::selection{background:var(--sun);color:var(--ink)}
+html{scroll-behavior:smooth}
+
+/* ---------- Progress slide (tipis, di paling atas) ---------- */
+.neo-progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:79;pointer-events:none}
+.neo-progress i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(var(--p,.17));
+  background:var(--sun);border-radius:0 4px 4px 0;box-shadow:0 2px 0 var(--ink)}
+
+/* ---------- Latar: kedalaman halus ---------- */
+.yellow,.blue,.red,.green,.purple,.orange{
+  background-image:linear-gradient(180deg,rgba(255,255,255,.09),rgba(0,0,0,.14));
+}
+.black{
+  background-color:var(--paper);
+  background-image:radial-gradient(rgba(20,20,20,.09) 1.2px,transparent 1.4px);
+  background-size:24px 24px;
+}
+
+/* ---------- Tipografi ---------- */
+.brand .logo{transition:translate .25s var(--out)}
+.app-title{
+  display:inline-block;padding-bottom:3px;margin-top:6px;
+  font-weight:700;letter-spacing:-.01em;border-bottom:3px solid var(--sun);
+}
+.app-title:empty{display:none}
+.app-desc{margin-top:8px;font-weight:500;line-height:1.55}
+.big{letter-spacing:-.02em}
+
+/* ---------- Gambar utama ---------- */
+.content .image img{transition:transform .5s var(--out),filter .5s ease,box-shadow .35s var(--out)}
+
+/* ---------- Chip spesifikasi ---------- */
+.specs span{
+  font-weight:500;padding:5px 12px;
+  transition:translate .2s var(--out),box-shadow .2s var(--out);
+}
+.specs span b{color:var(--accent);font-weight:700}
+.specs span:hover{translate:-1px -1px;box-shadow:4px 4px 0 var(--ink)}
+
+/* ---------- CTA ---------- */
+.specs .wa-btn{
+  font-weight:700;letter-spacing:.01em;
+  transition:translate .18s var(--out),box-shadow .18s var(--out),filter .2s;
+}
+.specs .wa-btn:hover{translate:-1px -1px;box-shadow:4px 4px 0 var(--ink);filter:brightness(1.06)}
+.specs .wa-btn:active{translate:3px 3px;box-shadow:0 0 0 var(--ink)}
+.specs .wa-btn i{transition:transform .2s var(--out)}
+.specs .wa-btn:hover i{transform:translateX(3px)}
+
+/* ---------- Menu, nomor slide, tombol media, sosmed ---------- */
+.menu{transition:translate .2s var(--out),box-shadow .2s var(--out),background-color .2s}
+.menu:hover{translate:-1px -1px;box-shadow:4px 4px 0 var(--ink)}
+.menu:active{translate:3px 3px;box-shadow:0 0 0 var(--ink)}
+.nav-dropdown{border-radius:16px;transition:opacity .25s ease,transform .35s var(--out)}
+.nav-dropdown a{font-weight:600;transition:padding-left .2s var(--out),background-color .2s,color .2s}
+.nav-dropdown a:hover{padding-left:16px}
+.swiper-pagination-bullet{font-weight:700;transition:opacity .25s,background-color .25s,color .25s}
+.swiper-pagination-bullet:hover{opacity:.9}
+.media-btns .media-btn{transition:translate .2s var(--out),box-shadow .2s var(--out),background-color .2s}
+.media-btn:hover{transform:none;translate:-1px -1px;box-shadow:4px 4px 0 var(--ink)}
+.media-btn:active{translate:3px 3px;box-shadow:0 0 0 var(--ink)}
+.social a:hover{transform:none;translate:-1px -1px;box-shadow:4px 4px 0 var(--ink)}
+.social a:active{translate:3px 3px;box-shadow:0 0 0 var(--ink)}
+
+/* ---------- Modal ---------- */
+.modal-overlay{background:rgba(20,20,20,.5)}
+.about-modal,.doc-modal,.price-modal{
+  overscroll-behavior:contain;
+  transform:translateY(26px) scale(.96);
+  transition:transform .45s var(--out);
+}
+.modal-overlay.open .about-modal,.modal-overlay.open .doc-modal,.modal-overlay.open .price-modal{transform:none}
+.about-cta{font-weight:700;transition:translate .18s var(--out),box-shadow .18s var(--out),background-color .2s}
+.about-cta:hover{translate:-1px -1px;box-shadow:4px 4px 0 var(--ink)}
+.about-cta:active{translate:3px 3px;box-shadow:0 0 0 var(--ink)}
+.doc-body{scroll-behavior:smooth;overscroll-behavior:contain;scrollbar-width:auto;scrollbar-color:var(--ink) var(--paper)}
+.doc-body::-webkit-scrollbar,.about-modal::-webkit-scrollbar{width:14px}
+.doc-body::-webkit-scrollbar-track,.about-modal::-webkit-scrollbar-track{background:var(--paper);border-left:3px solid var(--ink)}
+.doc-body::-webkit-scrollbar-thumb,.about-modal::-webkit-scrollbar-thumb{background:var(--sun);border:3px solid var(--ink);border-radius:8px}
+
+
+/* =========================================================
+   SISTEM SHADOW — dua tingkat, biar rapi & presisi
+   Kecil (tombol, chip, kartu, ikon): border 2px + shadow 3px
+   Besar (gambar utama, modal, dropdown): border 3px + shadow 5px
+   Semua shadow solid hitam tanpa blur, offset kanan-bawah yang sama.
+   ========================================================= */
+:root{--bw:2px;--sh:3px;--bw-lg:3px;--sh-lg:5px}
+
+/* --- tingkat kecil --- */
+.brand .logo,
+.menu,
+.media-btns .media-btn,
+.social a,
+.social .visitor-line,
+.specs span,
+.about-badge,
+.price-tag,
+.modal-close,
+.doc-body,
+.wa-float{
+  border-width:var(--bw) !important;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink) !important;
+}
+.specs button,.specs .wa-btn,.about-cta,.nav-dropdown a.cta{
+  border-width:var(--bw) !important;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink);
+}
+.about-tags span{box-shadow:2px 2px 0 var(--ink)}
+.swiper-pagination-bullet-active{border-width:var(--bw);box-shadow:var(--sh) var(--sh) 0 var(--ink)}
+.menu:hover,.media-btn:hover,.social a:hover,.specs span:hover{box-shadow:4px 4px 0 var(--ink) !important}
+.menu:active,.media-btn:active,.social a:active{box-shadow:0 0 0 var(--ink) !important}
+
+/* --- tingkat besar --- */
+.content .image img{border-width:var(--bw-lg);box-shadow:6px 6px 0 var(--ink)}
+.nav-dropdown{border-width:var(--bw-lg);box-shadow:var(--sh-lg) var(--sh-lg) 0 var(--ink)}
+.about-modal,.doc-modal,.price-modal,.video-modal{border-width:var(--bw-lg);box-shadow:var(--sh-lg) var(--sh-lg) 0 var(--ink)}
+
+/* --- kartu thumbnail landing page: rata, tanpa goyang/animasi melayang --- */
+#lpSlide .lp-gallery .lp-float{animation:none}
+#lpSlide .lp-gallery{gap:14px}
+#lpSlide .lp-gallery .lp-card{
+  border-width:var(--bw);border-radius:12px;padding:5px 5px 7px;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink);
+  transition:translate .2s var(--out),box-shadow .2s var(--out),background-color .25s,color .25s;
+}
+#lpSlide .lp-gallery .lp-card:hover{transform:none;translate:-1px -1px;box-shadow:4px 4px 0 var(--ink)}
+#lpSlide .lp-gallery .lp-card:active{transform:none;translate:3px 3px;box-shadow:0 0 0 var(--ink)}
+#lpSlide .lp-gallery .lp-card.is-active{transform:none;translate:0 0;box-shadow:var(--sh) var(--sh) 0 var(--ink)}
+#lpSlide .lp-gallery .lp-card.is-active:hover{transform:none;translate:-1px -1px;box-shadow:4px 4px 0 var(--ink)}
+#lpSlide .lp-gallery .lp-thumb{border-width:var(--bw);border-radius:8px}
+#lpSlide .lp-gallery .lp-badge{border-width:var(--bw)}
+#lpSlide .lp-gallery .lp-card:hover .lp-badge{transform:none}
+@media (max-width:768px){
+  #lpSlide .lp-gallery{gap:9px}
+  #lpSlide .lp-gallery .lp-card{padding:3px;border-radius:10px;box-shadow:var(--sh) var(--sh) 0 var(--ink)}
+  #lpSlide .lp-gallery .lp-card.is-active{transform:none;translate:-3px 0;box-shadow:var(--sh) var(--sh) 0 var(--ink)}
+  #lpSlide .lp-gallery .lp-card:hover{translate:-1px -1px}
+  #lpSlide .lp-gallery .lp-thumb{border-width:var(--bw);border-radius:7px}
+  .content .image img{border-width:var(--bw-lg);box-shadow:4px 4px 0 var(--ink)}
+}
+
+/* =========================================================
+   TOMBOL BULAT — border 2px + shadow tipis 2px (solid, tanpa blur)
+   ========================================================= */
+.menu,
+.media-btns .media-btn,
+.social a,
+.modal-close,
+.wa-float,
+.chat-window-toggle,
+.chat-offline-toggle{
+  border-width:var(--bw) !important;
+  box-shadow:2px 2px 0 var(--ink) !important;
+  transition:translate .2s var(--out),box-shadow .2s var(--out),background-color .2s !important;
+}
+.menu:hover,
+.media-btns .media-btn:hover,
+.social a:hover,
+.modal-close:hover,
+.wa-float:hover,
+.chat-window-toggle:hover,
+.chat-offline-toggle:hover{
+  translate:-1px -1px;
+  box-shadow:3px 3px 0 var(--ink) !important;
+}
+.menu:active,
+.media-btns .media-btn:active,
+.social a:active,
+.modal-close:active,
+.wa-float:active,
+.chat-window-toggle:active,
+.chat-offline-toggle:active{
+  translate:2px 2px;
+  box-shadow:0 0 0 var(--ink) !important;
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition-duration:.01ms !important}
+}

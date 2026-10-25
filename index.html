@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="neo-plus.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preload" as="image" href="images/img-2.webp" fetchpriority="high">
     <style id="lp-gallery-css">
@@ -163,6 +164,7 @@
 </head>
 
 <body>
+    <div class="neo-progress" aria-hidden="true"><i id="neoProgress"></i></div>
     <main>
         <div class="brand">
             <h1 class="logo"><span class="robo">Robo</span><span class="komputer">Komputer</span></h1>
@@ -420,6 +422,8 @@
             longSwipesMs: 300,
             longSwipesRatio: 0.4,
             followFinger: true,
+            threshold: 6,
+            keyboard: { enabled: true, onlyInViewport: true, pageUpDown: true },
             grabCursor: true,
             watchSlidesProgress: true,
             touchReleaseOnEdges: true,
@@ -427,10 +431,10 @@
             mousewheel: {
                 enabled: true,
                 forceToAxis: true,
-                sensitivity: 0.8,
+                sensitivity: 1,
                 releaseOnEdges: false,
-                thresholdDelta: 12,
-                thresholdTime: 150
+                thresholdDelta: 8,
+                thresholdTime: 500
             },
             preventClicks: false,
             preventClicksPropagation: false,
@@ -1397,6 +1401,7 @@
             });
         })();
     </script>
+    <script src="neo-plus.js" defer></script>
 </body>
 
 </html>
