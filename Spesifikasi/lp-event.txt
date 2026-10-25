@@ -1,0 +1,30 @@
+🌐 Web Landing Page — Event / Webinar
+📑 Spesifikasi dan Fungsi :
+Fungsi utama Landing Page Event / Webinar
+
+🎟️ Pendaftaran Peserta
+Form pendaftaran yang singkat dan mudah diisi (nama, kontak, email).
+Data pendaftar bisa dikirim langsung ke WhatsApp atau email penyelenggara.
+
+⏳ Countdown Real-time
+Hitung mundur menuju hari acara untuk menciptakan rasa urgensi.
+Otomatis menyesuaikan tanggal dan jam yang ditentukan.
+
+🎤 Jadwal & Pembicara
+Menampilkan rundown acara, profil pembicara, dan topik pembahasan.
+Informasi lokasi atau link ruang virtual (Zoom / Google Meet).
+
+🤝 Sponsor & Kontak
+Bagian logo sponsor atau mitra.
+Kontak panitia untuk pertanyaan peserta.
+
+📈 Media Promosi Digital
+Siap dipakai sebagai tujuan iklan Instagram, TikTok, Facebook, atau WhatsApp Broadcast.
+Satu link untuk semua materi promosi acara.
+
+🛠️ TechStack (Draf) :
+HTML5, CSS3, JavaScript
+Desain responsif (HP, tablet, desktop)
+Countdown berbasis JavaScript
+Integrasi WhatsApp (wa.me)
+Basic SEO (meta tag, judul, deskripsi)

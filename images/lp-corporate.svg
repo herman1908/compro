@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="corpBgG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091428"/>
+      <stop offset="50%" stop-color="#0f2142"/>
+      <stop offset="100%" stop-color="#050a14"/>
+    </linearGradient>
+    <linearGradient id="corpPrimaryG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="corpCardG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.07)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    <filter id="corpGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="corpShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  </style>
+
+  <!-- Container -->
+  <rect x="20" y="20" width="1360" height="460" rx="20" fill="url(#corpBgG)" stroke="rgba(56,189,248,0.3)" stroke-width="2" filter="url(#corpShadow)"/>
+
+  <!-- Glows -->
+  <circle cx="200" cy="180" r="160" fill="#2563eb" opacity="0.15" filter="url(#corpGlow)"/>
+  <circle cx="1150" cy="280" r="170" fill="#0284c7" opacity="0.15" filter="url(#corpGlow)"/>
+
+  <!-- Browser Header -->
+  <rect x="20" y="20" width="1360" height="48" rx="20" fill="#0b172a" opacity="0.95"/>
+  <rect x="20" y="48" width="1360" height="20" fill="#0b172a" opacity="0.95"/>
+  <line x1="20" y1="68" x2="1380" y2="68" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- Dots -->
+  <circle cx="50" cy="44" r="6" fill="#ef4444"/>
+  <circle cx="70" cy="44" r="6" fill="#f59e0b"/>
+  <circle cx="90" cy="44" r="6" fill="#10b981"/>
+  <!-- URL -->
+  <rect x="130" y="32" width="400" height="24" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="150" y="48" fill="#94a3b8" font-size="11" class="font-sans">🔒 https://arthaglobalmandiri.co.id</text>
+
+  <!-- Navbar -->
+  <g transform="translate(60, 95)">
+    <text x="0" y="22" fill="#ffffff" font-size="20" font-weight="800" class="font-sans">ARTHA<tspan fill="#38bdf8">GLOBAL</tspan></text>
+    <text x="240" y="20" fill="#38bdf8" font-size="12" font-weight="600" class="font-sans">Beranda</text>
+    <text x="320" y="20" fill="#94a3b8" font-size="12" class="font-sans">Layanan Kami</text>
+    <text x="430" y="20" fill="#94a3b8" font-size="12" class="font-sans">Portofolio &amp; Klien</text>
+    <text x="560" y="20" fill="#94a3b8" font-size="12" class="font-sans">Tentang Perusahaan</text>
+    <text x="700" y="20" fill="#94a3b8" font-size="12" class="font-sans">Kontak</text>
+    <rect x="1090" y="0" width="170" height="32" rx="16" fill="url(#corpPrimaryG)"/>
+    <text x="1175" y="20" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle" class="font-sans">Konsultasi Bisnis ➔</text>
+  </g>
+
+  <!-- Left Content -->
+  <g transform="translate(60, 165)">
+    <rect x="0" y="0" width="260" height="26" rx="13" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.3)" stroke-width="1"/>
+    <text x="15" y="17" fill="#7dd3fc" font-size="11" font-weight="600" class="font-sans">🏢 Solusi Legalitas &amp; Konsultan Bisnis Terpadu</text>
+
+    <text x="0" y="65" fill="#f8fafc" font-size="33" font-weight="800" class="font-sans">
+      Membangun Reputasi &amp;
+    </text>
+    <text x="0" y="105" fill="#38bdf8" font-size="33" font-weight="800" class="font-sans">
+      Kredibilitas Bisnis Kelas Dunia
+    </text>
+
+    <text x="0" y="145" fill="#94a3b8" font-size="14" class="font-sans">
+      Perusahaan konsultan manajemen, audit keuangan, dan legalitas korporasi
+    </text>
+    <text x="0" y="167" fill="#94a3b8" font-size="14" class="font-sans">
+      yang telah mendampingi lebih dari 350+ korporasi dan perusahaan multinasional.
+    </text>
+
+    <rect x="0" y="200" width="190" height="44" rx="22" fill="url(#corpPrimaryG)"/>
+    <text x="95" y="227" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle" class="font-sans">Hubungi Konsultan</text>
+
+    <rect x="205" y="200" width="190" height="44" rx="22" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)"/>
+    <text x="300" y="227" fill="#f8fafc" font-size="13" font-weight="600" text-anchor="middle" class="font-sans">Unduh Company Profile</text>
+
+    <g transform="translate(0, 265)">
+      <text x="0" y="18" fill="#38bdf8" font-size="14" font-weight="700" class="font-sans">✓ Terdaftar Kemenkumham</text>
+      <text x="210" y="18" fill="#64748b" font-size="12" class="font-sans">| ISO 9001:2015 Certified | 100% Legal Guarantee</text>
+    </g>
+  </g>
+
+  <!-- Right Dashboard / Analytics Mockup -->
+  <g transform="translate(820, 140)">
+    <rect x="0" y="0" width="460" height="300" rx="18" fill="url(#corpCardG)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" filter="url(#corpShadow)"/>
+
+    <!-- Top mini stats -->
+    <g transform="translate(20, 20)">
+      <rect x="0" y="0" width="130" height="65" rx="10" fill="rgba(15,23,42,0.6)" stroke="rgba(255,255,255,0.06)"/>
+      <text x="15" y="25" fill="#94a3b8" font-size="10" class="font-sans">KLIEN AKTIF</text>
+      <text x="15" y="50" fill="#38bdf8" font-size="18" font-weight="800" class="font-sans">350+</text>
+
+      <rect x="145" y="0" width="130" height="65" rx="10" fill="rgba(15,23,42,0.6)" stroke="rgba(255,255,255,0.06)"/>
+      <text x="160" y="25" fill="#94a3b8" font-size="10" class="font-sans">PROJECT SELESAI</text>
+      <text x="160" y="50" fill="#10b981" font-size="18" font-weight="800" class="font-sans">1,240+</text>
+
+      <rect x="290" y="0" width="130" height="65" rx="10" fill="rgba(15,23,42,0.6)" stroke="rgba(255,255,255,0.06)"/>
+      <text x="305" y="25" fill="#94a3b8" font-size="10" class="font-sans">RETENSI KLIEN</text>
+      <text x="305" y="50" fill="#fbbf24" font-size="18" font-weight="800" class="font-sans">99.4%</text>
+    </g>
+
+    <!-- Services list inside card -->
+    <g transform="translate(20, 100)">
+      <rect x="0" y="0" width="420" height="52" rx="10" fill="rgba(2,132,199,0.1)" stroke="rgba(56,189,248,0.2)"/>
+      <circle cx="26" cy="26" r="14" fill="#0284c7"/>
+      <text x="26" y="31" fill="#fff" font-size="12" text-anchor="middle">⚖️</text>
+      <text x="50" y="24" fill="#f8fafc" font-size="12" font-weight="700" class="font-sans">Pendirian PT, CV, &amp; Legalitas Perizinan Usaha</text>
+      <text x="50" y="40" fill="#94a3b8" font-size="10" class="font-sans">Proses kilat 3 hari kerja, terintegrasi OSS RBA</text>
+      <text x="375" y="32" fill="#38bdf8" font-size="11" font-weight="700" class="font-sans">Detail ➔</text>
+    </g>
+
+    <g transform="translate(20, 162)">
+      <rect x="0" y="0" width="420" height="52" rx="10" fill="rgba(15,23,42,0.6)" stroke="rgba(255,255,255,0.06)"/>
+      <circle cx="26" cy="26" r="14" fill="#2563eb"/>
+      <text x="26" y="31" fill="#fff" font-size="12" text-anchor="middle">📈</text>
+      <text x="50" y="24" fill="#f8fafc" font-size="12" font-weight="700" class="font-sans">Audit Finansial &amp; Perencanaan Pajak Korporasi</text>
+      <text x="50" y="40" fill="#94a3b8" font-size="10" class="font-sans">Kepatuhan regulasi fiskal dan efisiensi pelaporan pajak</text>
+      <text x="375" y="32" fill="#38bdf8" font-size="11" font-weight="700" class="font-sans">Detail ➔</text>
+    </g>
+
+    <g transform="translate(20, 226)">
+      <rect x="0" y="0" width="420" height="54" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="20" y="24" fill="#f8fafc" font-size="11" font-weight="600" class="font-sans">🤝 Ingin Konsultasi Eksklusif dengan Konsultan Senior?</text>
+      <text x="20" y="42" fill="#64748b" font-size="10" class="font-sans">Tersedia konsultasi daring (Zoom) &amp; tatap muka di kantor pusat kami</text>
+      <rect x="330" y="12" width="75" height="30" rx="15" fill="#0284c7"/>
+      <text x="367" y="31" fill="#fff" font-size="10" font-weight="700" text-anchor="middle" class="font-sans">Daftar</text>
+    </g>
+  </g>
+</svg>

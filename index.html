@@ -31,7 +31,135 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preload" as="image" href="images/img-2.webp" fetchpriority="high">
+    <style id="lp-gallery-css">
+        /* ===== Landing Page showcase: Mini Thumbnail Previews (Floating Cards) =====
+           Tuning cepat: ubah --lp-top / --lp-right (desktop) dan --lp-top-m (HP) di bawah. */
+        #lpSlide .lp-gallery {
+            --lp-accent: #7a5cc4;      /* otomatis diganti JS mengikuti warna panel ungu slide */
+            --lp-ink: #111;
+            --lp-paper: #fffaf0;
+            --lp-top: 22px;
+            --lp-right: 104px;
+            --lp-top-m: 64px;
+            position: absolute;
+            top: var(--lp-top);
+            right: var(--lp-right);
+            z-index: 30;
+            width: min(660px, calc(100vw - 40vw - 130px));
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            pointer-events: auto;
+        }
+        #lpSlide .lp-item { min-width: 0; }
+        #lpSlide .lp-float { animation: lpFloat 4.6s ease-in-out infinite; }
+        #lpSlide .lp-item:nth-child(2) .lp-float { animation-duration: 5.2s; animation-delay: -1.2s; }
+        #lpSlide .lp-item:nth-child(3) .lp-float { animation-duration: 4.2s; animation-delay: -2.4s; }
+        #lpSlide .lp-item:nth-child(4) .lp-float { animation-duration: 5.6s; animation-delay: -0.6s; }
+        @keyframes lpFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        #lpSlide .lp-card {
+            -webkit-appearance: none; appearance: none;
+            display: flex; flex-direction: column;
+            width: 100%;
+            margin: 0; padding: 6px 6px 8px;
+            font: inherit; text-align: left; color: var(--lp-ink);
+            background: var(--lp-paper);
+            border: 3px solid var(--lp-ink);
+            border-radius: 14px;
+            box-shadow: 4px 4px 0 var(--lp-ink);
+            cursor: pointer;
+            transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease, background-color .25s ease, color .25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #lpSlide .lp-card:hover {
+            transform: translate(-2px, -4px) rotate(-1.2deg);
+            box-shadow: 6px 8px 0 var(--lp-ink);
+        }
+        #lpSlide .lp-card:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--lp-ink); }
+        #lpSlide .lp-card:focus-visible { outline: 3px solid #ffd23f; outline-offset: 3px; }
+        #lpSlide .lp-card.is-active {
+            background: var(--lp-accent);
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--lp-ink);
+        }
+        #lpSlide .lp-card.is-active:hover { transform: translate(-2px, -4px) rotate(-1.2deg); }
+
+        #lpSlide .lp-thumb {
+            position: relative; display: block;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            border: 2px solid var(--lp-ink);
+            border-radius: 9px;
+            background: linear-gradient(135deg, #e9e1ff, #fff2e0);
+        }
+        #lpSlide .lp-thumb img {
+            display: block; width: 100%; height: 100%;
+            object-fit: cover; object-position: top center;
+            transition: transform .5s ease;
+            -webkit-user-drag: none; user-select: none;
+        }
+        #lpSlide .lp-card:hover .lp-thumb img { transform: scale(1.08); }
+        #lpSlide .lp-badge {
+            position: absolute; left: 6px; top: 6px;
+            width: 24px; height: 24px;
+            display: grid; place-items: center;
+            font-size: 11px; line-height: 1;
+            color: var(--lp-accent);
+            background: #fff;
+            border: 2px solid var(--lp-ink);
+            border-radius: 50%;
+            transition: background-color .25s ease, color .25s ease, transform .25s ease;
+        }
+        #lpSlide .lp-card:hover .lp-badge { transform: rotate(-12deg) scale(1.1); }
+        #lpSlide .lp-card.is-active .lp-badge { background: #ffd23f; color: var(--lp-ink); }
+
+        #lpSlide .lp-meta { display: block; padding: 7px 4px 0; min-width: 0; }
+        #lpSlide .lp-name,
+        #lpSlide .lp-sub { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+        #lpSlide .lp-name { font-weight: 800; font-size: 12.5px; line-height: 1.15; }
+        #lpSlide .lp-sub { margin-top: 2px; font-size: 10.5px; line-height: 1.2; opacity: .7; }
+
+        /* Layar laptop pendek: kartu dipadatkan biar nggak nabrak gambar utama */
+        @media (min-width: 769px) and (max-height: 720px) {
+            #lpSlide .lp-sub { display: none; }
+            #lpSlide .lp-thumb { aspect-ratio: 16 / 8; }
+        }
+
+        /* HP / tablet kecil: 4 kartu mungil disusun VERTIKAL di sisi kanan atas (di bawah tombol menu) */
+        @media (max-width: 768px) {
+            #lpSlide .lp-gallery {
+                --lp-top-m: 72px;
+                top: var(--lp-top-m);
+                right: 10px; left: auto;
+                width: clamp(74px, 22vw, 104px);
+                grid-template-columns: 1fr;
+                gap: 7px;
+            }
+            #lpSlide .lp-card { padding: 3px; border-width: 2px; border-radius: 11px; box-shadow: 3px 3px 0 var(--lp-ink); }
+            #lpSlide .lp-card:hover { transform: translate(-1px, -2px); box-shadow: 4px 5px 0 var(--lp-ink); }
+            #lpSlide .lp-card.is-active { transform: translate(-2px, 0); box-shadow: 4px 3px 0 var(--lp-ink); }
+            #lpSlide .lp-thumb { aspect-ratio: 2 / 1; border-width: 1.5px; border-radius: 8px; }
+            #lpSlide .lp-badge { left: 4px; top: 50%; margin-top: -9px; width: 18px; height: 18px; font-size: 8px; border-width: 1.5px; }
+            #lpSlide .lp-meta { display: none; }   /* nama kartu tetap muncul sebagai tooltip (atribut title) */
+            #lpSlide .lp-float { animation-name: lpFloatX; }
+        }
+        @keyframes lpFloatX {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-4px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #lpSlide .lp-float { animation: none; }
+            #lpSlide .lp-card, #lpSlide .lp-thumb img, #lpSlide .lp-badge { transition: none; }
+        }
+    </style>
 </head>
 
 <body>
@@ -178,10 +306,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide" data-title="Landing Page" data-desc="Tampilkan profil dan layanan Bisnis atau UMKM Anda dalam landing page yang cepat, modern, dan responsif, dan Dilengkapi Basic SEO.">
+                <div class="swiper-slide" id="lpSlide" data-title="Landing Page" data-desc="Tampilkan profil dan layanan Bisnis atau UMKM Anda dalam landing page yang cepat, modern, dan responsif, dan Dilengkapi Basic SEO.">
                     <div class="purple"></div>
                     <div class="black"></div>
                     <div class="content">
+                        <!-- Mini Thumbnail Previews (Floating Cards): klik kartu -> gambar utama & semua detail ikut berubah -->
+                        <div class="lp-gallery swiper-no-swiping" id="lpGallery" role="group" aria-label="Pilih contoh landing page">
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card is-active" data-lp="0" aria-pressed="true" title="Company Profile">
+                                    <span class="lp-thumb"><img src="images/img-5.webp" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-building"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">Company Profile</span><span class="lp-sub">Profil bisnis elegan</span></span>
+                                </button>
+                            </div></div>
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card" data-lp="1" aria-pressed="false" title="UMKM & Kuliner">
+                                    <span class="lp-thumb"><img src="images/lp-kuliner.webp" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-utensils"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">UMKM & Kuliner</span><span class="lp-sub">Menu digital & order WA</span></span>
+                                </button>
+                            </div></div>
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card" data-lp="2" aria-pressed="false" title="Toko Online">
+                                    <span class="lp-thumb"><img src="images/lp-toko.webp" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-store"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">Toko Online</span><span class="lp-sub">Katalog produk & checkout</span></span>
+                                </button>
+                            </div></div>
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card" data-lp="3" aria-pressed="false" title="Event / Webinar">
+                                    <span class="lp-thumb"><img src="images/lp-event.webp" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-calendar-check"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">Event / Webinar</span><span class="lp-sub">Pendaftaran & countdown</span></span>
+                                </button>
+                            </div></div>
+                        </div>
                         <div class="title">
                             <div class="small">Let's</div>
                             <div class="big">SHOW UP!</div>
@@ -417,6 +572,8 @@
                 if (small) gsap.fromTo(small, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'elastic.out(1,0.6)', overwrite: 'auto' });
                 if (big) gsap.fromTo(big, { y: 150, opacity: 0, scale: 0.7 }, { y: 0, opacity: 0.5, scale: 1, duration: 0.9, delay: 1.0, ease: 'elastic.out(1,0.5)', overwrite: 'auto' });
                 if (specs.length) gsap.fromTo(specs, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
+                var lpItems = slide.querySelectorAll('.lp-item');
+                if (lpItems.length) gsap.fromTo(lpItems, { y: -40, opacity: 0, rotation: -4 }, { y: 0, opacity: 1, rotation: 0, duration: 0.7, stagger: 0.1, delay: 1.1, ease: 'back.out(1.6)', overwrite: 'auto', clearProps: 'transform' });
             } else if (idx === 5) {
                 // Slide 6 REPAIR: panel geser kiri-kanan + image pop memantul + text dropdown
                 if (bgA) gsap.fromTo(bgA, { x: -1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
@@ -440,7 +597,7 @@
                     var s = parseInt(btn.getAttribute('data-slide'), 10) || 0;
                     var slide = btn.closest('.swiper-slide');
                     var img = slide ? slide.querySelector('.image img') : null;
-                    var src = img ? (img.getAttribute('src') || '') : '';
+                    var src = img ? (img.getAttribute('data-base') || img.getAttribute('src') || '') : '';
                     var file = src.split('/').pop() || '';
                     var base = file.split('.')[0] || ('img-' + (s + 1));
                     var title = slide ? (slide.getAttribute('data-title') || base) : base;
@@ -449,13 +606,18 @@
                         return;
                     }
                     if (type === 'price') {
-                        if (window.openPriceModal) window.openPriceModal(title, (typeof PRICES !== 'undefined' && PRICES[s]) || '');
+                        if (window.openPriceModal) window.openPriceModal(title, (slide && slide.getAttribute('data-price')) || (typeof PRICES !== 'undefined' && PRICES[s]) || '');
                         return;
                     }
                     if (type === 'trial') {
                         // Rate limit klik: cegah double-click buka 2 tab WA
                         if (window.__rkTrialAt && Date.now() - window.__rkTrialAt < 1200) return;
                         window.__rkTrialAt = Date.now();
+                        var trialUrl = slide ? slide.getAttribute('data-trial-url') : '';
+                        if (trialUrl) {
+                            window.open(trialUrl, '_blank', 'noopener');
+                            return;
+                        }
                         var msg = title.indexOf('Service') !== -1
                             ? 'Halo RoboKomputer, laptop saya bermasalah. Boleh minta diagnosa gratis? (' + title + ')'
                             : 'Halo RoboKomputer, saya mau trial gratis ' + title + '. Bagaimana caranya?';
@@ -549,6 +711,226 @@
             });
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
+
+    <script>
+        // Landing Page showcase — klik kartu thumbnail => gambar utama + semua detail ikut berubah
+        // (judul & deskripsi di kiri, chip spesifikasi, tombol Pesan WA, harga, dan sumber file
+        //  spesifikasi/video/trial yang diturunkan dari nama file gambar).
+        (function () {
+            var slide = document.getElementById('lpSlide');
+            var gallery = document.getElementById('lpGallery');
+            if (!slide || !gallery) return;
+            var mainImg = slide.querySelector('.image img');
+            var specsBox = slide.querySelector('.specs');
+            var specSpans = specsBox ? specsBox.querySelectorAll('span') : [];
+            var waBtn = slide.querySelector('.wa-btn');
+            var cards = Array.prototype.slice.call(gallery.querySelectorAll('.lp-card'));
+            if (!mainImg || !cards.length) return;
+
+            var WA_NUM = '6285216758721';
+
+            // Detail default (kartu 1) diambil dari markup slide itu sendiri, jadi kalau teks aslinya diedit
+            // di HTML, kartu 1 otomatis ikut.
+            var defSpecs = Array.prototype.map.call(specSpans, function (sp) {
+                var b = sp.querySelector('b');
+                var head = b ? b.textContent : '';
+                return [head, sp.textContent.slice(head.length).trim()];
+            });
+            var defaultWa = waBtn ? waBtn.getAttribute('href') : '';
+
+            // ====== DATA KARTU — edit teks / harga / file gambar di sini ======
+            // img   : screenshot landing page (rasio ±16:10, sama seperti images/img-5.webp)
+            // price : kosong = pakai harga slide Landing Page (PRICES[4]); isi string untuk harga khusus
+            // File pendamping otomatis mengikuti nama gambar:
+            //   Spesifikasi/lp-kuliner.txt  |  video/lp-kuliner.mp4
+            var VARIANTS = [
+                {
+                    key: 'company', label: 'Company Profile', sub: 'Profil bisnis elegan', color: '#7c5cff',
+                    img: mainImg.getAttribute('src'),
+                    title: slide.getAttribute('data-title'),
+                    desc: slide.getAttribute('data-desc'),
+                    specs: defSpecs, price: '', 
+                    trialUrl: 'https://herman1908.github.io/robo/'
+                },
+                {
+                    key: 'kuliner', label: 'UMKM & Kuliner', sub: 'Menu digital & order WA', color: '#f97316',
+                    img: 'images/lp-kuliner.webp',
+                    title: 'Landing Page UMKM & Kuliner',
+                    desc: 'Menu digital yang menggugah selera, lengkap dengan katalog, galeri produk, dan tombol order langsung via WhatsApp.',
+                    specs: [['Menu', 'Digital'], ['Order', 'via WA'], ['Galeri', 'Menarik']], price: 'Mulai dari Rp 300 Ribu',
+                    trialUrl: 'https://snh.up.railway.app/'
+                },
+                {
+                    key: 'toko', label: 'Toko Online', sub: 'Katalog produk & checkout', color: '#16a34a',
+                    img: 'images/lp-toko.png',
+                    title: 'Landing Page Toko Online',
+                    desc: 'Etalase produk online dengan katalog rapi, keranjang, dan checkout praktis yang siap mengubah pengunjung jadi pembeli.',
+                    specs: [['Katalog', 'Produk'], ['Checkout', 'Praktis'], ['Siap', 'Jualan']], price: 'Mulai dari Rp 800 Ribu',
+                    trialUrl: 'https://aldebaran3dprinting.vercel.app/'
+                },
+                {
+                    key: 'event', label: 'Event / Webinar', sub: 'Pendaftaran & countdown', color: '#2563eb',
+                    img: 'images/lp-event.webp',
+                    title: 'Landing Page Event / Webinar',
+                    desc: 'Halaman pendaftaran event atau webinar dengan countdown, jadwal pembicara, dan form registrasi yang mudah diisi.',
+                    specs: [['Form', 'Pendaftaran'], ['Countdown', 'Real-time'], ['Jadwal', 'Pembicara']], price: 'Mulai dari Rp 300 Ribu'
+                }
+            ];
+            VARIANTS.forEach(function (v) { v.alt = 'Contoh landing page ' + v.label; });
+            VARIANTS[0].alt = mainImg.getAttribute('alt') || VARIANTS[0].alt;
+
+            // Warna aksen kartu aktif mengikuti panel ungu slide (tema otomatis nyambung)
+            function syncAccent() {
+                try {
+                    var panel = slide.querySelector('.purple');
+                    var c = panel && getComputedStyle(panel).backgroundColor;
+                    if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') gallery.style.setProperty('--lp-accent', c);
+                } catch (e) { }
+            }
+            syncAccent();
+            window.addEventListener('load', syncAccent);
+
+            // Placeholder otomatis (mockup SVG) kalau file screenshot belum ada di folder images/
+            function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+            function placeholder(v) {
+                var a = v.color, f = 'font-family="Arial,Helvetica,sans-serif"';
+                var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">'
+                    + '<rect width="640" height="400" fill="#fff8ec"/>'
+                    + '<rect width="640" height="34" fill="#fff"/>'
+                    + '<circle cx="18" cy="17" r="5" fill="#ff6b6b"/><circle cx="36" cy="17" r="5" fill="#ffd23f"/><circle cx="54" cy="17" r="5" fill="#4ade80"/>'
+                    + '<rect x="90" y="9" width="300" height="16" rx="8" fill="#f1ece0"/>'
+                    + '<rect y="34" width="640" height="2" fill="#111" opacity=".12"/>'
+                    + '<text x="40" y="128" ' + f + ' font-weight="800" font-size="32" fill="#111">' + esc(v.label) + '</text>'
+                    + '<text x="40" y="160" ' + f + ' font-size="16" fill="#555">' + esc(v.sub) + '</text>'
+                    + '<rect x="40" y="188" width="140" height="42" rx="21" fill="' + a + '"/>'
+                    + '<rect x="192" y="188" width="110" height="42" rx="21" fill="none" stroke="#111" stroke-width="3"/>'
+                    + '<rect x="360" y="64" width="240" height="200" rx="18" fill="' + a + '"/>'
+                    + '<rect x="380" y="84" width="200" height="110" rx="10" fill="#fff" opacity=".85"/>'
+                    + '<rect x="380" y="208" width="120" height="14" rx="7" fill="#fff" opacity=".7"/>'
+                    + '<rect x="380" y="232" width="80" height="14" rx="7" fill="#fff" opacity=".5"/>'
+                    + '<rect x="40" y="292" width="170" height="72" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>'
+                    + '<rect x="235" y="292" width="170" height="72" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>'
+                    + '<rect x="430" y="292" width="170" height="72" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>'
+                    + '<circle cx="64" cy="316" r="10" fill="' + a + '"/><circle cx="259" cy="316" r="10" fill="' + a + '"/><circle cx="454" cy="316" r="10" fill="' + a + '"/>'
+                    + '</svg>';
+                return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+            }
+
+            // Thumbnail kartu: kalau gambarnya belum ada, pakai placeholder
+            cards.forEach(function (card, i) {
+                var im = card.querySelector('.lp-thumb img');
+                if (!im) return;
+                function fallback() {
+                    if (im.getAttribute('data-fb')) return;
+                    im.setAttribute('data-fb', '1');
+                    im.src = placeholder(VARIANTS[i]);
+                }
+                im.addEventListener('error', fallback);
+                if (im.complete && im.naturalWidth === 0) fallback();
+            });
+
+            // Preload gambar besar saat browser lagi santai
+            (function () {
+                var run = function () { VARIANTS.forEach(function (v) { var p = new Image(); p.src = v.img; }); };
+                if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 4000 });
+                else setTimeout(run, 2500);
+            })();
+
+            var current = 0, token = 0;
+
+            // Gambar utama bocor/hilang di tengah jalan => placeholder (jangan sampai ada ikon gambar rusak)
+            mainImg.addEventListener('error', function () {
+                if (/^data:/.test(mainImg.getAttribute('src') || '')) return;
+                mainImg.src = placeholder(VARIANTS[current]);
+            });
+
+            function setMain(v, done) {
+                var finished = false, timer = null, probe = new Image();
+                function apply(src) {
+                    if (finished) return;
+                    finished = true;
+                    clearTimeout(timer);
+                    mainImg.classList.remove('zoomed');
+                    mainImg.src = src;
+                    mainImg.alt = v.alt;
+                    // nama file asli dipakai tombol buku/video/trial untuk cari Spesifikasi/<nama>.txt & video/<nama>.mp4
+                    mainImg.setAttribute('data-base', v.img.split('/').pop());
+                    if (done) done();
+                }
+                timer = setTimeout(function () { apply(v.img); }, 2500);
+                probe.onload = function () { apply(v.img); };
+                probe.onerror = function () { apply(placeholder(v)); };
+                probe.src = v.img;
+            }
+
+            function setDetails(v, i) {
+                // 1) judul + deskripsi (panel kiri). updateBrand baca dari atribut slide.
+                slide.setAttribute('data-title', v.title);
+                slide.setAttribute('data-desc', v.desc);
+                if (typeof swiper !== 'undefined' && swiper && swiper.activeIndex === 4 && typeof updateBrand === 'function') {
+                    updateBrand(swiper);
+                }
+                // 2) chip spesifikasi
+                Array.prototype.forEach.call(specSpans, function (sp, k) {
+                    var pair = v.specs[k];
+                    if (!pair) return;
+                    sp.textContent = '';
+                    var b = document.createElement('b');
+                    b.textContent = pair[0];
+                    sp.appendChild(b);
+                    sp.appendChild(document.createTextNode(' ' + pair[1]));
+                });
+                if (window.gsap && specSpans.length) {
+                    gsap.fromTo(specSpans, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.07, ease: 'power2.out', overwrite: 'auto', clearProps: 'transform' });
+                }
+                // 3) tombol "Pesan Sekarang!"
+                if (waBtn) {
+                    waBtn.setAttribute('href', i === 0 ? defaultWa
+                        : 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent('Halo RoboKomputer, saya mau pesan ' + v.title + '. Boleh info harganya?'));
+                }
+                // 4) harga (dibaca tombol tag harga). Kosong = pakai harga bawaan slide.
+                if (v.price) slide.setAttribute('data-price', v.price); else slide.removeAttribute('data-price');
+                // 5) tombol Trial Gratis: kalau varian punya trialUrl, buka website itu (bukan WA)
+                if (v.trialUrl) slide.setAttribute('data-trial-url', v.trialUrl); else slide.removeAttribute('data-trial-url');
+            }
+
+            function select(i) {
+                if (i === current || !VARIANTS[i]) return;
+                var v = VARIANTS[i], t = ++token;
+                current = i;
+                cards.forEach(function (c, k) {
+                    var on = k === i;
+                    c.classList.toggle('is-active', on);
+                    c.setAttribute('aria-pressed', on ? 'true' : 'false');
+                });
+                setDetails(v, i);
+                if (window.gsap) {
+                    gsap.killTweensOf(mainImg);
+                    gsap.to(mainImg, {
+                        opacity: 0, scale: 0.94, y: 14, duration: 0.22, ease: 'power2.in', overwrite: true,
+                        onComplete: function () {
+                            if (t !== token) return;
+                            setMain(v, function () {
+                                if (t !== token) return;
+                                gsap.fromTo(mainImg, { opacity: 0, scale: 0.94, y: -14 },
+                                    { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)', clearProps: 'transform' });
+                            });
+                        }
+                    });
+                } else {
+                    setMain(v);
+                }
+            }
+
+            cards.forEach(function (card, i) {
+                card.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    select(i);
+                });
             });
         })();
     </script>

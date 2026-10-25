@@ -1,0 +1,31 @@
+🌐 Web Landing Page — UMKM & Kuliner
+📑 Spesifikasi dan Fungsi :
+Fungsi utama Landing Page UMKM & Kuliner
+
+🍽️ Menu Digital
+Menampilkan daftar menu lengkap dengan foto, deskripsi, dan harga.
+Menu dikelompokkan per kategori (makanan, minuman, paket hemat) agar mudah dipilih.
+Perubahan harga atau menu bisa diperbarui kapan saja tanpa cetak ulang.
+
+📲 Order Langsung via WhatsApp
+Pelanggan cukup klik tombol pesan, lalu pesan otomatis terkirim ke WhatsApp penjual.
+Format pesan sudah terisi nama menu, sehingga pesanan lebih cepat dan minim salah catat.
+
+📸 Galeri & Promosi
+Galeri foto produk yang menggugah selera.
+Bagian promo, menu favorit, dan testimoni pelanggan.
+
+📍 Lokasi & Jam Buka
+Informasi alamat, jam operasional, dan petunjuk arah ke tempat usaha.
+Tombol cepat ke peta dan kontak.
+
+📈 Media Promosi Digital
+Bisa dipakai sebagai tujuan iklan Instagram, TikTok, Facebook, atau Google.
+Satu link rapi untuk bio sosial media dan QR Code di meja atau kemasan.
+
+🛠️ TechStack (Draf) :
+HTML5, CSS3, JavaScript
+Desain responsif (HP, tablet, desktop)
+Integrasi WhatsApp (wa.me)
+Basic SEO (meta tag, judul, deskripsi)
+Loading ringan dan cepat

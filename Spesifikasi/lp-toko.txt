@@ -1,0 +1,31 @@
+🌐 Web Landing Page — Toko Online
+📑 Spesifikasi dan Fungsi :
+Fungsi utama Landing Page Toko Online
+
+🛍️ Katalog Produk
+Menampilkan produk dengan foto, nama, deskripsi, dan harga.
+Dikelompokkan per kategori agar pembeli mudah menemukan barang.
+Label khusus untuk produk terlaris, promo, atau stok terbatas.
+
+🛒 Checkout Praktis
+Pembeli memilih produk lalu melanjutkan pemesanan lewat WhatsApp atau tautan marketplace.
+Alur singkat: pilih produk, klik pesan, selesai.
+
+🏷️ Promo & Penawaran
+Bagian khusus diskon, bundling, dan penawaran terbatas.
+Mendorong pengunjung untuk segera membeli.
+
+💬 Kepercayaan Pembeli
+Testimoni pelanggan, info garansi, dan kebijakan pengiriman.
+Informasi kontak yang jelas supaya calon pembeli yakin.
+
+📈 Media Promosi Digital
+Cocok sebagai tujuan iklan Facebook, Instagram, TikTok, atau Google Ads.
+Pengunjung langsung diarahkan ke produk yang diiklankan.
+
+🛠️ TechStack (Draf) :
+HTML5, CSS3, JavaScript
+Desain responsif (HP, tablet, desktop)
+Integrasi WhatsApp (wa.me) dan tautan marketplace
+Basic SEO (meta tag, judul, deskripsi)
+Loading ringan dan cepat
