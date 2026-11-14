@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self' https://wa.me; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: blob: https://visitor-badge.laobi.icu https://robo.goatcounter.com https://gc.zgo.at; connect-src 'self' https://robo.goatcounter.com https://gc.zgo.at https://connecticut-moscow-buf-region.trycloudflare.com https://offer-texture-apr-iso.trycloudflare.com; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self' https://wa.me; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://gc.zgo.at https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: blob: https://visitor-badge.laobi.icu https://robo.goatcounter.com https://gc.zgo.at; connect-src 'self' https://robo.goatcounter.com https://gc.zgo.at https://connecticut-moscow-buf-region.trycloudflare.com https://offer-texture-apr-iso.trycloudflare.com https://cdn.jsdelivr.net; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -32,7 +32,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="neo-plus.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="preload" as="image" href="images/img-2.webp" fetchpriority="high">
     <style id="lp-gallery-css">
         /* ===== Landing Page showcase: Mini Thumbnail Previews (Floating Cards) =====
@@ -1037,7 +1037,8 @@
             window.openVideoModal = openVideo;
         })();
     </script>
-    <!-- GoatCounter -->
+    <!-- GoatCounter (diconnect/comment sementara) -->
+    <!--
     <script data-goatcounter="https://robo.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
     <script>
@@ -1084,6 +1085,7 @@
             }, true);
         })();
     </script>
+    -->
 
     <!-- Modal Spesifikasi -->
     <div class="modal-overlay" id="docModal" aria-hidden="true">
@@ -1267,7 +1269,8 @@
         </div>
     </div>
 
-    <!-- n8n Chat Widget (bubble kanan bawah) -->
+    <!-- n8n Chat Widget (diconnect/comment sementara karena platform/chatbot tidak konek) -->
+    <!--
     <script type="module">
         import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
@@ -1378,7 +1381,7 @@
                     openRealChat();
                 } else if (offlinePanel) {
                     offlinePanel.hidden = !offlinePanel.hidden;
-                    if (offlineHint) offlineHint.hidden = true; // panel kebuka, hint disembunyiin biar nggak dobel
+                    if (offlineHint) offlineHint.hidden = true; // panel kebuka, hint disembunyikan biar nggak dobel
                 }
             });
         });
@@ -1389,6 +1392,46 @@
         if (offlineHint) offlineHint.addEventListener('click', function () {
             if (offlineToggle) offlineToggle.click(); // klik hint = buka panel info
         });
+    </script>
+    -->
+
+    <!-- Chat offline fallback (Chatbot Under Construction) dengan auto-hide maksimal 3 detik -->
+    <script>
+        (function () {
+            var offlineToggle = document.getElementById('chatOfflineToggle');
+            var offlinePanel = document.getElementById('chatOfflinePanel');
+            var offlineHint = document.getElementById('chatOfflineHint');
+            var offlineHintClose = document.getElementById('chatOfflineHintClose');
+
+            if (offlineToggle) offlineToggle.hidden = false;
+            if (offlineHint) {
+                offlineHint.hidden = false;
+                // Pop-up notif "Chatbot lagi Under Construction..." maksimal 3 detik, lalu ditutup otomatis
+                setTimeout(function () {
+                    if (offlineHint) offlineHint.hidden = true;
+                }, 3000);
+            }
+
+            if (offlineToggle) {
+                offlineToggle.addEventListener('click', function () {
+                    if (offlinePanel) {
+                        offlinePanel.hidden = !offlinePanel.hidden;
+                        if (offlineHint) offlineHint.hidden = true;
+                    }
+                });
+            }
+            if (offlineHintClose) {
+                offlineHintClose.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    if (offlineHint) offlineHint.hidden = true;
+                });
+            }
+            if (offlineHint) {
+                offlineHint.addEventListener('click', function () {
+                    if (offlineToggle) offlineToggle.click();
+                });
+            }
+        })();
     </script>
 
     <!-- Service Worker: cache aset biar kunjungan berikutnya instan -->
