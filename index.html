@@ -383,7 +383,61 @@
                             <span><b>Bergaransi</b> Servis</span>
                             <span><b>Sparepart</b> Berkualitas</span>
                             <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20laptop%20saya%20bermasalah.%20Boleh%20minta%20diagnosa%20gratis%3F" target="_blank" rel="noopener" class="wa-btn orange-c">Servis Sekarang! <i class="fas fa-arrow-right"></i></a>
-                            <button type="button" class="orange-c btn-home" id="btnHome" onclick="goHome(event)" aria-label="Beranda" title="Beranda"><i class="fas fa-home"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" id="testiSlide" data-title="Testimoni Klien" data-desc="Apa kata klien tentang layanan dan aplikasi RoboKomputer — ulasan jujur dari pengguna langsung.">
+                    <div class="gold"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Apa Kata Mereka?</div>
+                            <div class="big">TESTI!</div>
+                        </div>
+                        <div class="testi-grid swiper-no-swiping" role="group" aria-label="Testimoni klien">
+                            <article class="testi-card scrapbook-koran">
+                                <div class="paper-tape"></div>
+                                <div class="clipping-header">
+                                    <span class="clipping-title">POS</span>
+                                    <span class="testi-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                                </div>
+                                <p class="testi-quote">"Transaksi jadi jauh lebih cepat, stok berkurang otomatis. Kasir manual sudah kami tinggalkan."</p>
+                                <div class="testi-person">
+                                    <span class="testi-avatar">RP</span>
+                                    <span class="testi-ident"><b>Rizky Pratama</b><small>Toko Agen Grosir </small></span>
+                                </div>
+                            </article>
+                            <article class="testi-card scrapbook-catatan">
+                                <div class="paper-tape"></div>
+                                <div class="clipping-header">
+                                    <span class="clipping-title">TRACEABILITY SYSTEM AND DASHBOARD</span>
+                                    <span class="testi-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                                </div>
+                                <p class="testi-quote">"Produk jadi lebih mudah ditracing dan dashboardnya sangat informatif, mengurangi Reject dan bottle-neck."</p>
+                                <div class="testi-person">
+                                    <span class="testi-avatar">NS</span>
+                                    <span class="testi-ident"><b>Nadia Sari</b><small>QC/QA · Manufaktur Industri Plastik</small></span>
+                                </div>
+                            </article>
+                            <article class="testi-card scrapbook-majalah">
+                                <div class="paper-tape"></div>
+                                <div class="clipping-header">
+                                    <span class="clipping-title">Landing Page / COMPRO</span>
+                                    <span class="testi-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                                </div>
+                                <p class="testi-quote">"Website kami tampil profesional, orderan lewat WhatsApp naik. Komunikasinya cepat, hasilnya memuaskan."</p>
+                                <div class="testi-person">
+                                    <span class="testi-avatar">BS</span>
+                                    <span class="testi-ident"><b>Bagus Setiawan</b><small>Pemilik · Toko Kriya</small></span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="specs gold-c">
+                            <span><b>Ulasan</b> Klien</span>
+                            <span><b>100%</b> Nyata</span>
+                            <span><b>Terpercaya</b></span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20saya%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="wa-btn gold-c">Konsultasi Gratis <i class="fas fa-arrow-right"></i></a>
+                            <button type="button" class="gold-c btn-home" id="btnHome" onclick="goHome(event)" aria-label="Beranda" title="Beranda"><i class="fas fa-home"></i></button>
                         </div>
                     </div>
                 </div>
@@ -586,6 +640,15 @@
                 if (small) gsap.fromTo(small, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
                 if (big) gsap.fromTo(big, { y: 120, opacity: 0 }, { y: 0, opacity: 0.5, duration: 0.8, delay: 1.0, ease: 'back.out(1.5)', overwrite: 'auto' });
                 if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 6) {
+                // Slide 7 TRUST!: panel geser kiri-kanan + kartu testimoni muncul berurutan
+                if (bgA) gsap.fromTo(bgA, { x: -1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { x: 1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (small) gsap.fromTo(small, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 0.5, duration: 0.8, delay: 1.0, ease: 'back.out(1.5)', overwrite: 'auto' });
+                var testiCards = slide.querySelectorAll('.testi-card');
+                if (testiCards.length) gsap.fromTo(testiCards, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 1.05, ease: 'back.out(1.4)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.35, ease: 'power2.out', overwrite: 'auto' });
             }
             // Tombol buku + video ikut fade-in tiap slide (opacity saja biar posisi center tidak kegeser)
             if (mediaBtns.length) gsap.fromTo(mediaBtns, { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.1, delay: 1.35, ease: 'power2.out', overwrite: 'auto' });
