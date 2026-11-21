@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 250" width="160" height="250" role="img" aria-label="Logo panah hologram ke bawah">
+  <defs>
+    <path id="arrowShape" d="M 60 12 Q 52 12 52 20 L 52 136 L 20 136 Q 8 136 16 147 L 68 228 Q 80 246 92 228 L 144 147 Q 152 136 140 136 L 108 136 L 108 20 Q 108 12 100 12 Z"/>
+
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9ccdd"/>
+      <stop offset="0.25" stop-color="#fdfdff"/>
+      <stop offset="0.5" stop-color="#aeb3cc"/>
+      <stop offset="0.75" stop-color="#f2f3fb"/>
+      <stop offset="1" stop-color="#bec2d8"/>
+    </linearGradient>
+
+    <linearGradient id="holo" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#ff4fc3"/>
+      <stop offset="0.14" stop-color="#ffd23f"/>
+      <stop offset="0.3" stop-color="#3ff0bf"/>
+      <stop offset="0.46" stop-color="#35b8ff"/>
+      <stop offset="0.62" stop-color="#9b5cff"/>
+      <stop offset="0.78" stop-color="#ff5fa8"/>
+      <stop offset="0.92" stop-color="#48e6ff"/>
+      <stop offset="1" stop-color="#ff7ad9"/>
+    </linearGradient>
+
+    <radialGradient id="foil" cx="50%" cy="62%" r="70%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.22" stop-color="#ff87e0"/>
+      <stop offset="0.42" stop-color="#7fdcff"/>
+      <stop offset="0.62" stop-color="#fff09a"/>
+      <stop offset="0.82" stop-color="#bb8bff"/>
+      <stop offset="1" stop-color="#ff9edb" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="streak" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <use href="#arrowShape" fill="url(#silver)"/>
+  <use href="#arrowShape" fill="url(#holo)" opacity="0.9"/>
+  <use href="#arrowShape" fill="url(#foil)" opacity="0.65"/>
+
+  <path d="M 20 136 Q 8 136 16 147 L 68 228 Q 80 246 92 228 L 144 147 Q 152 136 140 136 Z" fill="url(#streak)" opacity="0.38"/>
+  <rect x="56" y="38" width="48" height="12" rx="6" fill="url(#streak)" opacity="0.3"/>
+
+  <use href="#arrowShape" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+  <use href="#arrowShape" fill="none" stroke="#8a63c9" stroke-width="1.5" stroke-linejoin="round" opacity="0.9"/>
+</svg>

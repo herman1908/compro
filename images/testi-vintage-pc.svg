@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Ilustrasi retro orang mengoperasikan komputer CRT tahun 90-an">
+  <defs>
+    <pattern id="plaid" width="18" height="18" patternUnits="userSpaceOnUse">
+      <rect width="18" height="18" fill="#8C3B32"/>
+      <rect width="9" height="18" fill="#A8503F" opacity=".55"/>
+      <rect width="18" height="9" fill="#5E2A25" opacity=".45"/>
+      <path d="M0 0H18M0 9H18M0 0V18M9 0V18" stroke="#2B1B18" stroke-width="1" opacity=".45"/>
+    </pattern>
+    <pattern id="keys" width="10" height="8" patternUnits="userSpaceOnUse">
+      <rect x="1" y="1" width="8" height="6" rx="1" fill="#B3A588" stroke="#2B1B18" stroke-width=".6"/>
+    </pattern>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000" opacity=".14"/>
+    </pattern>
+    <pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".6" fill="#000" opacity=".12"/>
+      <circle cx="4" cy="5" r=".5" fill="#000" opacity=".1"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="300" fill="#D8C7A4"/>
+  <rect width="400" height="300" fill="url(#grain)"/>
+
+  <g transform="translate(24 16) rotate(-3)">
+    <rect x="0" y="0" width="112" height="66" fill="#F3ECD8" stroke="#2B211B" stroke-width="2"/>
+    <text x="10" y="31" font-family="Georgia,serif" font-size="25" font-weight="bold" fill="#2B211B">Delphi</text>
+    <rect x="10" y="39" width="54" height="4" fill="#B4462F"/>
+    <text x="10" y="59" font-family="Georgia,serif" font-size="15" fill="#3A322A">Borland</text>
+  </g>
+
+  <g transform="translate(304 16)">
+    <rect x="0" y="2" width="12" height="60" fill="#7A5C43" stroke="#2B211B" stroke-width="1.5"/>
+    <rect x="14" y="9" width="10" height="53" fill="#4E6B6B" stroke="#2B211B" stroke-width="1.5"/>
+    <rect x="26" y="0" width="12" height="62" fill="#9A6B3F" stroke="#2B211B" stroke-width="1.5"/>
+    <rect x="40" y="13" width="9" height="49" fill="#6E4B5E" stroke="#2B211B" stroke-width="1.5"/>
+  </g>
+
+  <rect x="0" y="222" width="400" height="78" fill="#9A6B45"/>
+  <rect x="0" y="222" width="400" height="7" fill="#6E4529"/>
+  <rect x="0" y="288" width="400" height="12" fill="#7D5233"/>
+
+  <g>
+    <path d="M108 224 C108 170 128 147 157 147 C186 147 206 170 206 224 Z" fill="url(#plaid)" stroke="#2B1B18" stroke-width="3"/>
+    <rect x="148" y="130" width="18" height="24" fill="#B98A6B" stroke="#2B1B18" stroke-width="2"/>
+    <ellipse cx="157" cy="111" rx="30" ry="32" fill="#33251F" stroke="#2B1B18" stroke-width="2"/>
+    <path d="M133 103 Q157 85 181 103" stroke="#5A4034" stroke-width="4" fill="none"/>
+  </g>
+
+  <g>
+    <rect x="244" y="202" width="46" height="14" rx="3" fill="#C9BCA0" stroke="#2B1B18" stroke-width="2"/>
+    <rect x="254" y="214" width="26" height="10" fill="#B7A98C" stroke="#2B1B18" stroke-width="2"/>
+    <rect x="206" y="94" width="122" height="112" rx="10" fill="#D7C9A7" stroke="#2B1B18" stroke-width="3"/>
+    <rect x="216" y="104" width="102" height="80" rx="6" fill="#2B211B"/>
+    <rect x="222" y="110" width="90" height="68" rx="3" fill="#1D3E73"/>
+    <rect x="228" y="116" width="78" height="56" fill="#C9D6E5" stroke="#0F2447" stroke-width="1.5"/>
+    <rect x="228" y="116" width="78" height="10" fill="#2C5CA8"/>
+    <text x="232" y="124" font-family="monospace" font-size="7" fill="#FFFFFF">C:\&gt; EDIT</text>
+    <g fill="#3A5A8C">
+      <rect x="232" y="132" width="64" height="3"/>
+      <rect x="232" y="139" width="54" height="3"/>
+      <rect x="232" y="146" width="68" height="3"/>
+      <rect x="232" y="153" width="42" height="3"/>
+      <rect x="232" y="160" width="58" height="3"/>
+    </g>
+    <rect x="222" y="110" width="90" height="68" fill="url(#scan)" rx="3"/>
+    <circle cx="318" cy="188" r="5" fill="#8C7C5E" stroke="#2B1B18" stroke-width="1.5"/>
+    <circle cx="306" cy="188" r="3" fill="#8C7C5E" stroke="#2B1B18" stroke-width="1"/>
+    <text x="226" y="199" font-family="monospace" font-size="7" fill="#5A4A34">COMPAQ</text>
+  </g>
+
+  <g transform="translate(148 226) skewX(-6)">
+    <rect x="0" y="0" width="126" height="34" rx="4" fill="#D7C9A7" stroke="#2B1B18" stroke-width="2.5"/>
+    <rect x="4" y="4" width="118" height="26" fill="url(#keys)"/>
+  </g>
+
+  <g transform="translate(344 232)">
+    <rect x="0" y="0" width="30" height="20" rx="2" fill="#2E4E8C" stroke="#2B1B18" stroke-width="2"/>
+    <rect x="5" y="4" width="20" height="10" fill="#D8C7A4"/>
+    <rect x="4" y="-12" width="30" height="20" rx="2" fill="#4B6BA8" stroke="#2B1B18" stroke-width="2"/>
+    <rect x="9" y="-8" width="20" height="10" fill="#D8C7A4"/>
+  </g>
+
+  <g transform="translate(20 238)">
+    <rect x="0" y="0" width="22" height="26" rx="2" fill="#B4462F" stroke="#2B1B18" stroke-width="2"/>
+    <path d="M4 6 L14 0" stroke="#2B1B18" stroke-width="2"/>
+    <path d="M9 8 L19 2" stroke="#2B1B18" stroke-width="2"/>
+  </g>
+
+  <rect width="400" height="300" fill="none" stroke="#2B211B" stroke-width="4" opacity=".35"/>
+</svg>
