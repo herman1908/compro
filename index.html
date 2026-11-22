@@ -790,7 +790,12 @@
             var menuIcon = document.getElementById('menuIcon');
             var layananToggle = document.getElementById('layananToggle');
             if (!menuBtn || !dropdown) return;
+            var menuTimer = null;
             function closeMenu() {
+                if (menuTimer) {
+                    clearTimeout(menuTimer);
+                    menuTimer = null;
+                }
                 dropdown.classList.remove('open');
                 if (menuIcon) menuIcon.className = 'fas fa-bars';
             }
@@ -798,6 +803,15 @@
                 if (e) { e.preventDefault(); e.stopPropagation(); }
                 var isOpen = dropdown.classList.toggle('open');
                 if (menuIcon) menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+                if (menuTimer) {
+                    clearTimeout(menuTimer);
+                    menuTimer = null;
+                }
+                if (isOpen) {
+                    menuTimer = setTimeout(function () {
+                        closeMenu();
+                    }, 2000);
+                }
             }
             menuBtn.addEventListener('click', toggleMenu);
             menuBtn.addEventListener('keydown', function (e) {
@@ -1503,13 +1517,14 @@
     </script>
     -->
 
-    <!-- Chat offline fallback (Chatbot Under Construction) dengan auto-hide maksimal 3 detik -->
+    <!-- Chat offline fallback (Chatbot Under Construction) dengan auto-hide setelah 2 detik -->
     <script>
         (function () {
             var offlineToggle = document.getElementById('chatOfflineToggle');
             var offlinePanel = document.getElementById('chatOfflinePanel');
             var offlineHint = document.getElementById('chatOfflineHint');
             var offlineHintClose = document.getElementById('chatOfflineHintClose');
+            var chatTimer = null;
 
             if (offlineToggle) offlineToggle.hidden = false;
             if (offlineHint) {
@@ -1520,11 +1535,37 @@
                 }, 3000);
             }
 
+            function closeChatPanel() {
+                if (chatTimer) {
+                    clearTimeout(chatTimer);
+                    chatTimer = null;
+                }
+                if (!offlinePanel) return;
+                offlinePanel.classList.add('is-hiding');
+                setTimeout(function () {
+                    offlinePanel.hidden = true;
+                    offlinePanel.classList.remove('is-hiding');
+                }, 300);
+            }
+
             if (offlineToggle) {
                 offlineToggle.addEventListener('click', function () {
-                    if (offlinePanel) {
-                        offlinePanel.hidden = !offlinePanel.hidden;
+                    if (!offlinePanel) return;
+                    if (chatTimer) {
+                        clearTimeout(chatTimer);
+                        chatTimer = null;
+                    }
+                    var isHidden = offlinePanel.hidden;
+                    if (isHidden) {
+                        offlinePanel.hidden = false;
+                        offlinePanel.classList.remove('is-hiding');
                         if (offlineHint) offlineHint.hidden = true;
+
+                        chatTimer = setTimeout(function () {
+                            closeChatPanel();
+                        }, 2000);
+                    } else {
+                        closeChatPanel();
                     }
                 });
             }
