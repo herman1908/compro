@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self' https://wa.me; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://gc.zgo.at https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: blob: https://visitor-badge.laobi.icu https://robo.goatcounter.com https://gc.zgo.at; connect-src 'self' https://robo.goatcounter.com https://gc.zgo.at https://connecticut-moscow-buf-region.trycloudflare.com https://offer-texture-apr-iso.trycloudflare.com https://cdn.jsdelivr.net; media-src 'self'; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://gc.zgo.at">
+    <title>Aplikasi Web, Desktop & Service Laptop Tangerang | RoboKomputer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="apple-touch-icon" href="images/favicon-180.png">
+    <link rel="canonical" href="https://robo.work.gd/" />
+
+    <meta name="description" content="RoboKomputer Tangerang — jasa pembuatan aplikasi web, aplikasi desktop & service laptop untuk UMKM dan bisnis. Hardware sampai software, konsultasi gratis!">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://robo.work.gd/" />
+    <meta property="og:title" content="Aplikasi Web, Desktop & Service Laptop Tangerang | RoboKomputer" />
+    <meta property="og:description" content="Jasa IT Tangerang: pembuatan aplikasi web, aplikasi desktop & service laptop. Hardware sampai software untuk UMKM dan bisnis." />
+    <meta property="og:image" content="https://robo.work.gd/images/img-2.webp" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="neo-plus.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="preload" as="image" href="images/img-2.webp" fetchpriority="high">
+    <style id="lp-gallery-css">
+        /* ===== Landing Page showcase: Mini Thumbnail Previews (Floating Cards) =====
+           Tuning cepat: ubah --lp-top / --lp-right (desktop) dan --lp-top-m (HP) di bawah. */
+        #lpSlide .lp-gallery {
+            --lp-accent: #7a5cc4;      /* otomatis diganti JS mengikuti warna panel ungu slide */
+            --lp-ink: #111;
+            --lp-paper: #fffaf0;
+            --lp-top: 22px;
+            --lp-right: 104px;
+            --lp-top-m: 64px;
+            position: absolute;
+            top: var(--lp-top);
+            right: var(--lp-right);
+            z-index: 30;
+            width: min(660px, calc(100vw - 40vw - 130px));
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            pointer-events: auto;
+        }
+        #lpSlide .lp-item { min-width: 0; }
+        #lpSlide .lp-float { animation: lpFloat 4.6s ease-in-out infinite; }
+        #lpSlide .lp-item:nth-child(2) .lp-float { animation-duration: 5.2s; animation-delay: -1.2s; }
+        #lpSlide .lp-item:nth-child(3) .lp-float { animation-duration: 4.2s; animation-delay: -2.4s; }
+        #lpSlide .lp-item:nth-child(4) .lp-float { animation-duration: 5.6s; animation-delay: -0.6s; }
+        @keyframes lpFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        #lpSlide .lp-card {
+            -webkit-appearance: none; appearance: none;
+            display: flex; flex-direction: column;
+            width: 100%;
+            margin: 0; padding: 6px 6px 8px;
+            font: inherit; text-align: left; color: var(--lp-ink);
+            background: var(--lp-paper);
+            border: 3px solid var(--lp-ink);
+            border-radius: 14px;
+            box-shadow: 4px 4px 0 var(--lp-ink);
+            cursor: pointer;
+            transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease, background-color .25s ease, color .25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #lpSlide .lp-card:hover {
+            transform: translate(-2px, -4px) rotate(-1.2deg);
+            box-shadow: 6px 8px 0 var(--lp-ink);
+        }
+        #lpSlide .lp-card:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--lp-ink); }
+        #lpSlide .lp-card:focus-visible { outline: 3px solid #ffd23f; outline-offset: 3px; }
+        #lpSlide .lp-card.is-active {
+            background: var(--lp-accent);
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--lp-ink);
+        }
+        #lpSlide .lp-card.is-active:hover { transform: translate(-2px, -4px) rotate(-1.2deg); }
+
+        #lpSlide .lp-thumb {
+            position: relative; display: block;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            border: 2px solid var(--lp-ink);
+            border-radius: 9px;
+            background: linear-gradient(135deg, #e9e1ff, #fff2e0);
+        }
+        #lpSlide .lp-thumb img {
+            display: block; width: 100%; height: 100%;
+            object-fit: cover; object-position: top center;
+            transition: transform .5s ease;
+            -webkit-user-drag: none; user-select: none;
+        }
+        #lpSlide .lp-card:hover .lp-thumb img { transform: scale(1.08); }
+        #lpSlide .lp-badge {
+            position: absolute; left: 6px; top: 6px;
+            width: 24px; height: 24px;
+            display: grid; place-items: center;
+            font-size: 11px; line-height: 1;
+            color: var(--lp-accent);
+            background: #fff;
+            border: 2px solid var(--lp-ink);
+            border-radius: 50%;
+            transition: background-color .25s ease, color .25s ease, transform .25s ease;
+        }
+        #lpSlide .lp-card:hover .lp-badge { transform: rotate(-12deg) scale(1.1); }
+        #lpSlide .lp-card.is-active .lp-badge { background: #ffd23f; color: var(--lp-ink); }
+
+        #lpSlide .lp-meta { display: block; padding: 7px 4px 0; min-width: 0; }
+        #lpSlide .lp-name,
+        #lpSlide .lp-sub { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+        #lpSlide .lp-name { font-weight: 800; font-size: 12.5px; line-height: 1.15; }
+        #lpSlide .lp-sub { margin-top: 2px; font-size: 10.5px; line-height: 1.2; opacity: .7; }
+
+        /* Layar laptop pendek: kartu dipadatkan biar nggak nabrak gambar utama */
+        @media (min-width: 769px) and (max-height: 720px) {
+            #lpSlide .lp-sub { display: none; }
+            #lpSlide .lp-thumb { aspect-ratio: 16 / 8; }
+        }
+
+        /* HP / tablet kecil: 4 kartu mungil disusun VERTIKAL di sisi kanan atas (di bawah tombol menu) */
+        @media (max-width: 768px) {
+            #lpSlide .lp-gallery {
+                --lp-top-m: 72px;
+                top: var(--lp-top-m);
+                right: 10px; left: auto;
+                width: clamp(74px, 22vw, 104px);
+                grid-template-columns: 1fr;
+                gap: 7px;
+            }
+            #lpSlide .lp-card { padding: 3px; border-width: 2px; border-radius: 11px; box-shadow: 3px 3px 0 var(--lp-ink); }
+            #lpSlide .lp-card:hover { transform: translate(-1px, -2px); box-shadow: 4px 5px 0 var(--lp-ink); }
+            #lpSlide .lp-card.is-active { transform: translate(-2px, 0); box-shadow: 4px 3px 0 var(--lp-ink); }
+            #lpSlide .lp-thumb { aspect-ratio: 2 / 1; border-width: 1.5px; border-radius: 8px; }
+            #lpSlide .lp-badge { left: 4px; top: 50%; margin-top: -9px; width: 18px; height: 18px; font-size: 8px; border-width: 1.5px; }
+            #lpSlide .lp-meta { display: none; }   /* nama kartu tetap muncul sebagai tooltip (atribut title) */
+            #lpSlide .lp-float { animation-name: lpFloatX; }
+        }
+        @keyframes lpFloatX {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-4px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #lpSlide .lp-float { animation: none; }
+            #lpSlide .lp-card, #lpSlide .lp-thumb img, #lpSlide .lp-badge { transition: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="neo-progress" aria-hidden="true"><i id="neoProgress"></i></div>
+    <main>
+        <div class="brand">
+            <h1 class="logo"><span class="robo">Robo</span><span class="komputer">Komputer</span></h1>
+            <!-- <div class="logo"><span class="robo">Robo</span><span class="komputer">Komputer</span></div> -->
+            <div class="slide-info">
+                <div class="app-title" id="appTitle"></div>
+                <div class="app-desc" id="appDesc"></div>
+                <button type="button" class="desc-toggle" id="descToggle">Selengkapnya...</button>
+            </div>
+        </div>
+        <div class="social">
+            <div class="bar"></div>
+            <a href="https://www.tiktok.com/@abei1982" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/hermanrobosoft" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://lynk.id/herman1908" target="_blank" rel="noopener" aria-label="lynk.id" title="lynk.id"><img src="images/lynk-id.png" alt="lynk.id" class="lynk-icon"></a>
+        </div>
+        <div class="menu" id="menuBtn" role="button" tabindex="0" aria-label="Menu">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </div>
+        <nav class="nav-dropdown" id="navDropdown">
+            <a href="#" data-go="0">Beranda</a>
+            <a href="#" id="aboutLink">Tentang Kami</a>
+            <div class="has-sub">
+                <a href="#" id="layananToggle">Layanan <i class="fas fa-chevron-down chev"></i></a>
+                <div class="sub" id="layananSub">
+                    <a href="#" data-go="1">Real-time Attendance</a>
+                    <a href="#" data-go="0">Face Recognition</a>
+                    <a href="#" data-go="2">Dashboard Tracking</a>
+                    <a href="#" data-go="3">Traceability</a>
+                    <a href="#" data-go="4">Landing Page</a>
+                    <a href="#" data-go="5">Service Laptop</a>
+                </div>
+            </div>
+            <a href="#" data-go="5">Kontak</a>
+            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="cta">Konsultasi Gratis</a>
+            <div class="visitor-line nav-visitor">
+                <i class="fas fa-eye"></i>
+                <img src="https://visitor-badge.laobi.icu/badge?page_id=https://herman1908.github.io/compro/" alt="visitor count" class="visitor-count" />
+            </div>
+        </nav>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide first" data-title="POS Kasir Modern" data-desc="Point of Sales (Sistem Kasir) Memudahkan proses transaksi, dengan fitur lengkap dan modern.">
+                    <div class="red"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Let's</div>
+                            <div class="big">SCAN</div>
+                        </div>
+                        <div class="image">
+                            <img src="images/img-2.webp" alt="Aplikasi kasir POS modern untuk UMKM Tangerang" decoding="async" fetchpriority="high">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn red-c" data-mtype="doc" data-slide="0" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn red-c" data-mtype="video" data-slide="0" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                            <button type="button" class="media-btn red-c" data-mtype="price" data-slide="0" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                            <button type="button" class="media-btn red-c" data-mtype="trial" data-slide="0" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
+                        </div>
+                        <div class="specs red-c">
+                            <span><b>Cepat</b> Tepat</span>
+                            <span><b>Mudah</b> User Friendly</span>
+                            <span><b>Akurat</b> Terpercaya</span>
+                            <span><b>Modern</b> Canggih</span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20POS%20Kasir%20Modern%20(SCAN).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn red-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="Real-time Attendance Monitor" data-desc="Pantau kehadiran real-time dengan integrasi database, sinkronisasi perangkat, dan UI informatif.">
+                    <div class="yellow"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Let's</div>
+                            <div class="big"><span>C</span><span>H</span><span>E</span><span>C</span><span>K</span></div>
+                        </div>
+                        <div class="image">
+                            <img src="images/img-1.webp" alt="Pantau kehadiran real-time dengan integrasi database LIVE" decoding="async">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn" data-mtype="doc" data-slide="1" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
+                            <button type="button" class="media-btn" data-mtype="video" data-slide="1" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                            <button type="button" class="media-btn" data-mtype="price" data-slide="1" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                            <button type="button" class="media-btn" data-mtype="trial" data-slide="1" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
+                        </div>
+                        <div class="specs">
+                            <span><b>Integrated</b> db</span>
+                            <span><b>Syncronize</b> Device</span>
+                            <span><b>Informative</b> UI</span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Real-time%20Attendance%20Monitor.%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="Dashboard Tracking" data-desc="Pantau semua aktivitas real-time dalam satu dashboard tracking yang visual dan mudah dipahami.">
+                    <div class="blue"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Let's</div>
+                            <div class="big">TRACK</div>
+                        </div>
+                        <div class="image">
+                            <img src="images/img-3.webp" alt="Pantau semua aktivitas real-time dalam satu dashboard tracking" decoding="async">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn blue-c" data-mtype="doc" data-slide="2" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
+                                <button type="button" class="media-btn blue-c" data-mtype="video" data-slide="2" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn blue-c" data-mtype="price" data-slide="2" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn blue-c" data-mtype="trial" data-slide="2" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
+                        </div>
+                        <div class="specs blue-c">
+                            <span><b>Informatif</b> Status</span>
+                            <span><b>Responsif</b> Media</span>
+                            <span><b>Real-Time</b> Singkronisasi</span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Dashboard%20Tracking%20(TRACK).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn blue-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="Traceability" data-desc="Telusuri riwayat data end-to-end dengan sistem traceability yang akurat dan transparan Realisasi Tepat Sasaran.">
+                    <div class="green"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Let's</div>
+                            <div class="big">TRACE</div>
+                        </div>
+                        <div class="image">
+                            <img src="images/img-4.webp" alt="Telusuri riwayat data end-to-end dengan sistem traceability" decoding="async">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn green-c" data-mtype="doc" data-slide="3" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
+                                <button type="button" class="media-btn green-c" data-mtype="video" data-slide="3" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn green-c" data-mtype="price" data-slide="3" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn green-c" data-mtype="trial" data-slide="3" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
+                        </div>
+                        <div class="specs green-c">
+                            <span><b>Akurat</b> Realisasi</span>
+                            <span><b>Handal</b> Tepat</span>
+                            <span><b>Hemat</b> Sasaran</span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Traceability%20(TRACE).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn green-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" id="lpSlide" data-title="Landing Page" data-desc="Tampilkan profil dan layanan Bisnis atau UMKM Anda dalam landing page yang cepat, modern, dan responsif, dan Dilengkapi Basic SEO.">
+                    <div class="purple"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <!-- Mini Thumbnail Previews (Floating Cards): klik kartu -> gambar utama & semua detail ikut berubah -->
+                        <div class="lp-gallery swiper-no-swiping" id="lpGallery" role="group" aria-label="Pilih contoh landing page">
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card is-active" data-lp="0" aria-pressed="true" title="Company Profile">
+                                    <span class="lp-thumb"><img src="images/img-5.webp" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-building"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">Company Profile</span><span class="lp-sub">Profil bisnis elegan</span></span>
+                                </button>
+                            </div></div>
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card" data-lp="1" aria-pressed="false" title="UMKM & Kuliner">
+                                    <span class="lp-thumb"><img src="images/lp-kuliner.webp" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-utensils"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">UMKM & Kuliner</span><span class="lp-sub">Menu digital & order WA</span></span>
+                                </button>
+                            </div></div>
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card" data-lp="2" aria-pressed="false" title="Toko Online">
+                                    <span class="lp-thumb"><img src="images/lp-toko.png" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-store"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">Toko Online</span><span class="lp-sub">Katalog produk & checkout</span></span>
+                                </button>
+                            </div></div>
+                            <div class="lp-item"><div class="lp-float">
+                                <button type="button" class="lp-card" data-lp="3" aria-pressed="false" title="Event / Webinar">
+                                    <span class="lp-thumb"><img src="images/lp-event.webp" alt="" decoding="async"><span class="lp-badge"><i class="fas fa-calendar-check"></i></span></span>
+                                    <span class="lp-meta"><span class="lp-name">Event / Webinar</span><span class="lp-sub">Pendaftaran & countdown</span></span>
+                                </button>
+                            </div></div>
+                        </div>
+                        <div class="title">
+                            <div class="small">Let's</div>
+                            <div class="big">SHOW UP!</div>
+                        </div>
+                        <div class="image">
+                            <img src="images/img-5.webp" alt="Tampilkan profil dan layanan Bisnis atau UMKM Anda dalam landing page" decoding="async">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn purple-c" data-mtype="doc" data-slide="4" aria-label="Buku panduan" title="Fungsi & TechStack"><i class="fas fa-book-open"></i></button>
+                                <button type="button" class="media-btn purple-c" data-mtype="video" data-slide="4" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn purple-c" data-mtype="price" data-slide="4" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn purple-c" data-mtype="trial" data-slide="4" aria-label="Trial gratis" title="Trial Gratis"><i class="fas fa-gift"></i></button>
+                        </div>
+                        <div class="specs purple-c">
+                            <span><b>Responsif</b> Ringan</span>
+                            <span><b>Aesthetic</b> Modern</span>
+                            <span><b>SEO</b> Teratas</span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20pesan%20Landing%20Page%20(SHOW%20UP!).%20Boleh%20info%20harganya%3F" target="_blank" rel="noopener" class="wa-btn purple-c">Pesan Sekarang! <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" data-title="Service Laptop Profesional" data-desc="Laptop lemot, rusak, atau kena virus? Diagnosa GRATIS, sparepart berkualitas, pengerjaan cepat & bergaransi di Tangerang.">
+                    <div class="orange"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Let's</div>
+                            <div class="big">REPAIR</div>
+                        </div>
+                        <div class="image">
+                            <!-- Foto: Pexels (lisensi gratis, bebas pakai komersial) — teknisi servis laptop -->
+                            <img src="images/img-6.jpg" alt="Teknisi profesional sedang servis laptop di meja kerja" decoding="async">
+                        </div>
+                        <div class="media-btns">
+                            <button type="button" class="media-btn orange-c" data-mtype="doc" data-slide="5" aria-label="Daftar layanan" title="Layanan & Harga"><i class="fas fa-book-open"></i></button>
+                                <button type="button" class="media-btn orange-c" data-mtype="video" data-slide="5" aria-label="Video tutorial" title="Lihat Video"><i class="fas fa-circle-play"></i></button>
+                                <button type="button" class="media-btn orange-c" data-mtype="price" data-slide="5" aria-label="Lihat harga" title="Lihat Harga"><i class="fas fa-tag"></i></button>
+                                <button type="button" class="media-btn orange-c" data-mtype="trial" data-slide="5" aria-label="Diagnosa gratis" title="Diagnosa Gratis"><i class="fas fa-stethoscope"></i></button>
+                        </div>
+                        <div class="specs orange-c">
+                            <span><b>Diagnosa</b> Gratis</span>
+                            <span><b>Bergaransi</b> Servis</span>
+                            <span><b>Sparepart</b> Berkualitas</span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20laptop%20saya%20bermasalah.%20Boleh%20minta%20diagnosa%20gratis%3F" target="_blank" rel="noopener" class="wa-btn orange-c">Servis Sekarang! <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" id="testiSlide" data-title="Testimoni Klien" data-desc="Apa kata klien tentang layanan dan aplikasi RoboKomputer — ulasan jujur dari pengguna langsung.">
+                    <div class="gold"></div>
+                    <div class="black"></div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="small">Apa Kata Mereka?</div>
+                            <div class="big testi-big">TESTIMONIAL</div>
+                        </div>
+                        <div class="testi-layout-2col swiper-no-swiping" role="group" aria-label="Testimoni klien">
+                            <div class="testi-visual">
+                                <div class="polaroid-frame">
+                                    <div class="paperclip-icon" aria-hidden="true"><i class="fas fa-paperclip"></i></div>
+                                    <div class="polaroid-sticker" aria-hidden="true"><b>5.0</b><i class="fas fa-star"></i></div>
+                                    <div class="polaroid-img">
+                                        <img src="images/testi-vintage-pc.png" alt="Suasana kerja komputer CRT era 90-an dengan poster Delphi Borland" loading="lazy">
+                                    </div>
+                                    <div class="polaroid-caption">
+                                        <span class="polaroid-note">catatan dari klien</span>
+                                        <span class="polaroid-stars" aria-hidden="true">★★★★★</span>
+                                    </div>
+                                </div>
+                                <div class="testi-summary">
+                                    <b>5.0</b>
+                                    <span class="testi-summary-stars" aria-hidden="true">★★★★★</span>
+                                    <span class="testi-summary-count">4 ulasan</span>
+                                </div>
+                            </div>
+                            <div class="testi-strips-scroll swiper-no-swiping swiper-no-mousewheel">
+                                <article class="testi-strip">
+                                    <div class="strip-top">
+                                        <span class="testi-avatar" aria-hidden="true">RP</span>
+                                        <span class="strip-id">
+                                            <span class="strip-name">RIZKY PRATAMA</span>
+                                            <span class="strip-role">Retail</span>
+                                        </span>
+                                        <span class="testi-verified"><i class="fas fa-circle-check" aria-hidden="true"></i><span>Terverifikasi</span></span>
+                                    </div>
+                                    <p class="strip-text">“Transaksi jadi jauh lebih cepat, stok berkurang otomatis. Kasir manual sudah kami tinggalkan.”</p>
+                                    <div class="strip-foot">
+                                        <span class="testi-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                                        <span class="testi-score" aria-hidden="true">5.0</span>
+                                    </div>
+                                </article>
+                                <article class="testi-strip">
+                                    <div class="strip-top">
+                                        <span class="testi-avatar" aria-hidden="true">NS</span>
+                                        <span class="strip-id">
+                                            <span class="strip-name">NADIA SARI</span>
+                                            <span class="strip-role">Produksi</span>
+                                        </span>
+                                        <span class="testi-verified"><i class="fas fa-circle-check" aria-hidden="true"></i><span>Terverifikasi</span></span>
+                                    </div>
+                                    <p class="strip-text">“Produk jadi lebih mudah ditracing dan dashboardnya sangat informatif, mengurangi Reject dan bottle-neck.”</p>
+                                    <div class="strip-foot">
+                                        <span class="testi-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                                        <span class="testi-score" aria-hidden="true">5.0</span>
+                                    </div>
+                                </article>
+                                <article class="testi-strip">
+                                    <div class="strip-top">
+                                        <span class="testi-avatar" aria-hidden="true">BS</span>
+                                        <span class="strip-id">
+                                            <span class="strip-name">BAGUS SETIAWAN</span>
+                                            <span class="strip-role">UMKM</span>
+                                        </span>
+                                        <span class="testi-verified"><i class="fas fa-circle-check" aria-hidden="true"></i><span>Terverifikasi</span></span>
+                                    </div>
+                                    <p class="strip-text">“Website kami tampil profesional, orderan lewat WhatsApp naik. Komunikasinya cepat, hasilnya memuaskan.”</p>
+                                    <div class="strip-foot">
+                                        <span class="testi-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                                        <span class="testi-score" aria-hidden="true">5.0</span>
+                                    </div>
+                                </article>
+                                <article class="testi-strip">
+                                    <div class="strip-top">
+                                        <span class="testi-avatar" aria-hidden="true">AS</span>
+                                        <span class="strip-id">
+                                            <span class="strip-name">ADE SHOLAHUDDIN</span>
+                                            <span class="strip-role">Toko Online</span>
+                                        </span>
+                                        <span class="testi-verified"><i class="fas fa-circle-check" aria-hidden="true"></i><span>Terverifikasi</span></span>
+                                    </div>
+                                    <p class="strip-text">“Website-nya luar biasa, Pa! Sangat memudahkan calon pembeli untuk melihat berbagai produk melalui etalase online. Tampilan layout-nya juga bagus, menarik, dan nyaman dilihat. Jadi pembeli bisa lebih mudah mengenal produk sebelum memesan. Bravo, Pa! Terima kasih sudah menghadirkan kemudahan dan pengalaman belanja yang menyenangkan. Sukses selalu! 👏👍”</p>
+                                    <div class="strip-foot">
+                                        <span class="testi-stars" aria-label="5 dari 5 bintang">★★★★★</span>
+                                        <span class="testi-score" aria-hidden="true">5.0</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="specs gold-c">
+                            <span><b>Ulasan</b> Klien</span>
+                            <span><b>100%</b> Nyata</span>
+                            <span><b>Terpercaya</b></span>
+                            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20saya%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="wa-btn gold-c">Konsultasi Gratis <i class="fas fa-arrow-right"></i></a>
+                            <button type="button" class="gold-c btn-home" id="btnHome" onclick="goHome(event)" aria-label="Beranda" title="Beranda"><i class="fas fa-home"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="scroll-hint" id="scrollHint" role="button" tabindex="0" aria-label="Lihat slide berikutnya" title="Slide berikutnya">
+            <img src="images/scroll-down-arrow.svg" alt="" aria-hidden="true">
+        </div>
+    </main>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        // Preload gambar slide + mode cepat untuk HP / hemat-data
+        (function () {
+            ['img-2', 'img-3', 'img-4', 'img-5'].forEach(function (n) {
+                var im = new Image();
+                im.src = 'images/' + n + '.webp';
+            });
+            var im6 = new Image();
+            im6.src = 'images/img-6.jpg';
+            var conn = navigator.connection || {};
+            var hematData = conn.saveData || /2g/.test(conn.effectiveType || '');
+            var isHP = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+            if ((isHP || hematData) && window.gsap) gsap.globalTimeline.timeScale(1.5);
+        })();
+
+        var swiper = new Swiper(".swiper", {
+            direction: "vertical",
+            slidesPerView: 1,
+            spaceBetween: 30,
+            speed: 1000,
+            resistance: true,
+            resistanceRatio: 0.85,
+            longSwipes: true,
+            longSwipesMs: 300,
+            longSwipesRatio: 0.4,
+            followFinger: true,
+            threshold: 6,
+            keyboard: { enabled: true, onlyInViewport: true, pageUpDown: true },
+            grabCursor: true,
+            watchSlidesProgress: true,
+            touchReleaseOnEdges: true,
+            passiveListeners: true,
+            mousewheel: {
+                enabled: true,
+                forceToAxis: true,
+                sensitivity: 1,
+                releaseOnEdges: false,
+                thresholdDelta: 8,
+                thresholdTime: 500
+            },
+            preventClicks: false,
+            preventClicksPropagation: false,
+            effect: "coverflow",
+            coverflowEffect: {
+                rotate: 30,
+                stretch: 0,
+                depth: 160,
+                modifier: 1,
+                slideShadows: false,
+            },
+
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '"> <span>' + String(index + 1).padStart(2, '0') + '</span></span>';
+                },
+            },
+            on: {
+                init: function () { updateBrand(this); playSlideAnim(this.activeIndex); },
+                slideChange: function () { updateBrand(this); },
+                slideChangeTransitionEnd: function () { playSlideAnim(this.activeIndex); }
+            }
+        });
+
+        function updateBrand(sw) {
+            var slides = document.querySelectorAll('.swiper-slide');
+            var active = slides[sw.activeIndex];
+            if (!active) return;
+            var title = active.getAttribute('data-title') || '';
+            var desc = active.getAttribute('data-desc') || '';
+            var titleEl = document.getElementById('appTitle');
+            var descEl = document.getElementById('appDesc');
+            titleEl.textContent = title;
+            descEl.textContent = desc;
+            // Reset expand tiap ganti slide
+            var info = document.querySelector('.slide-info');
+            var btn = document.getElementById('descToggle');
+            if (info) info.classList.remove('expanded');
+            if (btn) btn.textContent = 'Selengkapnya...';
+            var hint = document.getElementById('scrollHint');
+            if (hint) hint.classList.toggle('is-hidden', sw.activeIndex >= slides.length - 1);
+            updateDescToggle();
+            if (window.gsap) {
+                gsap.fromTo('.slide-info', { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' });
+            }
+        }
+
+        // Tampilkan tombol hanya jika deskripsi kepotong (mobile)
+        function updateDescToggle() {
+            var descEl = document.getElementById('appDesc');
+            var btn = document.getElementById('descToggle');
+            var info = document.querySelector('.slide-info');
+            if (!descEl || !btn || !info) return;
+            if (window.innerWidth > 768) {
+                btn.style.display = 'none';
+                return;
+            }
+            info.classList.remove('expanded');
+            btn.textContent = 'Selengkapnya...';
+            btn.style.display = 'none';
+            requestAnimationFrame(function () {
+                var isTruncated = descEl.scrollHeight > descEl.clientHeight + 2;
+                btn.style.display = isTruncated ? 'inline-block' : 'none';
+            });
+        }
+
+        (function () {
+            var btn = document.getElementById('descToggle');
+            if (!btn) return;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault(); e.stopPropagation();
+                var info = document.querySelector('.slide-info');
+                if (!info) return;
+                var expanded = info.classList.toggle('expanded');
+                btn.textContent = expanded ? 'Tutup...' : 'Selengkapnya...';
+            });
+            window.addEventListener('resize', updateDescToggle);
+            window.addEventListener('orientationchange', function () {
+                setTimeout(updateDescToggle, 200);
+            });
+        })();
+
+
+        // Efek loading beda tiap slide
+        function playSlideAnim(idx) {
+            if (!window.gsap) return;
+            var slides = document.querySelectorAll('.swiper-slide');
+            var slide = slides[idx];
+            if (!slide) return;
+            var bgA = slide.querySelector('.yellow,.red,.blue,.green,.purple');
+            var bgB = slide.querySelector('.black');
+            var img = slide.querySelector('.image img');
+            var small = slide.querySelector('.small');
+            var bigSpans = slide.querySelectorAll('.big span');
+            var big = slide.querySelector('.big');
+            var specs = slide.querySelectorAll('.specs span, .specs button, .specs .wa-btn, .specs a');
+            var mediaBtns = slide.querySelectorAll('.media-btns .media-btn');
+
+            // Reset biar bisa diulang tiap balik ke slide
+            gsap.killTweensOf([bgA, bgB, img, small, big, bigSpans, specs, mediaBtns]);
+
+            if (idx === 0) {
+                // Slide 1 BUILD: pertemuan sisi vertikal (atas-bawah) + image slide kanan + text dropdown
+                if (bgA) gsap.fromTo(bgA, { y: -1000 }, { y: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { y: 1000 }, { y: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { x: 1000, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 1.1, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 1.0, ease: 'bounce.out', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.4, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 1) {
+                // Slide 2 SCAN: pertemuan sisi horizontal (kiri-kanan) + image zoom + text dropdown
+                if (bgA) gsap.fromTo(bgA, { x: -1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { x: 1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { scale: 0, rotation: -30, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 1.1, ease: 'back.out(1.4)', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (bigSpans.length) gsap.fromTo(bigSpans, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 1.0, ease: 'back.out(1.5)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.2, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 2) {
+                // Slide 3 TRACK: dropdown panel (jatuh dari atas) + image spin 360
+                if (bgA) gsap.fromTo(bgA, { y: -1000 }, { y: 0, duration: 1.1, ease: 'bounce.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { y: 1000 }, { y: 0, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { rotation: -360, scale: 0, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1, duration: 1.3, ease: 'power2.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { scale: 2.5, opacity: 0 }, { scale: 1, opacity: 0.5, duration: 0.8, delay: 1.0, ease: 'power2.out', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.2, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 3) {
+                // Slide 4 TRACE: scale panel (membesar) + image flip
+                if (bgA) gsap.fromTo(bgA, { scaleX: 0, transformOrigin: 'left center' }, { scaleX: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { scaleX: 0, transformOrigin: 'right center' }, { scaleX: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { rotationY: 180, opacity: 0, scale: 0.5 }, { rotationY: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 100, opacity: 0, letterSpacing: '30px' }, { y: 0, opacity: 0.5, letterSpacing: 'normal', duration: 0.8, delay: 1.0, ease: 'power2.out', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.2, ease: 'back.out(1.7)', overwrite: 'auto' });
+            } else if (idx === 4) {
+                // Slide 5 SHOW UP!: panel fade-slide + image slide dari bawah + text dropdown elastis
+                if (bgA) gsap.fromTo(bgA, { y: -600, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { y: 600, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { y: 800, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'elastic.out(1,0.6)', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 150, opacity: 0, scale: 0.7 }, { y: 0, opacity: 0.5, scale: 1, duration: 0.9, delay: 1.0, ease: 'elastic.out(1,0.5)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
+                var lpItems = slide.querySelectorAll('.lp-item');
+                if (lpItems.length) gsap.fromTo(lpItems, { y: -40, opacity: 0, rotation: -4 }, { y: 0, opacity: 1, rotation: 0, duration: 0.7, stagger: 0.1, delay: 1.1, ease: 'back.out(1.6)', overwrite: 'auto', clearProps: 'transform' });
+            } else if (idx === 5) {
+                // Slide 6 REPAIR: panel geser kiri-kanan + image pop memantul + text dropdown
+                if (bgA) gsap.fromTo(bgA, { x: -1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { x: 1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (img) gsap.fromTo(img, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.1, ease: 'bounce.out', overwrite: 'auto', clearProps: 'transform' });
+                if (small) gsap.fromTo(small, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { y: 120, opacity: 0 }, { y: 0, opacity: 0.5, duration: 0.8, delay: 1.0, ease: 'back.out(1.5)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.3, ease: 'power2.out', overwrite: 'auto' });
+            } else if (idx === 6) {
+                // Slide 7 TRUST!: panel geser kiri-kanan + kartu testimoni muncul berurutan
+                if (bgA) gsap.fromTo(bgA, { x: -1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (bgB) gsap.fromTo(bgB, { x: 1000 }, { x: 0, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+                if (small) gsap.fromTo(small, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: 'power2.out', overwrite: 'auto' });
+                if (big) gsap.fromTo(big, { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 0.5, duration: 0.8, delay: 1.0, ease: 'back.out(1.5)', overwrite: 'auto' });
+                var testiCards = slide.querySelectorAll('.testi-strip');
+                if (testiCards.length) gsap.fromTo(testiCards, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, delay: 1.0, ease: 'back.out(1.4)', overwrite: 'auto' });
+                var polaroid = slide.querySelector('.polaroid-frame');
+                if (polaroid) gsap.fromTo(polaroid, { scale: 0.85, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: -2, duration: 0.7, delay: 0.9, ease: 'back.out(1.5)', overwrite: 'auto' });
+                if (specs.length) gsap.fromTo(specs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 1.35, ease: 'power2.out', overwrite: 'auto' });
+            }
+            // Tombol buku + video ikut fade-in tiap slide (opacity saja biar posisi center tidak kegeser)
+            if (mediaBtns.length) gsap.fromTo(mediaBtns, { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.1, delay: 1.35, ease: 'power2.out', overwrite: 'auto' });
+        }
+
+        // Tombol buku + video — file otomatis dari nama image slide
+        // video: video/<base>.mp4 | spesifikasi: Spesifikasi/<base>.txt
+        (function () {
+            document.querySelectorAll('.media-btn').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var type = btn.getAttribute('data-mtype');
+                    var s = parseInt(btn.getAttribute('data-slide'), 10) || 0;
+                    var slide = btn.closest('.swiper-slide');
+                    var img = slide ? slide.querySelector('.image img') : null;
+                    var src = img ? (img.getAttribute('data-base') || img.getAttribute('src') || '') : '';
+                    var file = src.split('/').pop() || '';
+                    var base = file.split('.')[0] || ('img-' + (s + 1));
+                    var title = slide ? (slide.getAttribute('data-title') || base) : base;
+                    if (type === 'video') {
+                        if (window.openVideoModal) window.openVideoModal('video/' + base + '.mp4', title);
+                        return;
+                    }
+                    if (type === 'price') {
+                        if (window.openPriceModal) window.openPriceModal(title, (slide && slide.getAttribute('data-price')) || (typeof PRICES !== 'undefined' && PRICES[s]) || '');
+                        return;
+                    }
+                    if (type === 'trial') {
+                        // Rate limit klik: cegah double-click buka 2 tab WA
+                        if (window.__rkTrialAt && Date.now() - window.__rkTrialAt < 1200) return;
+                        window.__rkTrialAt = Date.now();
+                        var trialUrl = slide ? slide.getAttribute('data-trial-url') : '';
+                        if (trialUrl) {
+                            window.open(trialUrl, '_blank', 'noopener');
+                            return;
+                        }
+                        var msg = title.indexOf('Service') !== -1
+                            ? 'Halo RoboKomputer, laptop saya bermasalah. Boleh minta diagnosa gratis? (' + title + ')'
+                            : 'Halo RoboKomputer, saya mau trial gratis ' + title + '. Bagaimana caranya?';
+                        window.open('https://wa.me/6285216758721?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+                        return;
+                    }
+                    if (window.openDocModal) window.openDocModal('Spesifikasi/' + base + '.txt', 'Spesifikasi & TechStack — ' + title);
+                });
+            });
+        })();
+
+        // Tap / touch to enlarge — untuk Tab / layar kecil (touch screen)
+        // Hover CSS di atas sudah menangani mouse di layar besar / laptop
+        (function () {
+            var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(hover: none)').matches;
+            if (!isTouch) return;
+            document.querySelectorAll('.content .image img').forEach(function (img) {
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var wasZoomed = img.classList.contains('zoomed');
+                    document.querySelectorAll('.content .image img.zoomed').forEach(function (other) {
+                        other.classList.remove('zoomed');
+                    });
+                    if (!wasZoomed) img.classList.add('zoomed');
+                });
+            });
+            // Tap di luar gambar untuk mengecilkan lagi
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.content .image img.zoomed').forEach(function (other) {
+                    other.classList.remove('zoomed');
+                });
+            });
+        })();
+
+        // Tombol Home di slide 5 — kembali ke slide 1
+        window.goHome = function (e) {
+            if (e) { e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); }
+            if (typeof swiper !== 'undefined' && swiper) {
+                swiper.slideTo(0, 800);
+                setTimeout(function () {
+                    if (swiper.activeIndex !== 0) swiper.slideTo(0, 0);
+                }, 900);
+            } else {
+                var firstBullet = document.querySelector('.swiper-pagination-bullet');
+                if (firstBullet) firstBullet.click();
+            }
+        };
+        (function () {
+            var btn = document.getElementById('btnHome');
+            if (!btn) return;
+            btn.addEventListener('click', window.goHome, true);
+        })();
+
+        // Panah bawah — lanjut ke slide berikutnya
+        (function () {
+            var hint = document.getElementById('scrollHint');
+            if (!hint) return;
+            function nextSlide() {
+                if (typeof swiper !== 'undefined' && swiper) swiper.slideNext();
+            }
+            hint.addEventListener('click', nextSlide);
+            hint.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    nextSlide();
+                }
+            });
+        })();
+
+        // Hamburger menu — general untuk semua slide
+        (function () {
+            var menuBtn = document.getElementById('menuBtn');
+            var dropdown = document.getElementById('navDropdown');
+            var menuIcon = document.getElementById('menuIcon');
+            var layananToggle = document.getElementById('layananToggle');
+            if (!menuBtn || !dropdown) return;
+            var menuTimer = null;
+            function closeMenu() {
+                if (menuTimer) {
+                    clearTimeout(menuTimer);
+                    menuTimer = null;
+                }
+                dropdown.classList.remove('open');
+                if (menuIcon) menuIcon.className = 'fas fa-bars';
+            }
+            function toggleMenu(e) {
+                if (e) { e.preventDefault(); e.stopPropagation(); }
+                var isOpen = dropdown.classList.toggle('open');
+                if (menuIcon) menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+                if (menuTimer) {
+                    clearTimeout(menuTimer);
+                    menuTimer = null;
+                }
+                if (isOpen) {
+                    menuTimer = setTimeout(function () {
+                        closeMenu();
+                    }, 2000);
+                }
+            }
+            menuBtn.addEventListener('click', toggleMenu);
+            menuBtn.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') toggleMenu(e);
+            });
+            if (layananToggle) {
+                layananToggle.addEventListener('click', function (e) {
+                    e.preventDefault(); e.stopPropagation();
+                    this.parentElement.classList.toggle('expanded');
+                });
+            }
+            dropdown.querySelectorAll('[data-go]').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); e.stopPropagation();
+                    var idx = parseInt(this.getAttribute('data-go'), 10) || 0;
+                    closeMenu();
+                    if (typeof swiper !== 'undefined' && swiper) swiper.slideTo(idx, 800);
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (!dropdown.classList.contains('open')) return;
+                if (!dropdown.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) closeMenu();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
+
+    <script>
+        // Landing Page showcase — klik kartu thumbnail => gambar utama + semua detail ikut berubah
+        // (judul & deskripsi di kiri, chip spesifikasi, tombol Pesan WA, harga, dan sumber file
+        //  spesifikasi/video/trial yang diturunkan dari nama file gambar).
+        (function () {
+            var slide = document.getElementById('lpSlide');
+            var gallery = document.getElementById('lpGallery');
+            if (!slide || !gallery) return;
+            var mainImg = slide.querySelector('.image img');
+            var specsBox = slide.querySelector('.specs');
+            var specSpans = specsBox ? specsBox.querySelectorAll('span') : [];
+            var waBtn = slide.querySelector('.wa-btn');
+            var cards = Array.prototype.slice.call(gallery.querySelectorAll('.lp-card'));
+            if (!mainImg || !cards.length) return;
+
+            var WA_NUM = '6285216758721';
+
+            // Detail default (kartu 1) diambil dari markup slide itu sendiri, jadi kalau teks aslinya diedit
+            // di HTML, kartu 1 otomatis ikut.
+            var defSpecs = Array.prototype.map.call(specSpans, function (sp) {
+                var b = sp.querySelector('b');
+                var head = b ? b.textContent : '';
+                return [head, sp.textContent.slice(head.length).trim()];
+            });
+            var defaultWa = waBtn ? waBtn.getAttribute('href') : '';
+
+            // ====== DATA KARTU — edit teks / harga / file gambar di sini ======
+            // img   : screenshot landing page (rasio ±16:10, sama seperti images/img-5.webp)
+            // price : kosong = pakai harga slide Landing Page (PRICES[4]); isi string untuk harga khusus
+            // File pendamping otomatis mengikuti nama gambar:
+            //   Spesifikasi/lp-kuliner.txt  |  video/lp-kuliner.mp4
+            var VARIANTS = [
+                {
+                    key: 'company', label: 'Company Profile', sub: 'Profil bisnis elegan', color: '#7c5cff',
+                    img: mainImg.getAttribute('src'),
+                    title: slide.getAttribute('data-title'),
+                    desc: slide.getAttribute('data-desc'),
+                    specs: defSpecs, price: '', 
+                    trialUrl: 'https://herman1908.github.io/robo/'
+                },
+                {
+                    key: 'kuliner', label: 'UMKM & Kuliner', sub: 'Menu digital & order WA', color: '#f97316',
+                    img: 'images/lp-kuliner.webp',
+                    title: 'Landing Page UMKM & Kuliner',
+                    desc: 'Menu digital yang menggugah selera, lengkap dengan katalog, galeri produk, dan tombol order langsung via WhatsApp.',
+                    specs: [['Menu', 'Digital'], ['Order', 'via WA'], ['Galeri', 'Menarik']], price: 'Mulai dari Rp 300 Ribu',
+                    trialUrl: 'https://snh.up.railway.app/'
+                },
+                {
+                    key: 'toko', label: 'Toko Online', sub: 'Katalog produk & checkout', color: '#16a34a',
+                    img: 'images/lp-toko.png',
+                    title: 'Landing Page Toko Online',
+                    desc: 'Etalase produk online dengan katalog rapi, keranjang, dan checkout praktis yang siap mengubah pengunjung jadi pembeli.',
+                    specs: [['Katalog', 'Produk'], ['Checkout', 'Praktis'], ['Siap', 'Jualan']], price: 'Mulai dari Rp 800 Ribu',
+                    trialUrl: 'https://aldebaran3dprinting.vercel.app/'
+                },
+                {
+                    key: 'event', label: 'Event / Webinar', sub: 'Pendaftaran & countdown', color: '#2563eb',
+                    img: 'images/lp-event.webp',
+                    title: 'Landing Page Event / Webinar',
+                    desc: 'Halaman pendaftaran event atau webinar dengan countdown, jadwal pembicara, dan form registrasi yang mudah diisi.',
+                    specs: [['Form', 'Pendaftaran'], ['Countdown', 'Real-time'], ['Jadwal', 'Pembicara']], price: 'Mulai dari Rp 300 Ribu'
+                }
+            ];
+            VARIANTS.forEach(function (v) { v.alt = 'Contoh landing page ' + v.label; });
+            VARIANTS[0].alt = mainImg.getAttribute('alt') || VARIANTS[0].alt;
+
+            // Warna aksen kartu aktif mengikuti panel ungu slide (tema otomatis nyambung)
+            function syncAccent() {
+                try {
+                    var panel = slide.querySelector('.purple');
+                    var c = panel && getComputedStyle(panel).backgroundColor;
+                    if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') gallery.style.setProperty('--lp-accent', c);
+                } catch (e) { }
+            }
+            syncAccent();
+            window.addEventListener('load', syncAccent);
+
+            // Placeholder otomatis (mockup SVG) kalau file screenshot belum ada di folder images/
+            function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+            function placeholder(v) {
+                var a = v.color, f = 'font-family="Arial,Helvetica,sans-serif"';
+                var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">'
+                    + '<rect width="640" height="400" fill="#fff8ec"/>'
+                    + '<rect width="640" height="34" fill="#fff"/>'
+                    + '<circle cx="18" cy="17" r="5" fill="#ff6b6b"/><circle cx="36" cy="17" r="5" fill="#ffd23f"/><circle cx="54" cy="17" r="5" fill="#4ade80"/>'
+                    + '<rect x="90" y="9" width="300" height="16" rx="8" fill="#f1ece0"/>'
+                    + '<rect y="34" width="640" height="2" fill="#111" opacity=".12"/>'
+                    + '<text x="40" y="128" ' + f + ' font-weight="800" font-size="32" fill="#111">' + esc(v.label) + '</text>'
+                    + '<text x="40" y="160" ' + f + ' font-size="16" fill="#555">' + esc(v.sub) + '</text>'
+                    + '<rect x="40" y="188" width="140" height="42" rx="21" fill="' + a + '"/>'
+                    + '<rect x="192" y="188" width="110" height="42" rx="21" fill="none" stroke="#111" stroke-width="3"/>'
+                    + '<rect x="360" y="64" width="240" height="200" rx="18" fill="' + a + '"/>'
+                    + '<rect x="380" y="84" width="200" height="110" rx="10" fill="#fff" opacity=".85"/>'
+                    + '<rect x="380" y="208" width="120" height="14" rx="7" fill="#fff" opacity=".7"/>'
+                    + '<rect x="380" y="232" width="80" height="14" rx="7" fill="#fff" opacity=".5"/>'
+                    + '<rect x="40" y="292" width="170" height="72" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>'
+                    + '<rect x="235" y="292" width="170" height="72" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>'
+                    + '<rect x="430" y="292" width="170" height="72" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>'
+                    + '<circle cx="64" cy="316" r="10" fill="' + a + '"/><circle cx="259" cy="316" r="10" fill="' + a + '"/><circle cx="454" cy="316" r="10" fill="' + a + '"/>'
+                    + '</svg>';
+                return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+            }
+
+            // Thumbnail kartu: kalau gambarnya belum ada, pakai placeholder
+            cards.forEach(function (card, i) {
+                var im = card.querySelector('.lp-thumb img');
+                if (!im) return;
+                function fallback() {
+                    if (im.getAttribute('data-fb')) return;
+                    im.setAttribute('data-fb', '1');
+                    im.src = placeholder(VARIANTS[i]);
+                }
+                im.addEventListener('error', fallback);
+                if (im.complete && im.naturalWidth === 0) fallback();
+            });
+
+            // Preload gambar besar saat browser lagi santai
+            (function () {
+                var run = function () { VARIANTS.forEach(function (v) { var p = new Image(); p.src = v.img; }); };
+                if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 4000 });
+                else setTimeout(run, 2500);
+            })();
+
+            var current = 0, token = 0;
+
+            // Gambar utama bocor/hilang di tengah jalan => placeholder (jangan sampai ada ikon gambar rusak)
+            mainImg.addEventListener('error', function () {
+                if (/^data:/.test(mainImg.getAttribute('src') || '')) return;
+                mainImg.src = placeholder(VARIANTS[current]);
+            });
+
+            function setMain(v, done) {
+                var finished = false, timer = null, probe = new Image();
+                function apply(src) {
+                    if (finished) return;
+                    finished = true;
+                    clearTimeout(timer);
+                    mainImg.classList.remove('zoomed');
+                    mainImg.src = src;
+                    mainImg.alt = v.alt;
+                    // nama file asli dipakai tombol buku/video/trial untuk cari Spesifikasi/<nama>.txt & video/<nama>.mp4
+                    mainImg.setAttribute('data-base', v.img.split('/').pop());
+                    if (done) done();
+                }
+                timer = setTimeout(function () { apply(v.img); }, 2500);
+                probe.onload = function () { apply(v.img); };
+                probe.onerror = function () { apply(placeholder(v)); };
+                probe.src = v.img;
+            }
+
+            function setDetails(v, i) {
+                // 1) judul + deskripsi (panel kiri). updateBrand baca dari atribut slide.
+                slide.setAttribute('data-title', v.title);
+                slide.setAttribute('data-desc', v.desc);
+                if (typeof swiper !== 'undefined' && swiper && swiper.activeIndex === 4 && typeof updateBrand === 'function') {
+                    updateBrand(swiper);
+                }
+                // 2) chip spesifikasi
+                Array.prototype.forEach.call(specSpans, function (sp, k) {
+                    var pair = v.specs[k];
+                    if (!pair) return;
+                    sp.textContent = '';
+                    var b = document.createElement('b');
+                    b.textContent = pair[0];
+                    sp.appendChild(b);
+                    sp.appendChild(document.createTextNode(' ' + pair[1]));
+                });
+                if (window.gsap && specSpans.length) {
+                    gsap.fromTo(specSpans, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.07, ease: 'power2.out', overwrite: 'auto', clearProps: 'transform' });
+                }
+                // 3) tombol "Pesan Sekarang!"
+                if (waBtn) {
+                    waBtn.setAttribute('href', i === 0 ? defaultWa
+                        : 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent('Halo RoboKomputer, saya mau pesan ' + v.title + '. Boleh info harganya?'));
+                }
+                // 4) harga (dibaca tombol tag harga). Kosong = pakai harga bawaan slide.
+                if (v.price) slide.setAttribute('data-price', v.price); else slide.removeAttribute('data-price');
+                // 5) tombol Trial Gratis: kalau varian punya trialUrl, buka website itu (bukan WA)
+                if (v.trialUrl) slide.setAttribute('data-trial-url', v.trialUrl); else slide.removeAttribute('data-trial-url');
+            }
+
+            function select(i) {
+                if (i === current || !VARIANTS[i]) return;
+                var v = VARIANTS[i], t = ++token;
+                current = i;
+                cards.forEach(function (c, k) {
+                    var on = k === i;
+                    c.classList.toggle('is-active', on);
+                    c.setAttribute('aria-pressed', on ? 'true' : 'false');
+                });
+                setDetails(v, i);
+                if (window.gsap) {
+                    gsap.killTweensOf(mainImg);
+                    gsap.to(mainImg, {
+                        opacity: 0, scale: 0.94, y: 14, duration: 0.22, ease: 'power2.in', overwrite: true,
+                        onComplete: function () {
+                            if (t !== token) return;
+                            setMain(v, function () {
+                                if (t !== token) return;
+                                gsap.fromTo(mainImg, { opacity: 0, scale: 0.94, y: -14 },
+                                    { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)', clearProps: 'transform' });
+                            });
+                        }
+                    });
+                } else {
+                    setMain(v);
+                }
+            }
+
+            cards.forEach(function (card, i) {
+                card.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    select(i);
+                });
+            });
+        })();
+    </script>
+
+    <!-- Modal Tentang Kami -->
+    <div class="modal-overlay" id="aboutModal" aria-hidden="true">
+        <div class="about-modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+            <button type="button" class="modal-close" id="aboutClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <div class="about-badge"><span class="robo">Robo</span><span class="komputer">Komputer</span></div>
+            <h2 id="aboutTitle">Tentang Kami</h2>
+            <p class="about-lead">Robo Komputer &mdash; profesional dalam pengembangan sistem, integrasi teknologi, dan layanan IT lengkap yang dirancang untuk kebutuhan bisnis modern.</p>
+            <p>Kami adalah IT Solution &amp; Development yang berkomitmen untuk memberikan solusi teknologi terbaik guna meningkatkan efisiensi dan produktivitas bisnis klien kami.</p>
+            <p>Dengan tim ahli berpengalaman, kami memahami tantangan digitalisasi dan siap membantu transformasi bisnis Anda dari UMKM (Kasir, e-commerce - ERP) sampai kepada Bisnis Besar berskala Internasional (Super-App).</p>
+            <div class="about-tags">
+                <span>UMKM</span><span>ERP</span><span>Super-App</span><span>Integrasi Sistem</span>
+            </div>
+            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20saya%20mau%20konsultasi%20tentang%20layanan%20IT%20Anda" target="_blank" rel="noopener" class="about-cta">Konsultasi Gratis <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <script>
+        // Modal Tentang Kami (script setelah modal biar elemen sudah ada)
+        (function () {
+            var aboutLink = document.getElementById('aboutLink');
+            var modal = document.getElementById('aboutModal');
+            var closeBtn = document.getElementById('aboutClose');
+            if (!aboutLink || !modal) return;
+            function openModal(e) {
+                if (e) { e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); }
+                var dropdown = document.getElementById('navDropdown');
+                var menuIcon = document.getElementById('menuIcon');
+                if (dropdown) dropdown.classList.remove('open');
+                if (menuIcon) menuIcon.className = 'fas fa-bars';
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+            }
+            function closeModal() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            aboutLink.addEventListener('click', openModal);
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+            window.closeAboutModal = closeModal;
+        })();
+    </script>
+
+    <!-- Modal Video -->
+    <div class="modal-overlay" id="videoModal" aria-hidden="true">
+        <div class="video-modal" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+            <button type="button" class="modal-close" id="videoClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <h3 id="videoTitle">Video</h3>
+            <video id="videoPlayer" controls playsinline preload="metadata"></video>
+            <p class="video-error" id="videoError" hidden>Video belum tersedia. Pastikan file-nya ada di folder video.</p>
+        </div>
+    </div>
+    <script>
+        // Player video per slide — sumber diambil dari nama image slide
+        (function () {
+            var modal = document.getElementById('videoModal');
+            var player = document.getElementById('videoPlayer');
+            var titleEl = document.getElementById('videoTitle');
+            var errEl = document.getElementById('videoError');
+            var closeBtn = document.getElementById('videoClose');
+            if (!modal || !player) return;
+            function openVideo(url, title) {
+                if (errEl) errEl.hidden = true;
+                if (titleEl) titleEl.textContent = title || 'Video';
+                player.src = url;
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+                var p = player.play();
+                if (p && p.catch) p.catch(function () {});
+            }
+            function closeVideo() {
+                player.pause();
+                player.removeAttribute('src');
+                player.load();
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            player.addEventListener('error', function () {
+                if (errEl) errEl.hidden = false;
+            });
+            if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeVideo();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo();
+            });
+            window.openVideoModal = openVideo;
+        })();
+    </script>
+    <!-- GoatCounter (diconnect/comment sementara) -->
+    <!--
+    <script data-goatcounter="https://robo.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    <script>
+        // GoatCounter: catat slide yang dilihat & klik tombol penting
+        (function () {
+            var lastTrack = {};
+            function track(path, title) {
+                // Rate limit: event yang sama dalam 1.5 detik diabaikan
+                // (anti double-click / spam, biar statistik bersih & nggak lemot)
+                var now = Date.now();
+                if (lastTrack[path] && now - lastTrack[path] < 1500) return;
+                lastTrack[path] = now;
+                if (window.goatcounter && window.goatcounter.count) {
+                    window.goatcounter.count({ path: path, title: title, event: true });
+                }
+            }
+
+            // Slide mana yang dilihat pengunjung
+            if (typeof swiper !== 'undefined') {
+                swiper.on('slideChange', function () {
+                    var slide = document.querySelectorAll('.swiper-slide')[swiper.activeIndex];
+                    var t = slide ? slide.getAttribute('data-title') : '';
+                    track('slide-' + (swiper.activeIndex + 1), 'Lihat slide: ' + t);
+                });
+            }
+
+            // Klik tombol penting. Pakai capture (true) karena handler tombol media
+            // memakai stopPropagation, jadi klik biasa di document tidak akan tertangkap.
+            document.addEventListener('click', function (e) {
+                var el = e.target.closest('.wa-btn, .cta, .about-cta, .media-btn, .social a, .wa-float');
+                if (!el) return;
+                var slide = el.closest('.swiper-slide');
+                var name = slide ? slide.getAttribute('data-title') : '';
+                if (el.classList.contains('wa-btn')) {
+                    track('klik-wa-pesan', 'Klik Pesan: ' + name);
+                } else if (el.classList.contains('media-btn')) {
+                    var m = el.getAttribute('data-mtype');
+                    track('klik-' + m, 'Klik ' + m + ': ' + name);
+                } else if (el.classList.contains('cta') || el.classList.contains('about-cta') || el.classList.contains('wa-float')) {
+                    track('klik-wa-konsultasi', 'Klik Konsultasi Gratis');
+                } else {
+                    track('klik-sosmed', 'Klik sosmed: ' + (el.getAttribute('aria-label') || ''));
+                }
+            }, true);
+        })();
+    </script>
+    -->
+
+    <!-- Modal Spesifikasi -->
+    <div class="modal-overlay" id="docModal" aria-hidden="true">
+        <div class="doc-modal" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+            <button type="button" class="modal-close" id="docClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <h3 id="docTitle">Spesifikasi</h3>
+            <div class="doc-body"><pre id="docText"></pre></div>
+            <p class="video-error" id="docError" hidden>File spesifikasi belum tersedia. <a id="docDirect" href="#" target="_blank" rel="noopener">Buka langsung</a></p>
+        </div>
+    </div>
+    <script>
+        // Modal spesifikasi — isi diambil dari file notepad di folder Spesifikasi
+        (function () {
+            var modal = document.getElementById('docModal');
+            var titleEl = document.getElementById('docTitle');
+            var bodyEl = document.getElementById('docText');
+            var errEl = document.getElementById('docError');
+            var directEl = document.getElementById('docDirect');
+            var closeBtn = document.getElementById('docClose');
+            if (!modal || !bodyEl) return;
+
+            // Cache memori + localStorage: file spesifikasi cuma di-fetch sekali,
+            // buka ulang jadi instan (hemat kuota + hemat waktu).
+            var docCache = new Map();
+            var docPending = new Map();
+            var DOC_TTL = 24 * 60 * 60 * 1000;
+            function readDocCache(url) {
+                var item = docCache.get(url);
+                if (item && Date.now() - item.at < DOC_TTL) return item.txt;
+                try {
+                    var raw = localStorage.getItem('rkdoc:' + url);
+                    if (raw) {
+                        var parsed = JSON.parse(raw);
+                        if (parsed && typeof parsed.txt === 'string' && Date.now() - parsed.at < DOC_TTL) {
+                            docCache.set(url, parsed);
+                            return parsed.txt;
+                        }
+                    }
+                } catch (err) { }
+                return null;
+            }
+            function writeDocCache(url, txt) {
+                var item = { txt: txt, at: Date.now() };
+                docCache.set(url, item);
+                try { localStorage.setItem('rkdoc:' + url, JSON.stringify(item)); } catch (err) { }
+            }
+            function loadDoc(url) {
+                var cached = readDocCache(url);
+                if (cached !== null) return Promise.resolve(cached);
+                if (docPending.has(url)) return docPending.get(url);
+                var p = fetch(url)
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('404');
+                        return res.text();
+                    })
+                    .then(function (txt) {
+                        writeDocCache(url, txt);
+                        docPending.delete(url);
+                        return txt;
+                    })
+                    .catch(function (err) {
+                        docPending.delete(url);
+                        var stale = docCache.get(url);
+                        if (stale) return stale.txt;
+                        throw err;
+                    });
+                docPending.set(url, p);
+                return p;
+            }
+
+            function openDoc(url, title) {
+                if (titleEl) titleEl.textContent = title || 'Spesifikasi';
+                if (errEl) errEl.hidden = true;
+                if (directEl) directEl.href = url;
+                bodyEl.textContent = 'Memuat...';
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+                loadDoc(url)
+                    .then(function (txt) {
+                        bodyEl.textContent = txt;
+                    })
+                    .catch(function () {
+                        bodyEl.textContent = '';
+                        if (errEl) errEl.hidden = false;
+                    });
+            }
+            function closeDoc() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            if (closeBtn) closeBtn.addEventListener('click', closeDoc);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeDoc();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeDoc();
+            });
+            window.openDocModal = openDoc;
+        })();
+    </script>
+
+    <!-- Modal Harga -->
+    <div class="modal-overlay" id="priceModal" aria-hidden="true">
+        <div class="price-modal" role="dialog" aria-modal="true" aria-labelledby="priceTitle">
+            <button type="button" class="modal-close" id="priceClose" aria-label="Tutup"><i class="fas fa-times"></i></button>
+            <div class="price-tag"><i class="fas fa-tag"></i></div>
+            <h3 id="priceTitle">Harga</h3>
+            <p class="price-product" id="priceProduct"></p>
+            <p class="price-value" id="priceValue"></p>
+            <p class="price-note" id="priceNote" hidden></p>
+            <a href="#" id="priceCta" target="_blank" rel="noopener" class="about-cta">Pesan via WA <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <script>
+        // Modal harga per produk — daftar harga diisi di PRICES
+        var PRICES = ['Rp 399.000,- (offline) s/d Rp 1.100.000,- (online, 200rb/bln)', 'Rp 9.000.000,-', 'Rp 500 ribu', 'Rp 3 Juta - 10 Juta', 'Rp 400 ribu s/d 4 Juta', 'Mulai Rp 50 ribu (diagnosa GRATIS, sparepart dihitung terpisah)'];
+        (function () {
+            var modal = document.getElementById('priceModal');
+            var titleEl = document.getElementById('priceTitle');
+            var productEl = document.getElementById('priceProduct');
+            var valueEl = document.getElementById('priceValue');
+            var noteEl = document.getElementById('priceNote');
+            var ctaEl = document.getElementById('priceCta');
+            var closeBtn = document.getElementById('priceClose');
+            if (!modal) return;
+            function openPrice(product, price) {
+                if (titleEl) titleEl.textContent = 'Harga';
+                if (productEl) productEl.textContent = product || '';
+                if (price) {
+                    if (valueEl) valueEl.textContent = price;
+                    if (noteEl) noteEl.hidden = true;
+                } else {
+                    if (valueEl) valueEl.textContent = 'Hubungi kami';
+                    if (noteEl) {
+                        noteEl.textContent = 'Harga terbaru menyusul — tanya langsung via WA ya.';
+                        noteEl.hidden = false;
+                    }
+                }
+                if (ctaEl) ctaEl.href = 'https://wa.me/6285216758721?text=' + encodeURIComponent('Halo RoboKomputer, berapa harga ' + (product || 'produk ini') + '?');
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.disable();
+            }
+            function closePrice() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                if (typeof swiper !== 'undefined' && swiper && swiper.mousewheel) swiper.mousewheel.enable();
+            }
+            if (closeBtn) closeBtn.addEventListener('click', closePrice);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closePrice();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closePrice();
+            });
+            window.openPriceModal = openPrice;
+        })();
+    </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer%2C%20mau%20konsultasi%20gratis" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp" title="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Chat offline fallback — muncul kalau server n8n lagi nggak bisa dihubungi -->
+    <div class="chat-offline-hint" id="chatOfflineHint" hidden>
+        🚧 Chatbot lagi <strong>under construction</strong> — sementara chat via WA ya!
+        <button type="button" id="chatOfflineHintClose" aria-label="Tutup">&times;</button>
+    </div>
+    <button type="button" id="chatOfflineToggle" class="chat-offline-toggle" hidden
+        aria-label="Chat (sedang gangguan)" title="Chat (sedang gangguan)">
+        <img src="images/goggle-red.png" alt="Asisten Robo" class="rk-headset-img">
+    </button>
+    <div class="chat-offline-panel" id="chatOfflinePanel" hidden role="dialog" aria-label="Chat sedang gangguan">
+        <div class="cop-header">Halo! 👋</div>
+        <div class="cop-body">
+            <p>Yah, asisten virtualnya lagi <strong>under construction</strong> 🚧 — nggak bisa konek ke server chat kami.
+                Coba beberapa saat lagi, atau langsung:</p>
+            <a href="https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20chatbot-nya%20lagi%20gangguan"
+                target="_blank" rel="noopener" class="cop-wa"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- n8n Chat Widget (diconnect/comment sementara karena platform/chatbot tidak konek) -->
+    <!--
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        // Webhook Chat Trigger n8n (via Cloudflare Tunnel) — ganti di sini kalau URL tunnel berubah
+        //var N8N_WEBHOOK_URL = 'https://offer-texture-apr-iso.trycloudflare.com/webhook/ec30ced0-2ef3-4017-b966-1e41a20c96c6/chat';
+        var N8N_WEBHOOK_URL = 'https://connecticut-moscow-buf-region.trycloudflare.com/webhook/ec30ced0-2ef3-4017-b966-1e41a20c96c6/chat';
+        var WA_LINK = 'https://wa.me/6285216758721?text=Halo%20RoboKomputer,%20chatbot-nya%20lagi%20gangguan';
+
+        var chatInited = false;
+        function initN8nChat() {
+            if (chatInited) return;
+            chatInited = true;
+            createChat({
+                webhookUrl: N8N_WEBHOOK_URL,
+                mode: 'window',
+                defaultLanguage: 'id',
+                loadPreviousSession: true,
+                showWelcomeScreen: false,
+                initialMessages: [
+                    'Halo! 👋',
+                    'Ane asisten virtual RoboKomputer. Mau tanya soal jasa pembuatan aplikasi atau service laptop? Silakan!'
+                ],
+                i18n: {
+                    id: {
+                        title: 'Halo! 👋',
+                        subtitle: 'Tanya apa aja soal layanan RoboKomputer, kami siap bantu.',
+                        footer: '',
+                        getStarted: 'Mulai Chat',
+                        inputPlaceholder: 'Ketik pesan...',
+                        closeButtonTooltip: 'Tutup chat',
+                    },
+                },
+            });
+        }
+
+        // Health check: persis kayak request widget. Kalau n8n unreachable (tunnel mati/dll),
+        // fetch-nya THROW (kena CORS/network) → kita anggap offline.
+        function isChatOnline() {
+            return fetch(N8N_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ sessionId: 'health-check', action: 'loadPreviousSession' })
+            }).then(function () { return true; }).catch(function () { return false; });
+        }
+
+        // Ganti pesan "Error in workflow" bawaan widget jadi pesan ramah + arahkan ke WA
+        // (widget @n8n/chat nggak nyediain opsi resmi buat ngubah teks error, jadi kita intercept DOM-nya)
+        (function () {
+            var ERROR_TEXT = 'Error in workflow';
+            var FRIENDLY_HTML = 'Yah, asistennya lagi gangguan 😅 Coba beberapa saat lagi, atau langsung '
+                + '<a href="' + WA_LINK + '" target="_blank" rel="noopener"><strong>chat via WhatsApp</strong></a> ya!';
+            new MutationObserver(function () {
+                document.querySelectorAll('.chat-message').forEach(function (el) {
+                    if (el.dataset.errFixed) return;
+                    if (el.textContent.trim() === ERROR_TEXT) {
+                        el.dataset.errFixed = '1';
+                        el.innerHTML = FRIENDLY_HTML;
+                        el.classList.add('chat-error-friendly');
+                    }
+                });
+                // Ganti ikon bubble bawaan widget jadi ikon headset (virtual assistant).
+                // Ikon chevron (saat chat terbuka) dibiarkan apa adanya.
+                var t = document.querySelector('.chat-window-toggle');
+                if (t && !t.querySelector('.rk-headset')) {
+                    var svg = t.querySelector('svg');
+                    if (svg) {
+                        var path = svg.querySelector('path');
+                        var isChevron = path && (path.getAttribute('d') || '').indexOf('M7.41,8.58') === 0;
+                        if (!isChevron) {
+                            var s = document.createElement('img');
+                            s.src = 'images/goggle-red.png';
+                            s.alt = 'Asisten Robo';
+                            s.className = 'rk-headset-img';
+                            s.setAttribute('aria-hidden', 'true');
+                            svg.replaceWith(s);
+                        }
+                    }
+                }
+            }).observe(document.body, { childList: true, subtree: true, characterData: true });
+        })();
+
+        // Offline UI: toggle custom yang ngecek ulang tiap diklik — kalau server udah hidup, widget asli langsung dimuat
+        var offlineToggle = document.getElementById('chatOfflineToggle');
+        var offlinePanel = document.getElementById('chatOfflinePanel');
+        var offlineHint = document.getElementById('chatOfflineHint');
+        var offlineHintClose = document.getElementById('chatOfflineHintClose');
+        function openRealChat() {
+            if (offlineToggle) offlineToggle.hidden = true;
+            if (offlinePanel) offlinePanel.hidden = true;
+            if (offlineHint) offlineHint.hidden = true;
+            initN8nChat();
+            setTimeout(function () {
+                var t = document.querySelector('.chat-window-toggle');
+                if (t) t.click();
+            }, 400);
+        }
+        isChatOnline().then(function (online) {
+            if (online) {
+                initN8nChat();
+            } else {
+                if (offlineToggle) offlineToggle.hidden = false;
+                if (offlineHint) offlineHint.hidden = false; // label under construction langsung kelihatan
+            }
+        });
+        if (offlineToggle) offlineToggle.addEventListener('click', function () {
+            isChatOnline().then(function (online) {
+                if (online) {
+                    openRealChat();
+                } else if (offlinePanel) {
+                    offlinePanel.hidden = !offlinePanel.hidden;
+                    if (offlineHint) offlineHint.hidden = true; // panel kebuka, hint disembunyikan biar nggak dobel
+                }
+            });
+        });
+        if (offlineHintClose) offlineHintClose.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (offlineHint) offlineHint.hidden = true;
+        });
+        if (offlineHint) offlineHint.addEventListener('click', function () {
+            if (offlineToggle) offlineToggle.click(); // klik hint = buka panel info
+        });
+    </script>
+    -->
+
+    <!-- Chat offline fallback (Chatbot Under Construction) dengan auto-hide setelah 2 detik -->
+    <script>
+        (function () {
+            var offlineToggle = document.getElementById('chatOfflineToggle');
+            var offlinePanel = document.getElementById('chatOfflinePanel');
+            var offlineHint = document.getElementById('chatOfflineHint');
+            var offlineHintClose = document.getElementById('chatOfflineHintClose');
+            var chatTimer = null;
+
+            if (offlineToggle) offlineToggle.hidden = false;
+            if (offlineHint) {
+                offlineHint.hidden = false;
+                // Pop-up notif "Chatbot lagi Under Construction..." maksimal 3 detik, lalu ditutup otomatis
+                setTimeout(function () {
+                    if (offlineHint) offlineHint.hidden = true;
+                }, 3000);
+            }
+
+            function closeChatPanel() {
+                if (chatTimer) {
+                    clearTimeout(chatTimer);
+                    chatTimer = null;
+                }
+                if (!offlinePanel) return;
+                offlinePanel.classList.add('is-hiding');
+                setTimeout(function () {
+                    offlinePanel.hidden = true;
+                    offlinePanel.classList.remove('is-hiding');
+                }, 300);
+            }
+
+            if (offlineToggle) {
+                offlineToggle.addEventListener('click', function () {
+                    if (!offlinePanel) return;
+                    if (chatTimer) {
+                        clearTimeout(chatTimer);
+                        chatTimer = null;
+                    }
+                    var isHidden = offlinePanel.hidden;
+                    if (isHidden) {
+                        offlinePanel.hidden = false;
+                        offlinePanel.classList.remove('is-hiding');
+                        if (offlineHint) offlineHint.hidden = true;
+
+                        chatTimer = setTimeout(function () {
+                            closeChatPanel();
+                        }, 2000);
+                    } else {
+                        closeChatPanel();
+                    }
+                });
+            }
+            if (offlineHintClose) {
+                offlineHintClose.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    if (offlineHint) offlineHint.hidden = true;
+                });
+            }
+            if (offlineHint) {
+                offlineHint.addEventListener('click', function () {
+                    if (offlineToggle) offlineToggle.click();
+                });
+            }
+        })();
+    </script>
+
+    <!-- Service Worker: cache aset biar kunjungan berikutnya instan -->
+    <script>
+        (function () {
+            if (!('serviceWorker' in navigator)) return;
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') return;
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js').catch(function () {});
+            });
+        })();
+    </script>
+    <script src="neo-plus.js" defer></script>
+</body>
+
+</html>
