@@ -1,5 +1,5 @@
 /* RoboKomputer — Service Worker (cache aset statis) */
-var VERSION = 'rk-v1';
+var VERSION = 'rk-v2';
 var PRECACHE = VERSION + '-pre';
 var RUNTIME = VERSION + '-run';
 

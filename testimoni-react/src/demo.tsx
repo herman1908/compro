@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { Marquee } from '@/components/ui/3d-testimonails';
@@ -41,9 +42,9 @@ const testimonials = [
   },
 ];
 
-function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
+function TestimonialCard({ img, name, username, body, country, mobile = false }: (typeof testimonials)[number] & { mobile?: boolean }) {
   return (
-    <Card className="w-50">
+    <Card className={mobile ? 'w-[min(84vw,320px)]' : 'w-50'}>
       <CardContent>
         <div className="flex items-center gap-2.5">
           <Avatar className="size-9">
@@ -64,6 +65,34 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
 }
 
 export default function DemoOne() {
+  // Layout 3D (4 kolom kartu 200px + transform) hanya cocok untuk layar lebar.
+  // Di HP, iframe cuma ~390px: pakai satu kolom marquee tanpa transform supaya
+  // kartu tidak terpotong / meluber keluar frame.
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+        <Marquee vertical pauseOnHover repeat={3} className="[--duration:40s]">
+          {testimonials.map((review) => (
+            <TestimonialCard key={review.username} {...review} mobile />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-background"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-background"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative flex h-[560px] w-full max-w-[1180px] flex-row items-center justify-center gap-1.5 [perspective:300px]">
       <div
